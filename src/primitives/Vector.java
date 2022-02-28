@@ -7,28 +7,55 @@ public class Vector extends Point
     public Vector(double x, double y, double z)
     {
         super(x,y,z);
+        if(isZero(x)&& isZero(y)&& isZero(z))
+        {
+            throw  new IllegalArgumentException(" ZERO vector not allowed");
+        }
     }
 
+    public Vector(Double3 xyz)
+    {
+        super(xyz);
+        if(xyz.equals(Double3.ZERO))
+        {
+            throw  new IllegalArgumentException(" ZERO vector not allowed");
+        }
+    }
+
+
+
     public Vector(Point point) {
+        /**
         super(x,y,z);
          if(isZero(x)&& isZero(y)&& isZero(z))
+         */
+         super(point.xyz.d1,point.xyz.d2,point.xyz.d3);
+         if(isZero(point.xyz.d1)&& isZero(point.xyz.d2)&& isZero(point.xyz.d3))
          {
              throw  new IllegalArgumentException(" ZERO vector not allowed");
          }
 
     }
-    ////
 
+    /**
+     * function that calculate vector's length squared
+     * @return
+     */
     public double lengthSquared() {
         return xyz.d1 * xyz.d1 + xyz.d2 +xyz.d2 + xyz.d3 * xyz.d3;
     }
-    public double lenght()
+
+    /**
+     * function that calculate vector's length
+     * @return
+     */
+    public double length()
     {
         return Math.sqrt(lengthSquared());
     }
 
     /**
-     *
+     *function for scalar's multiplication
      * @param vector
      * @return
      */
@@ -44,6 +71,11 @@ public class Vector extends Point
        return u1*v1 + u2*v2 + u3*v3;
    }
 
+    /**
+     * function for vectorial multiplication
+     * @param v
+     * @return
+     */
    public Vector crossProduct(Vector v)
    {
        double u1 = xyz.d1;
@@ -61,6 +93,11 @@ public class Vector extends Point
 
    }
 
+    /**
+     * function to multiply a vector by number
+     * @param scaleFactor
+     * @return
+     */
    public Vector scale(double scaleFactor)
    {
        if (isZero(scaleFactor))
@@ -68,8 +105,14 @@ public class Vector extends Point
            throw  new IllegalArgumentException("scale resulting by 0 not valid");
        }
        Double3 coordinates = new Double3(xyz.d1 * scaleFactor, xyz.d2 * scaleFactor, xyz.d3* scaleFactor);
+       return new Vector(coordinates.d1,coordinates.d2,coordinates.d3);
    }
 
+    /**
+     * function that performs vector adding
+     * @param v
+     * @return
+     */
    public  Vector add (Vector v)
    {
        Double3 coordinates = new Double3(
@@ -84,9 +127,13 @@ public class Vector extends Point
        return new Vector(coordinates.d1,coordinates.d2,coordinates.d3);
    }
 
+    /**
+     * function that returns normalize vector in the same directory
+     * @return
+     */
     public Vector normalize()
     {
-        double len = lenght();
+        double len = length();
         return this.scale (1d/len);
     }
 }
