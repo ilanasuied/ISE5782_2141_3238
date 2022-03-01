@@ -9,11 +9,20 @@ public class Tube implements Geometry
     final Ray axisRay;
     final double radius;
 
+    /**
+     * tube's constructor
+     * @param axisRay
+     * @param radius
+     */
     public Tube(Ray axisRay, double radius) {
         this.axisRay = axisRay;
         this.radius = radius;
     }
 
+    /**
+     * get function
+     * @return axisRay
+     */
     public Ray getAxisRay() {
         return axisRay;
     }
@@ -22,6 +31,10 @@ public class Tube implements Geometry
         return radius;
     }
 
+    /**
+     * override the function toString for tube
+     * @return a str
+     */
     @Override
     public String toString() {
         return "Tube{" +
@@ -30,6 +43,11 @@ public class Tube implements Geometry
                 '}';
     }
 
+    /**
+     * override the getNormal for tube
+     * @param point point
+     * @return null
+     */
     @Override
     public Vector getNormal(Point point) {
         return null;
