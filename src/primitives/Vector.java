@@ -24,18 +24,7 @@ public class Vector extends Point
 
 
 
-    public Vector(Point point) {
-        /**
-        super(x,y,z);
-         if(isZero(x)&& isZero(y)&& isZero(z))
-         */
-         super(point.xyz.d1,point.xyz.d2,point.xyz.d3);
-         if(isZero(point.xyz.d1)&& isZero(point.xyz.d2)&& isZero(point.xyz.d3))
-         {
-             throw  new IllegalArgumentException(" ZERO vector not allowed");
-         }
 
-    }
 
     /**
      * function that calculate vector's length squared
@@ -86,7 +75,7 @@ public class Vector extends Point
        double v2 = v.xyz.d2;
        double v3 = v.xyz.d3;
 
-       return new Vector(new Point(
+       return new Vector(new Double3(
                u2*v3-u3*v2,
                u3*v1-u1*v3,
                u1*v2-u2*v1));

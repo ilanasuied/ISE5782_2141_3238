@@ -2,7 +2,7 @@ package primitives;
 
 public class Point
 {
-     Double3 xyz;
+     final Double3 xyz;
 
     /**
      * point's constructor
@@ -54,7 +54,7 @@ public class Point
 
     /**
      * function that calculate distance squared between two points
-     * @param vector
+     * @param
      * @return
      */
    public double distanceSquared(Point point)
