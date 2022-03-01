@@ -53,6 +53,12 @@ public class Point
         return new Point(x,y,z);
     }
 
+
+    /**
+     * overrided function for equals, compares two object's values
+     * @param o
+     * @return boolean
+     */
     @Override
     public boolean equals(Object o)
     {
@@ -67,8 +73,8 @@ public class Point
 
     /**
      * function that calculate distance squared between two points
-     * @param
-     * @return
+     * @param point
+     * @return double
      */
    public double distanceSquared(Point point)
    {

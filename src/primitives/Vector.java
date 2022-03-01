@@ -4,6 +4,12 @@ import static primitives.Util.isZero;
 
 public class Vector extends Point
 {
+    /**
+     * constructor with 3 points
+     * @param x
+     * @param y
+     * @param z
+     */
     public Vector(double x, double y, double z)
     {
         super(x,y,z);
@@ -13,6 +19,10 @@ public class Vector extends Point
         }
     }
 
+    /**
+     * constructor with 1 point with three coordinates
+     * @param xyz
+     */
     public Vector(Double3 xyz)
     {
         super(xyz);
@@ -26,7 +36,7 @@ public class Vector extends Point
 
     /**
      * function that calculate vector's length squared
-     * @return
+     * @return double
      */
     public double lengthSquared() {
         return xyz.d1 * xyz.d1 + xyz.d2 * xyz.d2 + xyz.d3 * xyz.d3;
@@ -34,7 +44,7 @@ public class Vector extends Point
 
     /**
      * function that calculate vector's length
-     * @return
+     * @return double
      */
     public double length()
     {
@@ -44,9 +54,9 @@ public class Vector extends Point
     /**
      *function for scalar's multiplication
      * @param vector
-     * @return
+     * @return double
      */
-   public  double dotProduct(Vector vector)
+   public double dotProduct(Vector vector)
    {
        double u1= xyz.d1;
        double u2= xyz.d2;

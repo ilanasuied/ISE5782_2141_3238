@@ -15,6 +15,10 @@ public class Ray {
         this.dir = dir.normalize();
     }
 
+    /**
+     * getters
+     * @return
+     */
     public Point getP0() {
         return p0;
     }
