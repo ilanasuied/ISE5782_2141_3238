@@ -24,14 +24,12 @@ public class Vector extends Point
 
 
 
-
-
     /**
      * function that calculate vector's length squared
      * @return
      */
     public double lengthSquared() {
-        return xyz.d1 * xyz.d1 + xyz.d2 +xyz.d2 + xyz.d3 * xyz.d3;
+        return xyz.d1 * xyz.d1 + xyz.d2 * xyz.d2 + xyz.d3 * xyz.d3;
     }
 
     /**

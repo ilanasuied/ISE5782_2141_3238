@@ -20,6 +20,7 @@ public final class Main {
 			new Vector(0, 0, 0);
 			out.println("ERROR: zero vector does not throw an exception");
 		} catch (Exception e) {
+			System.out.println(" ");
 		}
 
 		Vector v1 = new Vector(1, 2, 3);
@@ -43,6 +44,7 @@ public final class Main {
 			v1.crossProduct(v2);
 			out.println("ERROR: crossProduct() for parallel vectors does not throw an exception");
 		} catch (Exception e) {
+			System.out.println(" ");
 		}
 		Vector vr = v1.crossProduct(v3);
 		if (!isZero(vr.length() - v1.length() * v3.length()))
@@ -59,6 +61,7 @@ public final class Main {
 			v.crossProduct(u);
 			out.println("ERROR: the normalized vector is not parallel to the original one");
 		} catch (Exception e) {
+			System.out.println(" ");
 		}
 		if (v.dotProduct(u) < 0)
 			out.println("ERROR: the normalized vector is opposite to the original one");

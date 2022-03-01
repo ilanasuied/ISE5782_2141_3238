@@ -1,8 +1,8 @@
 package primitives;
 
 public class Ray {
-    Point p0;
-    Vector dir;
+    final Point p0;
+    final Vector dir;
 
     /**
      * constructor

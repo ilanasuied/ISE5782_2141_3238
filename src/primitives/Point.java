@@ -2,7 +2,7 @@ package primitives;
 
 public class Point
 {
-     final Double3 xyz;
+      Double3 xyz;
 
     /**
      * point's constructor
@@ -14,6 +14,7 @@ public class Point
     {
        xyz = new Double3(x,y,z);
     }
+
 
     /**
      * constructor
@@ -52,6 +53,18 @@ public class Point
         return new Point(x,y,z);
     }
 
+    @Override
+    public boolean equals(Object o)
+    {
+        if(this==o)
+            return  true;
+        if(o==null || getClass()!= o.getClass()) return false;
+        Point point=(Point) o;
+        return xyz.equals(point.xyz);
+
+    }
+
+
     /**
      * function that calculate distance squared between two points
      * @param
@@ -74,5 +87,7 @@ public class Point
    {
        return Math.sqrt(distanceSquared(point));
    }
+
+
 
 }

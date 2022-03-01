@@ -1,22 +1,21 @@
 package geometries;
 
-import java.util.List;
+import primitives.Point;
+import primitives.Ray;
+import primitives.Vector;
 
-import primitives.*;
-import static primitives.Util.*;
-
-public class Sphere implements Geometry
+public class Tube implements Geometry
 {
-    final Point center;
+    final Ray axisRay;
     final double radius;
 
-    public Sphere(Point center, double radius) {
-        this.center = center;
+    public Tube(Ray axisRay, double radius) {
+        this.axisRay = axisRay;
         this.radius = radius;
     }
 
-    public Point getCenter() {
-        return center;
+    public Ray getAxisRay() {
+        return axisRay;
     }
 
     public double getRadius() {
@@ -25,8 +24,8 @@ public class Sphere implements Geometry
 
     @Override
     public String toString() {
-        return "Sphere{" +
-                "center=" + center +
+        return "Tube{" +
+                "axisRay=" + axisRay +
                 ", radius=" + radius +
                 '}';
     }
