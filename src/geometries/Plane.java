@@ -4,8 +4,9 @@ import primitives.Point;
 import primitives.Vector;
 
 public class Plane implements Geometry{
-   final private Vector normal;
-    private Point q0;
+   final  Vector normal;
+   final  Point q0 = null;
+
 
     /**
      * plane's constructor
@@ -21,7 +22,7 @@ public class Plane implements Geometry{
     }
 
     /**
-     * function that get the normal
+     *
      * @return normal
      */
     public Vector getNormal(){
@@ -29,9 +30,9 @@ public class Plane implements Geometry{
     }
 
     /**
-     * override getNormal
-     * @param point
-     * @return normal
+     * implementing {@link Geometry#getNormal(Point)}
+     * @param point reference point
+     * @return normal vector to the plane
      */
     @Override
     public Vector getNormal(Point point)

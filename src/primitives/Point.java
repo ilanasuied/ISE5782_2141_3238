@@ -2,17 +2,17 @@ package primitives;
 
 public class Point
 {
-      Double3 xyz;
+      Double3 _xyz;
 
     /**
-     * point's constructor
+     * primary point's constructor
      * @double x
      * @double y
      * @double z
      */
     public Point(double x,double y,double z)
     {
-       xyz = new Double3(x,y,z);
+       _xyz = new Double3(x,y,z);
     }
 
 
@@ -20,23 +20,23 @@ public class Point
      * constructor
      * @Double3 xyz
      */
-    public Point(Double3 xyz) { this.xyz = xyz; }
+    public Point(Double3 xyz) { this._xyz = xyz; }
 
     /**
-     * funcion for substraction
+     * function for substraction
      * @Point other
      * @return
      */
     public Vector subtract(Point other)
     {  Double3 coordinates= new Double3(
-                xyz.d1-other.xyz.d1,
-                xyz.d2-other.xyz.d2,
-                xyz.d3-other.xyz.d3);
+                _xyz._d1-other._xyz._d1,
+                _xyz._d2-other._xyz._d2,
+                _xyz._d3-other._xyz._d3);
     if(Double3.ZERO.equals(coordinates))
     {
         throw new IllegalArgumentException("ERROR");
     }
-    return new Vector(coordinates.d1,coordinates.d2,coordinates.d3);
+    return new Vector(coordinates._d1,coordinates._d2,coordinates._d3);
     }
 
     /**
@@ -46,9 +46,9 @@ public class Point
      */
     public Point add(Vector vector)
     {
-        double x= xyz.d1 + vector.xyz.d1;
-        double y= xyz.d2 + vector.xyz.d2;
-        double z= xyz.d3 + vector.xyz.d3;
+        double x= _xyz._d1 + vector._xyz._d1;
+        double y= _xyz._d2 + vector._xyz._d2;
+        double z= _xyz._d3 + vector._xyz._d3;
 
         return new Point(x,y,z);
     }
@@ -66,7 +66,7 @@ public class Point
             return  true;
         if(o==null || getClass()!= o.getClass()) return false;
         Point point=(Point) o;
-        return xyz.equals(point.xyz);
+        return _xyz.equals(point._xyz);
 
     }
 
@@ -78,10 +78,17 @@ public class Point
      */
    public double distanceSquared(Point point)
    {
-       double distanceSquared = ((xyz.d1-point.xyz.d1)*(xyz.d1-point.xyz.d1)) +
-               ((xyz.d2-point.xyz.d2)*(xyz.d2-point.xyz.d2)) +
-               ((xyz.d3-point.xyz.d3)*(xyz.d3-point.xyz.d3));
+       double distanceSquared = ((_xyz._d1-point._xyz._d1)*(_xyz._d1-point._xyz._d1)) +
+               ((_xyz._d2-point._xyz._d2)*(_xyz._d2-point._xyz._d2)) +
+               ((_xyz._d3-point._xyz._d3)*(_xyz._d3-point._xyz._d3));
        return distanceSquared;
+
+      /** Double3 temp= _xyz.subtract(point._xyz);
+       double xx=temp._d1 * temp._d1;
+       double yy=temp._d2 * temp._d2;
+       double zz=temp._d3 * temp._d3;
+       return (xx + yy + zz);
+       **/
    }
 
     /**
@@ -95,5 +102,8 @@ public class Point
    }
 
 
-
+    @Override
+    public String toString() {
+        return "Point " + _xyz;
+    }
 }
