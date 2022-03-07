@@ -76,12 +76,12 @@ public class Vector extends Point
    public Vector crossProduct(Vector v)
    {
        double u1 = _xyz._d1;
-       double u2 = _xyz.d2;
-       double u3 = _xyz.d3;
+       double u2 = _xyz._d2;
+       double u3 = _xyz._d3;
 
        double v1 = v._xyz._d1;
-       double v2 = v._xyz.d2;
-       double v3 = v._xyz.d3;
+       double v2 = v._xyz._d2;
+       double v3 = v._xyz._d3;
 
        return new Vector(new Double3(
                u2*v3-u3*v2,
@@ -101,8 +101,8 @@ public class Vector extends Point
        {
            throw  new IllegalArgumentException("scale resulting by 0 not valid");
        }
-       Double3 coordinates = new Double3(_xyz.d1 * scaleFactor, _xyz.d2 * scaleFactor, _xyz.d3* scaleFactor);
-       return new Vector(coordinates.d1,coordinates.d2,coordinates.d3);
+       Double3 coordinates = new Double3(_xyz._d1 * scaleFactor, _xyz._d2 * scaleFactor, _xyz._d3* scaleFactor);
+       return new Vector(coordinates._d1,coordinates._d2,coordinates._d3);
    }
 
     /**
