@@ -17,6 +17,10 @@ public class Tube implements Geometry
     public Tube(Ray axisRay, double radius) {
         this.axisRay = axisRay;
         this.radius = radius;
+        if(radius<0)
+        {
+            throw new IllegalArgumentException("a tube cannot receive a negative radius");
+        }
     }
 
     /**

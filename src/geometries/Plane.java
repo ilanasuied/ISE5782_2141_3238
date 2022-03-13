@@ -19,6 +19,14 @@ public class Plane implements Geometry{
         Vector V=p3.subtract(p1);
         Vector N=U.crossProduct(V);
         normal=N.normalize();
+        if(normal.length()!=1)
+        {
+            throw new IllegalArgumentException("ERROR- normal must be equal to one");
+        }
+    }
+
+    public Plane(Point p,Vector normal) {
+        this.normal = normal;
     }
 
     /**
