@@ -5,10 +5,10 @@ import static primitives.Util.isZero;
 public class Vector extends Point
 {
     /**
-     * constructor with 3 points
-     * @param x
-     * @param y
-     * @param z
+     * constructor with 3 coordinates
+     * @param x value for x axis
+     * @param y value for y axis
+     * @param z value for z axis
      */
     public Vector(double x, double y, double z)
     {

@@ -3,6 +3,7 @@ package primitives;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static primitives.Util.isZero;
 
 class VectorTest {
     Vector v1 = new Vector(1, 2, 3);
@@ -39,7 +40,7 @@ class VectorTest {
      * testing the {@link Vector#length()}
      */
     void testLength() {
-        assertEquals(5,v3.length(),0.0001,"ERROR: length() wrong value");
+        assertEquals(5,new Vector(0, 3, 4).length(),0.0001,"ERROR: length() wrong value");
     }
 
 
@@ -59,9 +60,11 @@ class VectorTest {
      */
     void testCrossProduct() {
         Vector vr=v1.crossProduct(v3);
-        assertEquals(0,v1.crossProduct(v2),"ERROR: crossProduct() for parallel vectors does not throw an exception");
+        assertEquals(new Vector(0,1,0),new Vector(0,0,1).crossProduct(new Vector(1,0,0)),"ERROR: crossProduct() for parallel vectors does not throw an exception");
+
+        // Test that length of cross-product is proper (orthogonal vectors taken for simplicity)
         assertEquals(v1.length()*v3.length(),vr.length(),0.0001,"ERROR: crossProduct() wrong result length");
-        assertEquals(0,vr.dotProduct(v1),0.0001,"ERROR: crossProduct() result is not orthogonal to its operands");//???
+        assertEquals(0,vr.dotProduct(v1),0.0001,"ERROR: crossProduct() result is not orthogonal to its operands");
         assertEquals(0,vr.dotProduct(v2),0.0001,"ERROR: crossProduct() result is not orthogonal to its operands");
     }
 
@@ -79,8 +82,12 @@ class VectorTest {
      * testing method for {@link Vector#add(Vector)}.
      */
     void testAdd() {
-        Point p1 = new Point(1, 2, 3);
-        assertEquals(new Vector(0,0,0),p1.add(new Vector(-1,-2,-3)),"ERROR: Point + Vector does not work correctly");
+        // ============ Equivalence Partitions Tests ==============
+        // TC01: Simple test
+        assertEquals(new Vector(2,3,4),
+                new Vector(1,2,3).add(new Vector(1,1,1)),
+                "Wrong vector add");
+
     }
 
     @Test
@@ -90,6 +97,6 @@ class VectorTest {
     void testNormalize() {
         Vector u=v1.normalize();
         assertEquals(1,u.length(),0.0001,"ERROR: the normalized vector is not a unit vector");
-        assertEquals(0,v1.crossProduct(u),"ERROR: the normalized vector is not parallel to the original one");
+        assertTrue(0,v1.crossProduct(u),"ERROR: the normalized vector is not parallel to the original one");
     }
 }

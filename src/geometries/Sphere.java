@@ -60,4 +60,9 @@ public class Sphere implements Geometry
     public Vector getNormal(Point point) {
         return null;
     }
+
+    @Override
+    public List<Point> findIntersections(Ray ray) {
+        return null;
+    }
 }

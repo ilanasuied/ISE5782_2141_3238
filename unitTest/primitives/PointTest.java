@@ -18,7 +18,7 @@ class PointTest {
      */
     void testSubtract() 
     {
-        assertEquals(new Vector(1,1,1), new Point(2,3,4).subtract(p1),"ERROR: Point - Point does not work correctly");
+        assertEquals(new Vector(1,1,1), p1.subtract(new Point(2,3,4)),"ERROR: Point - Point does not work correctly");
     }
 
     @Test
@@ -32,9 +32,8 @@ class PointTest {
      * testing the {@link Point#distanceSquared(Point)
      */
     void testDistanceSquared() {
-       //Point point3 = new Point(0.5, 0, -100);
-       // double distanceSquared = point3.distance(new Point(0, 0, -100));
-       // assertEquals(Math.sqrt(0.5),  distanceSquared,  0.0001, "wrong");
+        Point point3 = new Point(0.5, 0, -100);
+        assertEquals(0.25,  new Point(0, 0, -100).distanceSquared(point3),  0.0001, "distance squared method doesn't work correctly");
     }
 
     /**
@@ -43,7 +42,6 @@ class PointTest {
     @Test
     void testDistance() {
         Point point3 = new Point(0.5, 0, -100);
-        double distance = point3.distance(new Point(0, 0, -100));
-        assertEquals(0.5,  distance,  0.0001, "wrong");
+        assertEquals(0.5,  point3.distance(new Point(0, 0, -100)),  0.0001, "distance method doesn't work correctly");
     }
 }

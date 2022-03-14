@@ -1,40 +1,64 @@
 package geometries;
 
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
 
+import java.util.List;
+
+import static primitives.Util.alignZero;
+import static primitives.Util.isZero;
+
+/**
+ * class for a 3D plane
+ */
 public class Plane implements Geometry{
    final  Vector normal;
-   final  Point q0 = null;
+   final  Point q0 ;
 
 
     /**
-     * plane's constructor
-     * @param p1
-     * @param p2
-     * @param p3
+     * Constructor of Plane from 3 points on its surface
+     * the points are ordered from right to left
+     * forming an arc in right direction
+     * @param p1 first point to construct a plane
+     * @param p2 second point to construct a plane
+     * @param p3 third point to construct a plane
      */
     public Plane(Point p1, Point p2, Point p3) {
+        q0 = p1;
+
         Vector U=p2.subtract(p1);
         Vector V=p3.subtract(p1);
+
         Vector N=U.crossProduct(V);
         normal=N.normalize();
-        if(normal.length()!=1)
-        {
-            throw new IllegalArgumentException("ERROR- normal must be equal to one");
-        }
-    }
-
-    public Plane(Point p,Vector normal) {
-        this.normal = normal;
     }
 
     /**
      *
+     * @param p
+     * @param normal
+     */
+    public Plane(Point p,Vector normal) {
+        this.normal = normal.normalize();
+        q0 = p;
+    }
+
+    /**
+     * getter for normal vector
      * @return normal
      */
     public Vector getNormal(){
         return normal;
+    }
+
+    /**
+     * getter for q0 referenced point
+     * @return the referenced point of the plane
+     */
+    public Point getQ0() {
+        return q0;
     }
 
     /**
@@ -46,5 +70,36 @@ public class Plane implements Geometry{
     public Vector getNormal(Point point)
     {
         return getNormal();
+    }
+
+    @Override
+    public List<Point> findIntersections(Ray ray) {
+        Point P0 = ray.getP0();
+        Vector v = ray.getDir();
+        Vector n = normal;
+
+        double nv = n.dotProduct(v);
+
+        //if ray is parallel to plane : no intersection points
+        if (isZero(nv)) {
+            return null;
+        }
+
+        Vector P0_Q = P0.subtract(q0);
+
+        double t = alignZero(n.dotProduct(P0_Q) / nv);
+
+        //if ( t == 0) origin of ray lay on the plane
+        if (isZero(t)) {
+            return null;
+        }
+
+        // if (t < 0) the direction of the ray points in the opposite direction
+        if (t > 0) {
+            Point P = ray.getPoint(t);//  P0.add(v.scale(t));
+            return List.of(P);
+        }
+
+        return null;
     }
 }

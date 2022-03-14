@@ -3,7 +3,15 @@ package geometries;
 import primitives.Point;
 import primitives.Vector;
 
-public interface Geometry {
+/**
+ * TODO  explain everything
+ */
+public interface Geometry extends Intersectable {
+    /**
+     * lo lo,
+     * @param point
+     * @return
+     */
     Vector getNormal(Point point);
 
 }
