@@ -8,7 +8,7 @@ import static primitives.Util.*;
 public class Sphere implements Geometry
 {
 
-    final Point center;
+    final Point _center;
     final double radius;
 
     /**
@@ -17,7 +17,7 @@ public class Sphere implements Geometry
      * @param radius
      */
     public Sphere(Point center, double radius) {
-        this.center = center;
+        this._center = center;
         this.radius = radius;
     }
 
@@ -27,7 +27,7 @@ public class Sphere implements Geometry
      * @return point
      */
     public Point getCenter() {
-        return center;
+        return _center;
     }
 
     /**
@@ -46,7 +46,7 @@ public class Sphere implements Geometry
     @Override
     public String toString() {
         return "Sphere{" +
-                "center=" + center +
+                "center=" + _center +
                 ", radius=" + radius +
                 '}';
     }
@@ -54,11 +54,12 @@ public class Sphere implements Geometry
     /**
      * ovverided function get normal for sphere
      * @param point
-     * @return
+     * @return 
      */
     @Override
     public Vector getNormal(Point point) {
-        return null;
+
+        return ((_center.subtract(point)).normalize());
     }
 
     @Override

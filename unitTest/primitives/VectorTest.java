@@ -95,8 +95,11 @@ class VectorTest {
      * testing the {@link Vector#normalize()}
      */
     void testNormalize() {
-        Vector u=v1.normalize();
-        assertEquals(1,u.length(),0.0001,"ERROR: the normalized vector is not a unit vector");
-        assertTrue(0,v1.crossProduct(u),"ERROR: the normalized vector is not parallel to the original one");
-    }
+        Vector v = new Vector(0, 3, 4);
+        Vector u=v.normalize();
+        assertEquals(1.0,u.length(),0.0001,"ERROR: the normalized vector is not a unit vector");
+        assertThrows(IllegalArgumentException.class,
+                () -> v.crossProduct(u),
+                "normalized vector is not in the same direction");
+        assertEquals(new Vector(0.0, 0.6, 0.8),u, "wrong normalized vector");    }
 }
