@@ -17,7 +17,7 @@ class CylinderTest {
     void testGetNormal() {
 //================================== Equivalence partition Tests =========================
 
-        Cylinder cylinder= new Cylinder(new Ray(new Point(0,0,0),new Vector(1,0,0)),2,1.0);
+        Cylinder cylinder= new Cylinder(new Ray(new Point(0,0,0),new Vector(1,0,0)),2,4.0);
 
         Vector normal =cylinder.getNormal(new Point(0,0,2)).normalize();
         double dotProduct=normal.dotProduct(cylinder.getAxisRay().getDir());

@@ -19,10 +19,6 @@ public class Triangle extends Polygon
 
     }
 
-    @Override
-    public List<Point> findIntersections(Ray ray) {
-        return null;
-    }
 
     /**
      * overrided function of to string for triangle
@@ -37,12 +33,23 @@ public class Triangle extends Polygon
     }
 
     /**
-     * overrided function of get normal for triangle
-     * @param point
-     * @return
+     * overrided get the normal of the triangle
+     * @param point on the triangle
+     * @return the normal og the triangle
      */
     @Override
     public Vector getNormal(Point point) {
         return null;
     }
+
+    /**
+     * find all the intersections between the ray with the objects and saves them in a list
+     * @param ray Ray pointing towards the graphic object
+     * @return the list of the intersections
+     */
+    @Override
+    public List<Point> findIntersections(Ray ray) {
+        return null;
+    }
+
 }

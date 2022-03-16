@@ -54,7 +54,7 @@ public class Sphere implements Geometry
     /**
      * ovverided function get normal for sphere
      * @param point
-     * @return 
+     * @return the normal of the sphere
      */
     @Override
     public Vector getNormal(Point point) {
@@ -62,6 +62,11 @@ public class Sphere implements Geometry
         return ((_center.subtract(point)).normalize());
     }
 
+    /**
+     * find all the intersections between the ray with the objects and saves them in a list
+     * @param ray Ray pointing towards the graphic object
+     * @return the list of the intersections
+     */
     @Override
     public List<Point> findIntersections(Ray ray) {
         return null;

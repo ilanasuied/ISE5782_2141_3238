@@ -42,7 +42,7 @@ public class Tube implements Geometry
 
     /**
      * override the function toString for tube
-     * @return a str
+     * @return a string
      */
     @Override
     public String toString() {

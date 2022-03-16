@@ -4,6 +4,9 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import static primitives.Util.alignZero;
+import static primitives.Util.isZero;
+
 
 public class Cylinder  extends Tube{
 
@@ -11,9 +14,9 @@ public class Cylinder  extends Tube{
 
     /**
      * cylinder constructor
-     * @param axisRay
-     * @param radius
-     * @param height
+     * @param  axisRay value for the Ray
+     * @param radius value for the radius of the cylinder
+     * @param height value for the cylinder's height
      */
     public Cylinder(Ray axisRay, double radius, double height) {
         super(axisRay, radius);
@@ -21,8 +24,8 @@ public class Cylinder  extends Tube{
     }
 
     /**
-     * get height
-     * @return height
+     * get cylinder's height
+     * @return height of the cylinder
      */
     public double getHeight() {
         return height;
@@ -30,7 +33,7 @@ public class Cylinder  extends Tube{
 
     /**
      * override the function toString for cylinder
-     * @return null
+     * @return string
      */
     @Override
     public String toString() {
@@ -44,10 +47,27 @@ public class Cylinder  extends Tube{
     /**
      * override the getNormal function for cylinder
      * @param point point
-     * @return null
+     * @return the normal of the cylinder
      */
     @Override
     public Vector getNormal(Point point) {
-        return null;
+        Point o = axisRay.getP0();
+        Vector v = axisRay.getDir();
+
+        // projection of P-O on the ray:
+        double t;
+        try {
+            t = alignZero(o.subtract(point).dotProduct(v));
+        } catch (IllegalArgumentException e) { // P = O
+            return v;
+        }
+
+        // if the point is at a base
+        if (t == 0 || isZero(height - t)) // if it's close to 0, we'll get ZERO vector exception
+            return v;
+
+        o = o.add(v.scale(t));
+        return o.subtract(point).normalize();
+
     }
 }
