@@ -16,8 +16,8 @@ public class Tube implements Geometry
 
     /**
      * tube's constructor
-     * @param axisRay
-     * @param radius
+     * @param axisRay value for ray
+     * @param radius value for radius
      */
     public Tube(Ray axisRay, double radius) {
         this.axisRay = axisRay;
@@ -29,7 +29,7 @@ public class Tube implements Geometry
     }
 
     /**
-     * get function
+     * get functions
      * @return axisRay
      */
     public Ray getAxisRay() {
@@ -41,7 +41,7 @@ public class Tube implements Geometry
     }
 
     /**
-     * override the function toString for tube
+     * function that returns a string
      * @return a string
      */
     @Override
@@ -94,6 +94,9 @@ public class Tube implements Geometry
     }
 
     @Override
+    /**
+     * function to find intersections
+     */
     public List<Point> findIntersections(Ray ray) {
         return null;
     }

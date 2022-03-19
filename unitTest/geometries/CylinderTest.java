@@ -15,8 +15,8 @@ class CylinderTest {
      */
     @Test
     void testGetNormal() {
-//================================== Equivalence partition Tests =========================
-
+        //================================== Equivalence partition Tests =========================
+        //TC01:
         Cylinder cylinder= new Cylinder(new Ray(new Point(0,0,0),new Vector(1,0,0)),2,4.0);
 
         Vector normal =cylinder.getNormal(new Point(0,0,2)).normalize();
@@ -26,7 +26,7 @@ class CylinderTest {
 
 
 
-        // =============== Boundary Values Tests ==================
+        // ================================ Boundary Values Tests ================================
 
         Cylinder cylinder2= new Cylinder(new Ray(new Point(0,0,0),new Vector(1,0,0)),2,1.0);
 

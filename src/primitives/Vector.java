@@ -69,9 +69,9 @@ public class Vector extends Point
    }
 
     /**
-     * function for vectorial multiplication
-     * @param v
-     * @return
+     * function for vector multiplication
+     * @param v vector
+     * @return a vector, result of cross product
      */
    public Vector crossProduct(Vector v)
    {
@@ -91,9 +91,9 @@ public class Vector extends Point
    }
 
     /**
-     * function to multiply a vector by number
+     * function to multiply a vector by a number
      * @param scaleFactor
-     * @return
+     * @return vector
      */
    public Vector scale(double scaleFactor)
    {
@@ -107,8 +107,8 @@ public class Vector extends Point
 
     /**
      * function that performs vector adding
-     * @param v
-     * @return
+     * @param v vector to add
+     * @return vector result of adding 2 vectors
      */
    public  Vector add (Vector v)
    {
@@ -126,7 +126,7 @@ public class Vector extends Point
 
     /**
      * function that returns normalize vector in the same directory
-     * @return
+     * @return normalized vector
      */
     public Vector normalize()
     {

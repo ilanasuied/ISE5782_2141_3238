@@ -81,9 +81,8 @@ public class Point {
 
     /**
      * function that calculate distance between two points
-     *
      * @param point
-     * @return
+     * @return double
      */
     public double distance(Point point) {
         return Math.sqrt(distanceSquared(point));
@@ -91,6 +90,9 @@ public class Point {
 
 
     @Override
+    /**
+     * function that returns a string
+     */
     public String toString() {
         return "Point " + _xyz;
     }

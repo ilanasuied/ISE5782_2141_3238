@@ -10,6 +10,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class TubeTest {
 
     @Test
+    /**
+     * testing {@link geometries.Tube#constructorTest()}
+     */
     void constructorTest() {
         try {
             new Tube(new Ray(new Point(1, 2, 3), new Vector(1, 1, 1)), 1);
@@ -51,8 +54,6 @@ class TubeTest {
         assertEquals(new Vector(0, 0, 1), normal, "Bad normal to tube");
 
 
-}
-
-
+    }
 
 }

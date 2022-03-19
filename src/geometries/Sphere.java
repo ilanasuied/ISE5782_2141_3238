@@ -13,8 +13,8 @@ public class Sphere implements Geometry
 
     /**
      * constructor that receive a point and a radius
-     * @param center
-     * @param radius
+     * @param center value for the point that represent the center
+     * @param radius value for the radius
      */
     public Sphere(Point center, double radius) {
         this._center = center;
@@ -40,8 +40,8 @@ public class Sphere implements Geometry
 
 
     /**
-     * overrided function of tostring() for sphere
-     * @return
+     * function that returns a string for the sphere
+     * @return string
      */
     @Override
     public String toString() {
@@ -52,7 +52,7 @@ public class Sphere implements Geometry
     }
 
     /**
-     * ovverided function get normal for sphere
+     * function to get the normal of the sphere
      * @param point
      * @return the normal of the sphere
      */

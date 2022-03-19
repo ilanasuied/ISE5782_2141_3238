@@ -37,8 +37,8 @@ public class Plane implements Geometry{
 
     /**
      *
-     * @param p
-     * @param normal
+     * @param p value for the point on the plane
+     * @param normal of the plane
      */
     public Plane(Point p,Vector normal) {
         this.normal = normal.normalize();

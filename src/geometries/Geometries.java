@@ -41,6 +41,9 @@ public class Geometries implements Intersectable {
 
 
     @Override
+    /**
+     *
+     */
     public List<Point> findIntersections(Ray ray) {
         List<Point> result = null;
         for (Intersectable item :_intersectables ) {

@@ -10,19 +10,18 @@ public class Triangle extends Polygon
 {
     /**
      * constructor with 3 points for triangle
-     * @param p1
-     * @param p2
-     * @param p3
+     * @param p1 value for first point
+     * @param p2 value for second point
+     * @param p3 value for third point
      */
     public Triangle(Point p1, Point p2, Point p3) {
         super(p1,p2,p3);
-
     }
 
 
     /**
-     * overrided function of to string for triangle
-     * @return
+     * function that returns a string for triangle
+     * @return string
      */
     @Override
     public String toString() {
@@ -33,9 +32,9 @@ public class Triangle extends Polygon
     }
 
     /**
-     * overrided get the normal of the triangle
+     * function to get the normal for a triangle
      * @param point on the triangle
-     * @return the normal og the triangle
+     * @return the normal of the triangle
      */
     @Override
     public Vector getNormal(Point point) {
