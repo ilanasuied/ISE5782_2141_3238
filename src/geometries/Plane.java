@@ -75,7 +75,7 @@ public class Plane implements Geometry{
     /**
      *
      * @param ray Ray pointing towards the graphic object
-     * @return null
+     * @return a list of all the intersections with the object and if there isn't return  null
      */
     @Override
     public List<Point> findIntersections(Ray ray) {
