@@ -63,6 +63,9 @@ class PlaneTest {
 
 
     @Test
+    /**
+     * testing {@link geometries.Plane#testFindIntersections()}
+     */
     void testFindIntersections() {
         Plane pl = new Plane(new Point(0, 0, 1), new Vector(1, 1, 1));
         // ============ Equivalence Partitions Tests ==============
@@ -70,5 +73,16 @@ class PlaneTest {
         assertEquals(List.of(new Point(1, 0, 0)),
                 pl.findIntersections(new Ray(new Point(0.5, 0, 0), new Vector(1, 0, 0))),
                 "Bad plane intersection");
+        // TC02: Ray out of plane
+
+
+        // =============== Boundary Values Tests ==================
+        // TC11: Ray parallel to plane
+        // TC13: Orthogonal ray into plane
+        // TC14: Orthogonal ray out of plane
+        // TC15: Orthogonal ray out of plane
+        // TC16: Orthogonal ray from plane
+        // TC17: Ray from plane
+        // TC18: Ray from plane's Q point
     }
 }

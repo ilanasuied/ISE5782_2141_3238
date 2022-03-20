@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class TriangleTest {
 
     /**
-     * testing {@link Triangle#getNormal(Point)}
+     * testing {@link geometries.Triangle#getNormal(Point)}
      */
     @Test
     void testGetNormal() {
@@ -19,4 +19,22 @@ class TriangleTest {
         double sqrt=Math.sqrt(1.0/3);
         assertEquals(new Vector(sqrt,sqrt,sqrt),triangle.getNormal(new Point(0,0,1)),"incorrect normal for triangle");
     }
+
+    /**
+     * testing {@link #testfindIntersectionsRay()}
+     */
+    @Test
+    public void testfindIntersectionsRay() {
+        // ============ Equivalence Partitions Tests ==============
+        // TC01: Inside triangle
+        // TC02: Against edge
+        // TC03: Against vertex
+
+        // =============== Boundary Values Tests ==================
+        // TC11: In vertex
+        // TC12: On edge
+        // TC13: On edge continuation
+    }
+
+
 }
