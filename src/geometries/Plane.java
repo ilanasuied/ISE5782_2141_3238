@@ -83,7 +83,7 @@ public class Plane implements Geometry{
         Vector v = ray.getDir();
         Vector n = normal;
 
-        double nv = n.dotProduct(v);
+        double nv = alignZero(n.dotProduct(v));
 
         //if ray is parallel to plane : no intersection points
         if (isZero(nv)) {
