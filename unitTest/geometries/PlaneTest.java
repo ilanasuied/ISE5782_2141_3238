@@ -78,7 +78,7 @@ class PlaneTest {
      */
     void testFindIntersections() {
         Plane pl = new Plane(new Point(0, 0, 1), new Vector(1, 1, 1));
-        // ============ Equivalence Partitions Tests ==============
+        // ================================================= Equivalence Partitions Tests ===================================================
         /////
 
         // TC01: Ray into plane
@@ -94,7 +94,7 @@ class PlaneTest {
 
 
 
-        // =============== Boundary Values Tests ==================
+        // =============================================== Boundary Values Tests ===================================================
 
 
         // TC11: Ray parallel to plane

@@ -42,7 +42,10 @@ public class Geometries implements Intersectable {
 
     @Override
     /**
-     *
+     * function to find intersections between different geometries
+     * we chose liked list because the cost for adding a value is O(1), and we don't need to
+     * have access to the element i in the list, we just pass on the whole list.
+     * so it's a better choice
      */
     public List<Point> findIntersections(Ray ray) {
         List<Point> result = null;

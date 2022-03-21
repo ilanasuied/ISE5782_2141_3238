@@ -76,7 +76,7 @@ public class Sphere implements Geometry
             return List.of(_center.add(v.scale(radius)));
         }
 
-        Vector U = _center.subtract(P0);
+        Vector U = P0.subtract(_center);
 
         double tm = alignZero(v.dotProduct(U));
         double d = alignZero(Math.sqrt(U.lengthSquared() - tm * tm));
