@@ -15,6 +15,8 @@ public class Camera {
     private Vector Vup;
     private Vector Vright;
 
+
+
     //camera's height
     private double _height=3;
 
