@@ -1,5 +1,6 @@
 package renderer;
 
+import primitives.Color;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
@@ -9,6 +10,7 @@ import static primitives.Util.isZero;
 public class Camera {
 
 
+
     //point's location of the VP
     final private Point p0;
 
@@ -16,7 +18,8 @@ public class Camera {
     final private Vector Vto;
     final private Vector Vup;
     final private Vector Vright;
-
+    private final RayTracer rayTracer;
+    private ImageWriter imageWriter;
 
 
     //camera's height
@@ -40,6 +43,8 @@ public class Camera {
         _height = builder._height;
         _width = builder._width;
         _distance = builder._distance;
+        imageWriter = builder.imageWriter;
+        rayTracer = builder.rayTracer;
     }
 
     /**
@@ -116,6 +121,29 @@ public class Camera {
 
     }
 
+    public void writeToImage() {
+        imageWriter.writeToImage();
+    }
+
+    public void printGrid(int interval, Color color) {
+        if(imageWriter!= null){
+            imageWriter.printGrid(interval, color);
+        }
+    }
+
+    public void renderImage() {
+        int nx = imageWriter.getNx();;
+        int ny = imageWriter.getNy();;
+
+        for (int i = 0; i < nx; i++) {
+            for (int j = 0; j < ny  ; j++) {
+                Ray ray = constructRay(nx,ny,i,j);
+                Color pixelcolor = rayTracer.traceRay(ray);
+                imageWriter.writePixel(i,j,pixelcolor);
+            }
+        }
+
+    }
 
 
     /**
@@ -138,6 +166,9 @@ public class Camera {
 
         //camera's height
         private double _height = 1;
+
+        private ImageWriter imageWriter = null;
+        private RayTracer rayTracer = null;
 
         //setter distance
         public BuilderCamera setDistance(double distance) {
@@ -178,6 +209,16 @@ public class Camera {
 
             _vRight = _vTo.crossProduct(_vUp);
 
+        }
+
+        public BuilderCamera setImageWriter(ImageWriter imageWriter) {
+            this.imageWriter = imageWriter;
+            return  this;
+        }
+
+        public BuilderCamera setRayTracer(RayTracer rayTracer) {
+            this.rayTracer = rayTracer;
+            return this;
         }
     }
 }

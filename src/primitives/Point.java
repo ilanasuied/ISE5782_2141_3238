@@ -1,6 +1,10 @@
 package primitives;
 
+import renderer.Camera;
+
 public class Point {
+
+    public static final Point ZERO = new Point(0d,0d,0d);       // origin of axis
     Double3 _xyz;
 
     /**
@@ -73,9 +77,9 @@ public class Point {
      */
     public double distanceSquared(Point point) {
         Double3 tmp=_xyz.subtract(point._xyz);
-        double xx=tmp._d1* tmp._d1;
-        double yy=tmp._d2* tmp._d2;
-        double zz=tmp._d3* tmp._d3;
+        double xx=tmp.d1 * tmp.d1;
+        double yy=tmp.d2 * tmp.d2;
+        double zz=tmp.d3 * tmp.d3;
       return (xx+yy+zz);
     }
 
@@ -102,19 +106,19 @@ public class Point {
      * @return the value of the coordinate x
      */
     public double getX() {
-        return _xyz._d1;
+        return _xyz.d1;
     }
     /**
      *
      * @return the value of the coordinate y
      */
     public double getY() {
-        return _xyz._d2;
+        return _xyz.d2;
     } /**
      *
      * @return the value of the coordinate z
      */
     public double getZ() {
-        return _xyz._d3;
+        return _xyz.d3;
     }
 }

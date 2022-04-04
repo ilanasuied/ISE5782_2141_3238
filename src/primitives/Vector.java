@@ -39,7 +39,7 @@ public class Vector extends Point
      * @return double
      */
     public double lengthSquared() {
-        return _xyz._d1 * _xyz._d1 + _xyz._d2 * _xyz._d2 + _xyz._d3 * _xyz._d3;
+        return _xyz.d1 * _xyz.d1 + _xyz.d2 * _xyz.d2 + _xyz.d3 * _xyz.d3;
     }
 
     /**
@@ -58,13 +58,13 @@ public class Vector extends Point
      */
    public double dotProduct(Vector vector)
    {
-       double u1= _xyz._d1;
-       double u2= _xyz._d2;
-       double u3= _xyz._d3;
+       double u1= _xyz.d1;
+       double u2= _xyz.d2;
+       double u3= _xyz.d3;
 
-       double v1 = vector._xyz._d1;
-       double v2 = vector._xyz._d2;
-       double v3 = vector._xyz._d3;
+       double v1 = vector._xyz.d1;
+       double v2 = vector._xyz.d2;
+       double v3 = vector._xyz.d3;
        return u1*v1 + u2*v2 + u3*v3;
    }
 
@@ -75,13 +75,13 @@ public class Vector extends Point
      */
    public Vector crossProduct(Vector v)
    {
-       double u1 = _xyz._d1;
-       double u2 = _xyz._d2;
-       double u3 = _xyz._d3;
+       double u1 = _xyz.d1;
+       double u2 = _xyz.d2;
+       double u3 = _xyz.d3;
 
-       double v1 = v._xyz._d1;
-       double v2 = v._xyz._d2;
-       double v3 = v._xyz._d3;
+       double v1 = v._xyz.d1;
+       double v2 = v._xyz.d2;
+       double v3 = v._xyz.d3;
 
        return new Vector(new Double3(
                u2*v3-u3*v2,
@@ -101,8 +101,8 @@ public class Vector extends Point
        {
            throw  new IllegalArgumentException("scale resulting by 0 not valid");
        }
-       Double3 coordinates = new Double3(_xyz._d1 * scaleFactor, _xyz._d2 * scaleFactor, _xyz._d3* scaleFactor);
-       return new Vector(coordinates._d1,coordinates._d2,coordinates._d3);
+       Double3 coordinates = new Double3(_xyz.d1 * scaleFactor, _xyz.d2 * scaleFactor, _xyz.d3 * scaleFactor);
+       return new Vector(coordinates.d1,coordinates.d2,coordinates.d3);
    }
 
     /**
@@ -113,15 +113,15 @@ public class Vector extends Point
    public  Vector add (Vector v)
    {
        Double3 coordinates = new Double3(
-               _xyz._d1+ v._xyz._d1,
-               _xyz._d2+ v._xyz._d2,
-               _xyz._d3+ v._xyz._d3
+               _xyz.d1 + v._xyz.d1,
+               _xyz.d2 + v._xyz.d2,
+               _xyz.d3 + v._xyz.d3
                );
        if(Double3.ZERO.equals(coordinates))
        {
            throw new IllegalArgumentException("add resulting ZERO vector not valid");
        }
-       return new Vector(coordinates._d1,coordinates._d2,coordinates._d3);
+       return new Vector(coordinates.d1,coordinates.d2,coordinates.d3);
    }
 
     /**
