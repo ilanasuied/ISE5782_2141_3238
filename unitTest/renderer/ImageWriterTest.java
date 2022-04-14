@@ -18,6 +18,9 @@ class ImageWriterTest {
         Color redColor = new Color(255d,0,0d);
 
         ImageWriter imageWriter = new ImageWriter("YellowSubmarine",nX,nY);
+
+
+        //print red tiles on a yellow background
         for (int i = 0; i < nX; i++) {
             for (int j = 0; j < nY; j++) {
                 if(i % interval == 0 || j % interval == 0) {

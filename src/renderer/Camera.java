@@ -146,9 +146,11 @@ public class Camera {
     }
 
 
-    /**
-     * Builder Class for Camera
-     */
+
+
+    // ================================= Builder Class for Camera ===============================
+
+
     public static class BuilderCamera {
         //point's location of the VP
         final private Point _p0;
