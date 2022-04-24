@@ -213,11 +213,21 @@ public class Camera {
 
         }
 
+        /**
+         * apply the correct value for the image writer to this object and return it
+         * @param imageWriter value for the image writer
+         * @return this object with the correct value for the image writer
+         */
         public BuilderCamera setImageWriter(ImageWriter imageWriter) {
             this.imageWriter = imageWriter;
             return  this;
         }
 
+        /**
+         * apply the correct value for the ray tracer to this object and return it
+         * @param  rayTracer value for the ray tracer
+         * @return this object with the correct value for the ray tracer
+         */
         public BuilderCamera setRayTracer(RayTracer rayTracer) {
             this.rayTracer = rayTracer;
             return this;
