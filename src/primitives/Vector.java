@@ -21,7 +21,7 @@ public class Vector extends Point
 
     /**
      * constructor with 1 point with three coordinates
-     * @param xyz
+     * @param xyz a 3d point
      */
     public Vector(Double3 xyz)
     {
@@ -36,7 +36,7 @@ public class Vector extends Point
 
     /**
      * function that calculate vector's length squared
-     * @return double
+     * @return double, value of vector's length squared
      */
     public double lengthSquared() {
         return _xyz.d1 * _xyz.d1 + _xyz.d2 * _xyz.d2 + _xyz.d3 * _xyz.d3;
@@ -44,7 +44,7 @@ public class Vector extends Point
 
     /**
      * function that calculate vector's length
-     * @return double
+     * @return double, value of vector's length
      */
     public double length()
     {
@@ -53,8 +53,8 @@ public class Vector extends Point
 
     /**
      *function for scalar's multiplication
-     * @param vector
-     * @return double
+     * @param vector, value of another vector
+     * @return double, the value of the dot product between those 2 vectors
      */
    public double dotProduct(Vector vector)
    {
@@ -70,7 +70,7 @@ public class Vector extends Point
 
     /**
      * function for vector multiplication
-     * @param v vector
+     * @param v value of a vector
      * @return a vector, result of cross product
      */
    public Vector crossProduct(Vector v)
@@ -92,8 +92,8 @@ public class Vector extends Point
 
     /**
      * function to multiply a vector by a number
-     * @param scaleFactor
-     * @return vector
+     * @param scaleFactor a scale value
+     * @return vector with the correct value after the scale factor
      */
    public Vector scale(double scaleFactor)
    {

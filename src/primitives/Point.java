@@ -53,10 +53,9 @@ public class Point {
 
 
     /**
-     * overrided function for equals, compares two object's values
-     *
-     * @param o
-     * @return boolean
+     * override function for equals, compares two object's values
+     * @param o another object, compare if this object is equal to o
+     * @return boolean response if they are equal or not
      */
     @Override
     public boolean equals(Object o) {
@@ -71,9 +70,8 @@ public class Point {
 
     /**
      * function that calculate distance squared between two points
-     *
-     * @param point
-     * @return double
+     * @param point calculate the distance between this object and 'point'
+     * @return double, the distance between those 2 points
      */
     public double distanceSquared(Point point) {
         Double3 tmp=_xyz.subtract(point._xyz);
@@ -85,8 +83,8 @@ public class Point {
 
     /**
      * function that calculate distance between two points
-     * @param point
-     * @return double
+     * @param point value of a point
+     * @return double, the distance between those 2 points
      */
     public double distance(Point point) {
         return Math.sqrt(distanceSquared(point));
@@ -102,20 +100,20 @@ public class Point {
     }
 
     /**
-     *
+     *get the value of x
      * @return the value of the coordinate x
      */
     public double getX() {
         return _xyz.d1;
     }
     /**
-     *
+     *get the value of y
      * @return the value of the coordinate y
      */
     public double getY() {
         return _xyz.d2;
     } /**
-     *
+     *get the value of z
      * @return the value of the coordinate z
      */
     public double getZ() {
