@@ -9,7 +9,7 @@ import java.util.List;
 import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
-public class Tube implements Geometry
+public class Tube extends Geometry
 {
     final Ray axisRay;
     final double radius;
@@ -97,7 +97,6 @@ public class Tube implements Geometry
     /**
      * function to find intersections
      */
-    public List<Point> findIntersections(Ray ray) {
-        return null;
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {return null;
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
  * Composite class to gather other {@link Geometry} based objects
  */
 
-public class Geometries implements Intersectable {
+public class Geometries extends Intersectable {
     private List <Intersectable> _intersectables = null;
 
     /**
@@ -40,17 +40,17 @@ public class Geometries implements Intersectable {
     }
 
 
-    @Override
+   @Override
     /**
      * function to find intersections between different geometries
      * we chose liked list because the cost for adding a value is O(1), and we don't need to
      * have access to the element i in the list, we just pass on the whole list.
      * so it's a better choice
      */
-    public List<Point> findIntersections(Ray ray) {
-        List<Point> result = null;
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+        List<GeoPoint> result = null;
         for (Intersectable item :_intersectables ) {
-            List<Point> itemPointsList = item.findIntersections(ray);
+            List<GeoPoint> itemPointsList = item.findGeoIntersectionsHelper(ray);
             if( itemPointsList != null){
                 if(result== null){
                     result = new LinkedList<>();
@@ -60,4 +60,5 @@ public class Geometries implements Intersectable {
         }
         return result;
     }
+
 }

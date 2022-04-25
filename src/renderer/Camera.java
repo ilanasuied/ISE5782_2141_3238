@@ -137,15 +137,17 @@ public class Camera {
 
         for (int i = 0; i < nx; i++) {
             for (int j = 0; j < ny  ; j++) {
-                Ray ray = constructRay(nx,ny,i,j);
-                Color pixelcolor = rayTracer.traceRay(ray);
-                imageWriter.writePixel(i,j,pixelcolor);
+                castRay(nx, ny, i, j);
             }
         }
 
     }
 
-
+    private void castRay(int nx, int ny, int i, int j) {
+        Ray ray = constructRay(nx, ny, i, j);
+        Color pixelcolor = rayTracer.traceRay(ray);
+        imageWriter.writePixel(i, j,pixelcolor);
+    }
 
 
     // ================================= Builder Class for Camera ===============================
@@ -173,7 +175,7 @@ public class Camera {
         private RayTracer rayTracer = null;
 
         //setter distance
-        public BuilderCamera setDistance(double distance) {
+        public BuilderCamera setVPDistance(double distance) {
             _distance = distance;
             return this;
         }
@@ -230,6 +232,12 @@ public class Camera {
          */
         public BuilderCamera setRayTracer(RayTracer rayTracer) {
             this.rayTracer = rayTracer;
+            return this;
+        }
+
+        public BuilderCamera setVPSize(int width, int height) {
+            this._width=width;
+            this._height=height;
             return this;
         }
     }

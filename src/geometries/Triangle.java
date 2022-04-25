@@ -37,8 +37,12 @@ public class Triangle extends Polygon
      * @return the list of the intersections
      */
     @Override
-    public List<Point> findIntersections(Ray ray) {
-        return super.findIntersections(ray);
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+        var list = super.findGeoIntersectionsHelper(ray);
+        if(list == null){
+            return null;
+        }
+        return List.of(new GeoPoint(this, list.get(0).point));
     }
 
 }
