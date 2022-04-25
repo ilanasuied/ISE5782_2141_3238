@@ -52,7 +52,6 @@ public class Scene {
         return ambientLight;
     }
 
-
     public Geometries getGeometries() {
         return geometries;
     }
