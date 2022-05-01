@@ -1,11 +1,19 @@
 package lighting;
 
+import primitives.Color;
 import primitives.Point;
+import primitives.Vector;
 
-public class PointLight extends Light{
+public class PointLight extends Light implements LightSource{
 
     private Point position;
-    private  double kC, kL, kQ;
+    private  double kC=1, kL=0, kQ=0;
+
+    public PointLight(Color intensity, Point position) {
+        super(intensity);
+        this.position = position;
+    }
+
 
 
     public PointLight setkC(double kC) {
@@ -22,4 +30,16 @@ public class PointLight extends Light{
         this.kQ = kQ;
         return this;
     }
+
+    @Override
+    public Color getIntesity(Point p) {
+        return super.getIntensity();
+    }
+
+    @Override
+    public Vector getL(Point p) {
+        return new Vector(this.kC,this.kL,this.kQ);
+    }
+
+
 }

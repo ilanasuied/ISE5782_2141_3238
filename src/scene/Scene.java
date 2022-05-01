@@ -2,7 +2,11 @@ package scene;
 
 import geometries.Geometries;
 import lighting.AmbientLight;
+import lighting.LightSource;
 import primitives.Color;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *  Scene or holding all the objects involved
@@ -14,7 +18,7 @@ public class Scene {
     private final Color background;
     private final AmbientLight ambientLight;
     private final Geometries geometries;
-
+    public List<LightSource> lights=new LinkedList<>();
 
 
     /**
@@ -56,11 +60,12 @@ public class Scene {
         return geometries;
     }
 
+    public Scene setLights(List<LightSource> lights) {
+        this.lights = lights;
+        return this;
+    }
 
-
-
-
-    // ================================= Builder Class for scene ===============================
+// ================================= Builder Class for scene ===============================
 
     public static class SceneBuilder {
 

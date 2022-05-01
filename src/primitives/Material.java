@@ -10,6 +10,11 @@ public class Material {
         return this;
     }
 
+    public Material setKd(Double3 kd) {
+        kd.scale(this.kd);
+        return this;
+    }
+
     /**
      * getter for kd diffuse factor
      * @return kd value
@@ -18,8 +23,13 @@ public class Material {
         return kd;
     }
 
+
     public Material setKs(double ks) {
         this.ks = ks;
+        return this;
+    }
+    public Material setKs(Double3 ks) {
+        ks.scale(this.ks);
         return this;
     }
 

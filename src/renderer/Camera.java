@@ -10,7 +10,6 @@ import static primitives.Util.isZero;
 public class Camera {
 
 
-
     //point's location of the VP
     final private Point p0;
 
@@ -18,7 +17,7 @@ public class Camera {
     final private Vector Vto;
     final private Vector Vup;
     final private Vector Vright;
-    private final RayTracer rayTracer;
+    private  RayTracer rayTracer;
     private ImageWriter imageWriter;
 
 
@@ -33,6 +32,7 @@ public class Camera {
 
     /**
      * private default constructor for camera by the builder camera
+     *
      * @param builder camera
      */
     private Camera(BuilderCamera builder) {
@@ -49,6 +49,7 @@ public class Camera {
 
     /**
      * apply a new value for the distance and return the object with the new values
+     *
      * @param distance value for the distance
      * @return the object
      */
@@ -59,7 +60,8 @@ public class Camera {
 
     /**
      * apply new values for the width and the height for the view plane size and return the object with the new values
-     * @param width value for width
+     *
+     * @param width  value for width
      * @param height value for height
      * @return the new object
      */
@@ -69,8 +71,11 @@ public class Camera {
         return this;
     }
 
+
+
     /**
      * width getter
+     *
      * @return the value of the view plane's width
      */
     public double getWidth() {
@@ -79,6 +84,7 @@ public class Camera {
 
     /**
      * height getter
+     *
      * @return the value of the view plane's height
      */
     public double getHeight() {
@@ -87,10 +93,11 @@ public class Camera {
 
     /**
      * constructing a ray passing through pixel(i,j) of the view plane
+     *
      * @param nX number of rows
      * @param nY number of columns
-     * @param j index for the rows of pixel
-     * @param i index for the columns of pixel
+     * @param j  index for the rows of pixel
+     * @param i  index for the columns of pixel
      * @return a ray that pass through pixels
      */
     public Ray constructRay(int nX, int nY, int j, int i) {
@@ -126,17 +133,19 @@ public class Camera {
     }
 
     public void printGrid(int interval, Color color) {
-        if(imageWriter!= null){
+        if (imageWriter != null) {
             imageWriter.printGrid(interval, color);
         }
     }
 
     public void renderImage() {
-        int nx = imageWriter.getNx();;
-        int ny = imageWriter.getNy();;
+        int nx = imageWriter.getNx();
+        ;
+        int ny = imageWriter.getNy();
+        ;
 
         for (int i = 0; i < nx; i++) {
-            for (int j = 0; j < ny  ; j++) {
+            for (int j = 0; j < ny; j++) {
                 castRay(nx, ny, i, j);
             }
         }
@@ -146,7 +155,20 @@ public class Camera {
     private void castRay(int nx, int ny, int i, int j) {
         Ray ray = constructRay(nx, ny, i, j);
         Color pixelcolor = rayTracer.traceRay(ray);
-        imageWriter.writePixel(i, j,pixelcolor);
+        imageWriter.writePixel(i, j, pixelcolor);
+    }
+
+
+
+
+
+    public Camera setImageWriter(ImageWriter imageWriter) {
+        this.imageWriter = imageWriter;
+        return this;
+    }
+    public Camera setRayTracer(RayTracer rayTracer) {
+        this.rayTracer=rayTracer;
+        return this;
     }
 
 
@@ -217,17 +239,19 @@ public class Camera {
 
         /**
          * apply the correct value for the image writer to this object and return it
+         *
          * @param imageWriter value for the image writer
          * @return this object with the correct value for the image writer
          */
         public BuilderCamera setImageWriter(ImageWriter imageWriter) {
             this.imageWriter = imageWriter;
-            return  this;
+            return this;
         }
 
         /**
          * apply the correct value for the ray tracer to this object and return it
-         * @param  rayTracer value for the ray tracer
+         *
+         * @param rayTracer value for the ray tracer
          * @return this object with the correct value for the ray tracer
          */
         public BuilderCamera setRayTracer(RayTracer rayTracer) {
@@ -236,8 +260,8 @@ public class Camera {
         }
 
         public BuilderCamera setVPSize(int width, int height) {
-            this._width=width;
-            this._height=height;
+            this._width = width;
+            this._height = height;
             return this;
         }
     }
