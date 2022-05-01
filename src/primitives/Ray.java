@@ -14,7 +14,6 @@ public class Ray {
 
     /**
      * ray constructor
-     *
      * @Point the point from where the ray start
      * @Vector the direction of the ray
      */
@@ -24,8 +23,7 @@ public class Ray {
     }
 
     /**
-     * point p0 get
-     *
+     * getter for point p0
      * @return the point where the ray start
      */
     public Point getP0() {
