@@ -5,6 +5,8 @@ import primitives.*;
 public class PointLight extends Light implements LightSource {
 
     private Point position;
+
+    //attenuation's factors
     private Double3 kC = Double3.ONE;
     private Double3 kL = Double3.ZERO;
     private Double3 kQ = Double3.ZERO;
@@ -104,6 +106,7 @@ public class PointLight extends Light implements LightSource {
 
     /**
      * getL function
+     *
      * @param p value for the point
      * @return a new vector that represent the vector between Point p and position normalized
      */

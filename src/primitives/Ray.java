@@ -54,6 +54,11 @@ public class Ray {
         return p0.add(dir.scale(t));
     }
 
+    /**
+     * override function for equal
+     * @param o value for another object
+     * @return if the object is equal to this object or not
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,6 +67,10 @@ public class Ray {
         return Objects.equals(p0, ray.p0) && Objects.equals(dir, ray.dir);
     }
 
+    /**
+     * override function for toString
+     * @return toString for Ray
+     */
     @Override
     public String toString() {
         return "Ray{" +
@@ -70,6 +79,11 @@ public class Ray {
                 '}';
     }
 
+    /**
+     * function to find the closest point
+     * @param pointList list of geoPoint
+     * @return the closest point
+     */
    public GeoPoint findClosestPoint(List<Intersectable.GeoPoint> pointList){
         GeoPoint result = null;
 

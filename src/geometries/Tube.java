@@ -29,13 +29,17 @@ public class Tube extends Geometry
     }
 
     /**
-     * get functions
-     * @return axisRay
+     * getter for axisRay
+     * @return value of axisRay
      */
     public Ray getAxisRay() {
         return axisRay;
     }
 
+    /**
+     * radius's getter
+     * @return value of the radius
+     */
     public double getRadius() {
         return radius;
     }
@@ -54,7 +58,7 @@ public class Tube extends Geometry
 
     /**
      * override the getNormal for tube
-     * @param point point
+     * @param point value for point
      * @return the normal of the tube in this point
      */
     @Override
