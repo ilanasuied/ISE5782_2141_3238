@@ -25,6 +25,12 @@ public class RayTracerBasic extends RayTracer{
         return result;
     }
 
+    /**
+     * this function calculate the local effects on the color
+     * @param intersection a geoPoint value for ..................
+     * @param ray the ray that ...................................
+     * @return the correct color after all the calculating
+     */
     private Color calcLocalEffects(GeoPoint intersection, Ray ray) {
         Vector v = ray.getDir ();
         Vector n = intersection.geometry.getNormal(intersection.point);//a voirrrrrrrrrrrrrrrrrrrrrrr
@@ -45,6 +51,11 @@ public class RayTracerBasic extends RayTracer{
         return color;
     }
 
+    /**
+     * function that check the color of the closest point that the ray come in interaction with
+     * @param ray value for a ray
+     * @return the color of the closest point
+     */
     @Override
     public Color traceRay(Ray ray) {
 
