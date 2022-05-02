@@ -52,6 +52,21 @@ public class RayTracerBasic extends RayTracer{
     }
 
     /**
+     * this function calculate the diffusive light
+     * @param kd
+     * @param l
+     * @param n
+     * @param lightIntensity
+     * @return
+     */
+    private Color calcDiffusive(double kd, Vector l, Vector n, Color lightIntensity) {
+        double ln = l.dotProduct(n);
+        // r = l - 2 * (l * n) * n
+        Vector r = ((n.scale(ln)).scale(2d)).subtract(l);
+        Color diffusive = new Color();
+    }
+
+    /**
      * function that check the color of the closest point that the ray come in interaction with
      * @param ray value for a ray
      * @return the color of the closest point
