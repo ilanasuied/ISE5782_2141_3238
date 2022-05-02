@@ -44,7 +44,7 @@ public class Point {
     /**
      * function for adding
      *
-     * @param vector
+     * @param vector value for vector
      * @return new point that represent the addition of a vector and a point
      */
     public Point add(Vector vector) {

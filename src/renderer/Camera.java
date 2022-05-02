@@ -221,7 +221,12 @@ public class Camera {
             return camera;
         }
 
-        //camera build constructor
+        /**
+         * buildCamera's constructor
+         * @param p0 value for point
+         * @param vTo value for vector direction to
+         * @param vUp value for vector direction up
+         */
         public BuilderCamera(Point p0, Vector vTo, Vector vUp) {
             _p0 = p0;
 
@@ -259,6 +264,12 @@ public class Camera {
             return this;
         }
 
+        /**
+         * setter for view plane width and hight
+         * @param width value for the vp's width
+         * @param height value for vp's hieght
+         * @return this object
+         */
         public BuilderCamera setVPSize(int width, int height) {
             this._width = width;
             this._height = height;

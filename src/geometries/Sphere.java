@@ -24,18 +24,18 @@ public class Sphere extends Geometry {
 
 
     /**
-     * getter
+     * getter for center
      *
-     * @return point
+     * @return center's point
      */
     public Point getCenter() {
         return _center;
     }
 
     /**
-     * getter
+     * getter for radius
      *
-     * @return double
+     * @return radius
      */
     public double getRadius() {
         return radius;
@@ -58,7 +58,7 @@ public class Sphere extends Geometry {
     /**
      * function to get the normal of the sphere
      *
-     * @param point
+     * @param point value for point
      * @return the normal of the sphere
      */
     @Override

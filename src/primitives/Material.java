@@ -1,8 +1,11 @@
 package primitives;
 
 public class Material {
+
+    //attenuation's factors
     private Double3 kd = Double3.ZERO;
     private Double3 ks = Double3.ZERO;
+
     private int shininess = 0;
 
     /**
