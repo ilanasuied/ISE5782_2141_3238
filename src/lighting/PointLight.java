@@ -31,7 +31,8 @@ public class PointLight extends Light implements LightSource {
         this.kC = kC;
         return this;
     }
- /**
+
+    /**
      * kc's setter
      *
      * @param kC value for attenuation
@@ -52,7 +53,8 @@ public class PointLight extends Light implements LightSource {
         this.kL = kL;
         return this;
     }
- /**
+
+    /**
      * kL's setter
      *
      * @param kL value for the attenuation
@@ -73,7 +75,8 @@ public class PointLight extends Light implements LightSource {
         this.kQ = kQ;
         return this;
     }
-  /**
+
+    /**
      * kQ's setter
      *
      * @param kQ value for the attenuation
@@ -95,15 +98,14 @@ public class PointLight extends Light implements LightSource {
     public Color getIntensity(Point p) {
         double d = position.distance(p);
         double dquadric = position.distanceSquared(p);
-        Color intensity =  getIntensity();
-        return  intensity.reduce(kC.add(kL.scale(d).add(kQ.scale(dquadric))));
+        Color intensity = getIntensity();
+        return intensity.reduce(kC.add(kL.scale(d).add(kQ.scale(dquadric))));
     }
 
     /**
      * getL function
-     *
      * @param p value for the point
-     * @return a new vector that represent something..........................
+     * @return a new vector that represent the vector between Point p and position normalized
      */
     @Override
     public Vector getL(Point p) {
