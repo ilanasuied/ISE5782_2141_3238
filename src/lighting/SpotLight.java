@@ -20,6 +20,9 @@ public class SpotLight extends PointLight{
     }
 
     @Override
+    /**
+     * getter for Intensity of spotLight
+     */
     public Color getIntensity(Point p) {
         Color pointIntensity = super.getIntensity(p);
         Vector l = getL(p);
