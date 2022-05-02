@@ -22,7 +22,7 @@ public class DirectionalLight extends Light implements LightSource {
     /**
      * getter function for intensity
      */
-    public Color getIntesity(Point p){
+    public Color getIntensity(Point p){
         return super.getIntensity();
         //new Color(getIntensity);
     }

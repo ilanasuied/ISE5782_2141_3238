@@ -1,18 +1,19 @@
 package lighting;
 
-import primitives.Color;
-import primitives.Point;
-import primitives.Vector;
+import primitives.*;
 
-public class PointLight extends Light implements LightSource{
+public class PointLight extends Light implements LightSource {
 
     private Point position;
-    private  double kC=1, kL=0, kQ=0;
+    private Double3 kC = Double3.ONE;
+    private Double3 kL = Double3.ZERO;
+    private Double3 kQ = Double3.ZERO;
 
     /**
      * PointLight's constructor
+     *
      * @param intensity value for the intensity color
-     * @param position value for the point
+     * @param position  value for the point
      */
     public PointLight(Color intensity, Point position) {
         super(intensity);
@@ -22,53 +23,91 @@ public class PointLight extends Light implements LightSource{
 
     /**
      * kc's setter
+     *
      * @param kC value for attenuation
      * @return the object with the correct values
      */
-    public PointLight setkC(double kC) {
+    public PointLight setKc(Double3 kC) {
         this.kC = kC;
+        return this;
+    }
+ /**
+     * kc's setter
+     *
+     * @param kC value for attenuation
+     * @return the object with the correct values
+     */
+    public PointLight setKc(double kC) {
+        this.kC = new Double3(kC);
         return this;
     }
 
     /**
      * kL's setter
+     *
      * @param kL value for the attenuation
      * @return this object with the correct values
      */
-    public PointLight setkL(double kL) {
+    public PointLight setKl(Double3 kL) {
         this.kL = kL;
+        return this;
+    }
+ /**
+     * kL's setter
+     *
+     * @param kL value for the attenuation
+     * @return this object with the correct values
+     */
+    public PointLight setKl(double kL) {
+        this.kL = new Double3(kL);
         return this;
     }
 
     /**
      * kQ's setter
+     *
      * @param kQ value for the attenuation
      * @return this object with the correct values;
      */
-    public PointLight setkQ(double kQ) {
+    public PointLight setKq(Double3 kQ) {
         this.kQ = kQ;
+        return this;
+    }
+  /**
+     * kQ's setter
+     *
+     * @param kQ value for the attenuation
+     * @return this object with the correct values;
+     */
+    public PointLight setKq(double kQ) {
+        this.kQ = new Double3(kQ);
         return this;
     }
 
     /**
      * getter for the intensity
      * this override function calls his super
+     *
      * @param p value for the point
      * @return what returned from his super
      */
     @Override
-    public Color getIntesity(Point p) {
-        return super.getIntensity();
+    public Color getIntensity(Point p) {
+        double d = position.distance(p);
+        double dquadric = position.distanceSquared(p);
+        Color intensity =  getIntensity();
+        return  intensity.reduce(kC.add(kL.scale(d).add(kQ.scale(dquadric))));
     }
 
     /**
      * getL function
+     *
      * @param p value for the point
      * @return a new vector that represent something..........................
      */
     @Override
     public Vector getL(Point p) {
-        return new Vector(this.kC,this.kL,this.kQ);
+        return position.subtract(p).normalize();
     }
 
 
