@@ -2,10 +2,7 @@ package renderer;
 
 import geometries.Intersectable.GeoPoint;
 import lighting.LightSource;
-import primitives.Color;
-import primitives.Double3;
-import primitives.Ray;
-import primitives.Vector;
+import primitives.*;
 import scene.Scene;
 
 import java.util.List;
@@ -16,6 +13,33 @@ import static primitives.Util.alignZero;
  * RayTracerBasic extends RayTracer calculate color and global effect
  */
 public class RayTracerBasic extends RayTracer {
+
+    private static final double DELTA = 0.1;  //constant to move shadow's rays's head
+
+    /**
+     * function to check unshaded places between a point and the light source
+     * @param gp value for geoPoint
+     * @param l vector of the light
+     * @param n the normal
+     * @return if the area is shaded or not
+     */
+    private boolean unshaded(GeoPoint gp, LightSource light, Vector l, Vector n, double nv)
+    {
+        Vector lightDirection = l.scale(-1); // from point to light source
+        Vector epsVector = n.scale(nv < 0 ? DELTA : -DELTA);
+        Point point = gp.point.add(epsVector);
+        Ray lightRay = new Ray(point, lightDirection);
+        List<GeoPoint> intersections = scene.getGeometries().findIntersections(lightRay);
+        if (intersections == null) return true;
+        //if there are points in the intersections list that are closer to the point
+        // than light source – return false
+        //otherwise – return true
+    }
+
+
+
+
+}
 
     /**
      * RayTracerBasic's construct
