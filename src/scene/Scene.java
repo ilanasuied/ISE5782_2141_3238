@@ -9,39 +9,47 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- *  Scene or holding all the objects involved
- *  using Builder Pattern
+ * Scene or holding all the objects involved
+ * using Builder Pattern
  */
 public class Scene {
 
     private final String name;
     private final Color background;
-    private final AmbientLight ambientLight;
+    private AmbientLight ambientLight;
     private final Geometries geometries;
-    public List<LightSource> lights=new LinkedList<>();
+    public List<LightSource> lights;
 
 
     /**
      * private default constructor for scene by the builder scene
+     *
      * @param builder scene
      */
-    private Scene(SceneBuilder builder){
+    private Scene(SceneBuilder builder) {
         name = builder.name;
         background = builder.background;
         ambientLight = builder.ambientLight;
         geometries = builder.geometries;
+        lights= builder.lights;
     }
 
     /**
      * name's getter
+     *
      * @return name of this object
      */
     public String getName() {
         return name;
     }
 
+    public Scene setAmbientLight(AmbientLight ambientLight){
+        this.ambientLight= ambientLight;
+        return this;
+    }
     /**
      * color's getter
+     *
      * @return color of this object
      */
     public Color getBackground() {
@@ -50,6 +58,7 @@ public class Scene {
 
     /**
      * AmbientLight's getter
+     *
      * @return AmbientLight of this object
      */
     public AmbientLight getAmbientLight() {
@@ -65,16 +74,18 @@ public class Scene {
         return this;
     }
 
+
 // ================================= Builder Class for scene ===============================
 
     public static class SceneBuilder {
 
         private final String name;
+        public List<LightSource> lights = new LinkedList<>();
         private Color background = Color.BLACK;
         private AmbientLight ambientLight = new AmbientLight();
         private Geometries geometries = new Geometries();
 
-        public SceneBuilder(String name){
+        public SceneBuilder(String name) {
             this.name = name;
         }
 
@@ -96,7 +107,7 @@ public class Scene {
         }
 
         // build
-        public Scene build(){
+        public Scene build() {
             Scene scene = new Scene(this);
             //....
             return scene;
