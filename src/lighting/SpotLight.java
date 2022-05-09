@@ -28,11 +28,17 @@ public class SpotLight extends PointLight{
         return  pointIntensity.scale(factor);
     }
 
-    @Override
+
+
     /**
-     * implement method to get distance between the point and ray's head
+     * override function for getDistance,this function use his super's function
+     *
+     * @param point value for point
+     * @return the distance
      */
-    public double getDistance(Double3 point) {
+    @Override
+    public double getDistance(Point point) {
         return super.getDistance(point);
     }
 }
+

@@ -1,9 +1,6 @@
 package lighting;
 
-import primitives.Color;
-import primitives.Double3;
-import primitives.Point;
-import primitives.Vector;
+import primitives.*;
 
 public class DirectionalLight extends Light implements LightSource {
 
@@ -11,6 +8,7 @@ public class DirectionalLight extends Light implements LightSource {
 
     /**
      * primary constructor for directional light
+     *
      * @param _intensity value for the intensity of the light
      * @param _direction value for the diection of the light
      */
@@ -23,7 +21,7 @@ public class DirectionalLight extends Light implements LightSource {
     /**
      * getter function for intensity
      */
-    public Color getIntensity(Point p){
+    public Color getIntensity(Point p) {
         return super.getIntensity();
         //new Color(getIntensity);
     }
@@ -32,18 +30,19 @@ public class DirectionalLight extends Light implements LightSource {
     /**
      * getter function for getL
      */
-    public Vector getL(Point p)
-    {
+    public Vector getL(Point p) {
         return direction;
     }
 
 
-    @Override
     /**
-     * implement method to get distance
+     * this method return the positive infinity as distance
+     *
+     * @param point value for point
+     * @return the positive infinity
      */
-    public double getDistance(Double3 point) {
-        ////
+    @Override
+    public double getDistance(Point point) {
         return Double.POSITIVE_INFINITY;
     }
 }

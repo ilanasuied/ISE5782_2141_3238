@@ -19,32 +19,32 @@ public class RayTracerBasic extends RayTracer {
 
     /**
      * function to check unshaded places between a point and the light source
+     *
      * @param gp value for geo point
-     * @param l vector of the light
-     * @param n value for the normal
-     * @param nv
+     * @param l  vector of the light
+     * @param n  value for the normal
+     * @param nv dot product of the normal vector and light vector
      * @return if the area is unshaded or not
      */
-    private boolean unshaded(GeoPoint gp, LightSource lightSource, Vector l, Vector n, double nv)
-    {
+    private boolean unshaded(GeoPoint gp, LightSource lightSource, Vector l, Vector n, double nv) {
         Vector lightDirection = l.scale(-1); // from point to light source
         Vector deltaVector = n.scale(nv < 0 ? DELTA : -DELTA);
         Point point = gp.point.add(deltaVector);
         Ray lightRay = new Ray(point, lightDirection);
 
-        List<GeoPoint> intersections = scene.getGeometries().findGeoIntersectionsHelper(lightRay);
-        if (intersections == null)
-            return true;
-        else {
-            //if there are points in the intersections list that are closer to the point than light source
-            // – return false
-            if () {
-
+        List<GeoPoint> intersections = scene.getGeometries().findGeoIntersections(lightRay);
+        if (intersections != null) //if there are points in the intersections list that are closer to the point than light source, return false
+        {
+            double dis = lightSource.getDistance(point); //the distance between the point and the ray's head
+            for (GeoPoint var : intersections) {
+                if (var.point.distance(point) < dis)
+                    return false;
             }
         }
-//
-    }
+        //else return true
+        return true;
 
+    }
 
 
     /**
@@ -61,7 +61,7 @@ public class RayTracerBasic extends RayTracer {
      * a methods that calculate color of a point
      *
      * @param geoPoint the value for geoPoint
-     * @param ray value Ray
+     * @param ray      value Ray
      * @return the correct color all the calculus
      */
     private Color calcColor(GeoPoint geoPoint, Ray ray) {
@@ -76,7 +76,7 @@ public class RayTracerBasic extends RayTracer {
      * this function calculate the local effects on the color
      *
      * @param intersection a geoPoint value for point intersected
-     * @param ray value for the ray
+     * @param ray          value for the ray
      * @return the correct color after all the calculating
      */
     private Color calcLocalEffects(GeoPoint intersection, Ray ray) {
@@ -101,7 +101,7 @@ public class RayTracerBasic extends RayTracer {
             double nl = alignZero(n.dotProduct(l));
 
             if (nl * nv > 0) { // sign(nl) == sign(nv)
-                if (unshaded(intersection,lightSource, l, n, nv)){
+                if (unshaded(intersection, lightSource, l, n, nv)) {
                     Color lightIntensity = lightSource.getIntensity(intersection.point);
                     color = color.add(calcDiffusive(kd, nl, lightIntensity),
                             calcSpecular(ks, l, n, nl, v, nShininess, lightIntensity));
@@ -114,12 +114,12 @@ public class RayTracerBasic extends RayTracer {
 
 
     /**
-     * @param ks factor of the diffusion
-     * @param l vector of the light
-     * @param n the normal
-     * @param nl the dot product between the light and the normal
-     * @param v the vector of the direction
-     * @param nShininess value of the shininess
+     * @param ks             factor of the diffusion
+     * @param l              vector of the light
+     * @param n              the normal
+     * @param nl             the dot product between the light and the normal
+     * @param v              the vector of the direction
+     * @param nShininess     value of the shininess
      * @param lightIntensity the color of the intensity
      * @return the final color of lightIntensity
      */
@@ -136,8 +136,9 @@ public class RayTracerBasic extends RayTracer {
 
     /**
      * this function calculate the diffusive light
-     * @param kd value for diffusing factor
-     * @param nl the dot product between the normal and l
+     *
+     * @param kd             value for diffusing factor
+     * @param nl             the dot product between the normal and l
      * @param lightIntensity value of the color
      * @return the diffusing factor
      */
