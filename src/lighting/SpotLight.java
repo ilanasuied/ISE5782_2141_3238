@@ -27,4 +27,12 @@ public class SpotLight extends PointLight{
         double factor = Math.max(0,direction.dotProduct(l));
         return  pointIntensity.scale(factor);
     }
+
+    @Override
+    /**
+     * implement method to get distance between the point and ray's head
+     */
+    public double getDistance(Double3 point) {
+        return super.getDistance(point);
+    }
 }
