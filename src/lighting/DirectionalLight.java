@@ -1,6 +1,7 @@
 package lighting;
 
 import primitives.Color;
+import primitives.Double3;
 import primitives.Point;
 import primitives.Vector;
 
@@ -36,4 +37,13 @@ public class DirectionalLight extends Light implements LightSource {
         return direction;
     }
 
+
+    @Override
+    /**
+     * implement method to get distance
+     */
+    public double getDistance(Double3 point) {
+        ////
+        return Double.POSITIVE_INFINITY;
+    }
 }

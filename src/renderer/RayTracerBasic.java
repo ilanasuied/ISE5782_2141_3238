@@ -1,6 +1,7 @@
 package renderer;
 
 import geometries.Intersectable.GeoPoint;
+import geometries.Triangle;
 import lighting.LightSource;
 import primitives.*;
 import scene.Scene;
@@ -14,32 +15,37 @@ import static primitives.Util.alignZero;
  */
 public class RayTracerBasic extends RayTracer {
 
-    private static final double DELTA = 0.1;  //constant to move shadow's rays's head
+    private static final double DELTA = 0.1;  //constant to move shadow's rays head
 
     /**
      * function to check unshaded places between a point and the light source
-     * @param gp value for geoPoint
+     * @param gp value for geo point
      * @param l vector of the light
-     * @param n the normal
-     * @return if the area is shaded or not
+     * @param n value for the normal
+     * @param nv
+     * @return if the area is unshaded or not
      */
-    private boolean unshaded(GeoPoint gp, LightSource light, Vector l, Vector n, double nv)
+    private boolean unshaded(GeoPoint gp, LightSource lightSource, Vector l, Vector n, double nv)
     {
         Vector lightDirection = l.scale(-1); // from point to light source
-        Vector epsVector = n.scale(nv < 0 ? DELTA : -DELTA);
-        Point point = gp.point.add(epsVector);
+        Vector deltaVector = n.scale(nv < 0 ? DELTA : -DELTA);
+        Point point = gp.point.add(deltaVector);
         Ray lightRay = new Ray(point, lightDirection);
-        List<GeoPoint> intersections = scene.getGeometries().findIntersections(lightRay);
-        if (intersections == null) return true;
-        //if there are points in the intersections list that are closer to the point
-        // than light source – return false
-        //otherwise – return true
+
+        List<GeoPoint> intersections = scene.getGeometries().findGeoIntersectionsHelper(lightRay);
+        if (intersections == null)
+            return true;
+        else {
+            //if there are points in the intersections list that are closer to the point than light source
+            // – return false
+            if () {
+
+            }
+        }
+//
     }
 
 
-
-
-}
 
     /**
      * RayTracerBasic's construct
@@ -76,7 +82,7 @@ public class RayTracerBasic extends RayTracer {
     private Color calcLocalEffects(GeoPoint intersection, Ray ray) {
 
         Vector v = ray.getDir();
-        Vector n = intersection.geometry.getNormal(intersection.point);//a voirrrrrrr c'est le normal
+        Vector n = intersection.geometry.getNormal(intersection.point);//the normal
         double nv = alignZero(n.dotProduct(v));
 
         // if nv is equal to zero we have to return the background
@@ -95,17 +101,19 @@ public class RayTracerBasic extends RayTracer {
             double nl = alignZero(n.dotProduct(l));
 
             if (nl * nv > 0) { // sign(nl) == sign(nv)
-                Color lightIntensity = lightSource.getIntensity(intersection.point);
-                color = color.add(calcDiffusive(kd, nl, lightIntensity),
-                        calcSpecular(ks, l, n, nl, v, nShininess, lightIntensity));
+                if (unshaded(intersection,lightSource, l, n, nv)){
+                    Color lightIntensity = lightSource.getIntensity(intersection.point);
+                    color = color.add(calcDiffusive(kd, nl, lightIntensity),
+                            calcSpecular(ks, l, n, nl, v, nShininess, lightIntensity));
+                }
             }
         }
         //return the correct color
         return color;
     }
 
+
     /**
-     *
      * @param ks factor of the diffusion
      * @param l vector of the light
      * @param n the normal
@@ -125,9 +133,9 @@ public class RayTracerBasic extends RayTracer {
         return lightIntensity.scale(factor);
     }
 
+
     /**
      * this function calculate the diffusive light
-     *
      * @param kd value for diffusing factor
      * @param nl the dot product between the normal and l
      * @param lightIntensity value of the color
