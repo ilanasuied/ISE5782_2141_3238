@@ -47,6 +47,8 @@ public class Scene {
         this.ambientLight= ambientLight;
         return this;
     }
+
+
     /**
      * color's getter
      *
@@ -55,6 +57,7 @@ public class Scene {
     public Color getBackground() {
         return background;
     }
+
 
     /**
      * AmbientLight's getter

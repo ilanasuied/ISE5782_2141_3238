@@ -30,13 +30,14 @@ public class SpotLight extends PointLight{
 
 
 
+
+    @Override
     /**
      * override function for getDistance,this function use his super's function
      *
      * @param point value for point
      * @return the distance
      */
-    @Override
     public double getDistance(Point point) {
         return super.getDistance(point);
     }
