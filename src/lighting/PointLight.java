@@ -11,9 +11,9 @@ public class PointLight extends Light implements LightSource {
     private Double3 kL = Double3.ZERO;
     private Double3 kQ = Double3.ZERO;
 
+
     /**
      * PointLight's constructor
-     *
      * @param intensity value for the intensity color
      * @param position  value for the point
      */
@@ -23,9 +23,9 @@ public class PointLight extends Light implements LightSource {
     }
 
 
+
     /**
      * kc's setter
-     *
      * @param kC value for attenuation
      * @return the object with the correct values
      */
@@ -34,9 +34,9 @@ public class PointLight extends Light implements LightSource {
         return this;
     }
 
+
     /**
      * kc's setter
-     *
      * @param kC value for attenuation
      * @return the object with the correct values
      */
@@ -45,9 +45,9 @@ public class PointLight extends Light implements LightSource {
         return this;
     }
 
+
     /**
      * kL's setter
-     *
      * @param kL value for the attenuation
      * @return this object with the correct values
      */
@@ -56,9 +56,9 @@ public class PointLight extends Light implements LightSource {
         return this;
     }
 
+
     /**
      * kL's setter
-     *
      * @param kL value for the attenuation
      * @return this object with the correct values
      */
@@ -67,9 +67,9 @@ public class PointLight extends Light implements LightSource {
         return this;
     }
 
+
     /**
      * kQ's setter
-     *
      * @param kQ value for the attenuation
      * @return this object with the correct values;
      */
@@ -78,9 +78,9 @@ public class PointLight extends Light implements LightSource {
         return this;
     }
 
+
     /**
      * kQ's setter
-     *
      * @param kQ value for the attenuation
      * @return this object with the correct values;
      */
@@ -89,14 +89,14 @@ public class PointLight extends Light implements LightSource {
         return this;
     }
 
+
+    @Override
     /**
      * getter for the intensity
      * this override function calls his super
-     *
      * @param p value for the point
      * @return what returned from his super
      */
-    @Override
     public Color getIntensity(Point p) {
         double d = position.distance(p);
         double dquadric = position.distanceSquared(p);
@@ -104,25 +104,25 @@ public class PointLight extends Light implements LightSource {
         return intensity.reduce(kC.add(kL.scale(d).add(kQ.scale(dquadric))));
     }
 
+
+    @Override
     /**
      * getL function
-     *
      * @param p value for the point
      * @return a new vector that represent the vector between Point p and position normalized
      */
-    @Override
     public Vector getL(Point p) {
         return position.subtract(p).normalize();
     }
 
 
+
+    @Override
     /**
      * override function for getDistance
-     *
      * @param point value for point
      * @return the distance
      */
-    @Override
     public double getDistance(Point point) {
         return position.distance(point);
     }

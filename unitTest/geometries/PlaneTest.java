@@ -120,7 +120,7 @@ class PlaneTest {
                 "Must not be plane intersection");
 
         // TC17: Ray from plane's Q point
-        assertNull(pl.findIntersections(new Ray(new Point(0, 0, 1), new Vector(1, 1, 0))),
+        assertNull(pl.findIntersections(new Ray(new Point(0, 1, 0), new Vector(1, 0, 1))),
                 "Must not be plane intersection");
 
     }
