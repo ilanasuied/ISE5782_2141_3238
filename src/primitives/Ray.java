@@ -14,6 +14,7 @@ public class Ray {
 
     /**
      * ray constructor
+     *
      * @Point the point from where the ray start
      * @Vector the direction of the ray
      */
@@ -24,6 +25,7 @@ public class Ray {
 
     /**
      * getter for point p0
+     *
      * @return the point where the ray start
      */
     public Point getP0() {
@@ -56,6 +58,7 @@ public class Ray {
 
     /**
      * override function for equal
+     *
      * @param o value for another object
      * @return if the object is equal to this object or not
      */
@@ -69,6 +72,7 @@ public class Ray {
 
     /**
      * override function for toString
+     *
      * @return toString for Ray
      */
     @Override
@@ -81,23 +85,31 @@ public class Ray {
 
     /**
      * function to find the closest point
+     *
      * @param pointList list of geoPoint
      * @return the closest point
      */
-   public GeoPoint findClosestPoint(List<Intersectable.GeoPoint> pointList){
+    public GeoPoint findClosestPoint(List<Intersectable.GeoPoint> pointList) {
         GeoPoint result = null;
 
         double minDistance = Double.MAX_VALUE;
         double ptDistance;
 
-        for (GeoPoint geoPoint : pointList ) {
-            ptDistance = geoPoint.point.distanceSquared(p0);
-            if( ptDistance < minDistance){
-                minDistance = ptDistance;
-                result =geoPoint;
+        //check that pointList isn't null
+        if(pointList!=null) {
+            //for each item in the list
+            for (GeoPoint geoPoint : pointList) {
+                ptDistance = geoPoint.point.distanceSquared(p0);
+                //check if this the smallest distance
+                if (ptDistance < minDistance) {
+                    minDistance = ptDistance;
+                    //result become the geoPoint with the smallest distance
+                    result = geoPoint;
+                }
             }
         }
-
+        //return result
+        //if pintList is null -> return null
         return result;
     }
 }

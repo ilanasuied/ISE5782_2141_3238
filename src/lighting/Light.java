@@ -1,6 +1,6 @@
 package lighting;
 
-import primitives.Color;
+import primitives.*;
 
 abstract class Light {
     private Color intensity;
