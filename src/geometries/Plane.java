@@ -72,13 +72,15 @@ public class Plane extends Geometry{
         return getNormal();
     }
 
+
     /**
      *
      * @param ray Ray pointing towards the graphic object
+     * @param maxdistance the distance between ray's head and a point
      * @return a list of all the intersections with the object and if there isn't return  null
      */
     @Override
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxdistance) {
         Point P0 = ray.getP0();
         Vector v = ray.getDir();
         Vector n = normal;

@@ -47,11 +47,38 @@ public abstract class Intersectable {
         return  geoList == null ? null
                 : geoList.stream().map(gp -> gp.point).toList();
     }
-   public final List<GeoPoint> findGeoIntersections(Ray ray){
-        return  findGeoIntersectionsHelper(ray);
+
+
+    /**
+     * function that find intersection between the ray and a point at infinity
+     * @param ray value for the ray
+     * @return a list of intersections's points
+     */
+    public final List<GeoPoint> findGeoIntersections(Ray ray) {
+        return findGeoIntersections(ray, Double.POSITIVE_INFINITY);
     }
 
-   protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray);
+
+    /**
+     * function that finds intersections and receive parametre of maximum distance
+     * @param ray value for the ray
+     * @param maxDistance max distance between a point and ray's head
+     * @return a list of intersections's points
+     */
+    public final List<GeoPoint> findGeoIntersections(Ray ray, double maxDistance) {
+        return findGeoIntersectionsHelper(ray, maxDistance);
+    }
+
+
+
+    /**
+     * abstract function helper to find intersections
+     * @param ray
+     * @param maxDistance
+     * @return
+     */
+    protected abstract List<GeoPoint>
+    findGeoIntersectionsHelper(Ray ray, double maxDistance);
 
 
 }

@@ -47,10 +47,10 @@ public class Geometries extends Intersectable {
      * have access to the element i in the list, we just pass on the whole list.
      * so it's a better choice
      */
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxdistance) {
         List<GeoPoint> result = null;
         for (Intersectable item :_intersectables ) {
-            List<GeoPoint> itemPointsList = item.findGeoIntersectionsHelper(ray);
+            List<GeoPoint> itemPointsList = item.findGeoIntersectionsHelper(ray, maxdistance);
             if( itemPointsList != null){
                 if(result== null){
                     result = new LinkedList<>();

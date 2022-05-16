@@ -101,6 +101,6 @@ public class Tube extends Geometry
     /**
      * function to find intersections
      */
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {return null;
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxdistance) {return null;
     }
 }
