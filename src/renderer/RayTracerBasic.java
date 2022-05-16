@@ -1,7 +1,6 @@
 package renderer;
 
 import geometries.Intersectable.GeoPoint;
-import geometries.Triangle;
 import lighting.LightSource;
 import primitives.*;
 import scene.Scene;
@@ -57,7 +56,7 @@ public class RayTracerBasic extends RayTracer {
         }
         //return the color
         return result;
-//        GeoPoint closestPoint = findClosestIntersection(ray);
+ //      GeoPoint closestPoint = findClosestIntersection(ray);
 //        return calcColor(closestPoint, ray);
     }
 
@@ -80,7 +79,7 @@ public class RayTracerBasic extends RayTracer {
         Double3 kr = material.getKr();
         Double3 kkr = kr.product(k);
         if (!kkr.lowerThan(MIN_CALC_COLOR_K)) {
-            color = calcGlobalEffect(constructReflectedRay(n, intersection.point, v),level, material.getKr(), kkr);
+            color = calcGlobalEffect(constructReflectedRay( intersection.point, v,n),level, material.getKr(), kkr);
         }
         Double3 kt = material.getKt();
         Double3 kkt = kt.product(k);
@@ -173,8 +172,8 @@ public class RayTracerBasic extends RayTracer {
                 Double3 ktr = transparency(lightSource, l, n, intersection, nv);
                 if (!ktr.product(k).lowerThan(MIN_CALC_COLOR_K )) {
                     Color lightIntensity = lightSource.getIntensity(intersection.point).scale(ktr);
-                    color = color.add(lightIntensity.scale(calcDiffusive(kd, nl, lightIntensity)),
-                            lightIntensity.scale(calcSpecular(ks, l, n, nl, v, nShininess, lightIntensity));
+                     color = color.add(lightIntensity.add(calcDiffusive(kd, nl, lightIntensity)),//de base c'etait scale et pas add le 2eme mais ca marche pas
+                            lightIntensity.add(calcSpecular(ks, l, n, nl, v, nShininess, lightIntensity)));//la aussi c'etait pas add mais scale
                 }
             }
         }
@@ -202,12 +201,13 @@ public class RayTracerBasic extends RayTracer {
 
     /**
      * this function returns the specular factor of the light
-     * @param ks             factor of the diffusion
-     * @param l              vector of the light
-     * @param n              the normal
-     * @param nl             the dot product between the light and the normal
-     * @param v              the vector of the direction
-     * @param nShininess     value of the shininess
+     *
+     * @param ks factor of the diffusion
+     * @param l  vector of the light
+     * @param n  the normal
+     * @param nl the dot product between the light and the normal
+     * @param v  the vector of the direction
+     * @param nShininess value of the shininess
      * @param lightIntensity the color of the intensity
      * @return the final color of lightIntensity
      */
@@ -226,6 +226,7 @@ public class RayTracerBasic extends RayTracer {
 
     /**
      * this function calculate the diffusive light
+     *
      * @param kd value for diffusing factor
      * @param nl the dot product between the normal and l
      * @param lightIntensity value of the color
@@ -242,12 +243,13 @@ public class RayTracerBasic extends RayTracer {
 
     /**
      * function that construct the ray of the reflection
+     *
      * @param n value for the normal
      * @param gpPoint value for ray's head point
      * @param v is a direction unit vector of the ray to be reflected
      * @return the reflected ray
      */
-    public Ray constructReflectedRay(Vector n, Point gpPoint, Vector v) {
+    public Ray constructReflectedRay(Point gpPoint, Vector v,Vector n) {
         //𝒓 = v −2 ∙(v ∙n) ∙n
         double vn = v.dotProduct(n);
 
@@ -266,6 +268,7 @@ public class RayTracerBasic extends RayTracer {
 
     /**
      * function that construct the ray of the refraction
+     *
      * @param p value for the point
      * @param v value for direction
      * @param n value for normal
@@ -281,6 +284,7 @@ public class RayTracerBasic extends RayTracer {
 
     /**
      * function to check unshaded places between a point and the light source
+     *
      * @param gp value for geo point
      * @param l  vector of the light
      * @param n  value for the normal
@@ -312,6 +316,7 @@ public class RayTracerBasic extends RayTracer {
 
     /**
      * function to calculate the transparency
+     *
      * @param light value for the light source
      * @param l value for the vector of the direction
      * @param n value for the normal

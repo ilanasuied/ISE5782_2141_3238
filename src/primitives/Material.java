@@ -67,7 +67,7 @@ public class Material {
     /**
      * set transparency factor with Double3 type parameter
      * @param kT value for transparency factor / refraction
-     * @return Material kt
+     * @return this object with the correct values
      */
     public Material setKt(Double3 kT) {
         this.Kt = kT;
@@ -87,7 +87,7 @@ public class Material {
     /**
      * set reflection factor with Double3 type parameter
      * @param kr value for reflection factor
-     * @return Material kr
+     * @return this object with the correct values
      */
     public Material setKr(Double3 kr) {
         this.Kr = kr;
