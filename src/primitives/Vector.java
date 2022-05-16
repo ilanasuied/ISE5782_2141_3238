@@ -13,8 +13,7 @@ public class Vector extends Point
     public Vector(double x, double y, double z)
     {
         super(x,y,z);
-        if(isZero(x)&& isZero(y)&& isZero(z))
-        {
+        if(_xyz.equals(Point.ZERO))  {
             throw  new IllegalArgumentException(" ZERO vector not allowed");
         }
     }
@@ -97,12 +96,7 @@ public class Vector extends Point
      */
    public Vector scale(double scaleFactor)
    {
-       if (isZero(scaleFactor))
-       {
-           throw  new IllegalArgumentException("scale resulting by 0 not valid");
-       }
-       Double3 coordinates = new Double3(_xyz.d1 * scaleFactor, _xyz.d2 * scaleFactor, _xyz.d3 * scaleFactor);
-       return new Vector(coordinates.d1,coordinates.d2,coordinates.d3);
+       return new Vector(this._xyz.scale(scaleFactor));
    }
 
     /**
@@ -112,16 +106,7 @@ public class Vector extends Point
      */
    public  Vector add (Vector v)
    {
-       Double3 coordinates = new Double3(
-               _xyz.d1 + v._xyz.d1,
-               _xyz.d2 + v._xyz.d2,
-               _xyz.d3 + v._xyz.d3
-               );
-       if(Double3.ZERO.equals(coordinates))
-       {
-           throw new IllegalArgumentException("add resulting ZERO vector not valid");
-       }
-       return new Vector(coordinates.d1,coordinates.d2,coordinates.d3);
+       return new Vector(_xyz.add(v._xyz));
    }
 
     /**

@@ -12,13 +12,14 @@ import java.util.List;
  */
 
 public class Geometries extends Intersectable {
-    private List <Intersectable> _intersectables = null;
+    private List<Intersectable> _intersectables = null;
 
     /**
      * constructor of Geometries
+     *
      * @param intersectables array of {@link Intersectable} objects
      */
-    public Geometries(Intersectable... intersectables){
+    public Geometries(Intersectable... intersectables) {
         _intersectables = new LinkedList<>();
         Collections.addAll(_intersectables, intersectables);
     }
@@ -26,11 +27,11 @@ public class Geometries extends Intersectable {
     /**
      * default constructor
      */
-    public Geometries(){
+    public Geometries() {
         _intersectables = new LinkedList<>();
     }
 
-    public void  add(Intersectable... intersectables) {
+    public void add(Intersectable... intersectables) {
         Collections.addAll(_intersectables, intersectables);
     }
 
@@ -40,7 +41,7 @@ public class Geometries extends Intersectable {
     }
 
 
-   @Override
+    @Override
     /**
      * function to find intersections between different geometries
      * we chose liked list because the cost for adding a value is O(1), and we don't need to
@@ -49,13 +50,15 @@ public class Geometries extends Intersectable {
      */
     public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxdistance) {
         List<GeoPoint> result = null;
-        for (Intersectable item :_intersectables ) {
-            List<GeoPoint> itemPointsList = item.findGeoIntersectionsHelper(ray, maxdistance);
-            if( itemPointsList != null){
-                if(result== null){
-                    result = new LinkedList<>();
+        if (_intersectables != null) {
+            for (Intersectable item : _intersectables) {
+                List<GeoPoint> itemPointsList = item.findGeoIntersectionsHelper(ray, maxdistance);
+                if (itemPointsList != null) {
+                    if (result == null) {
+                        result = new LinkedList<>();
+                    }
+                    result.addAll(itemPointsList);
                 }
-                result.addAll(itemPointsList);
             }
         }
         return result;

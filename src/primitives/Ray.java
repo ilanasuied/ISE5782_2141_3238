@@ -6,9 +6,12 @@ import geometries.Intersectable.GeoPoint;
 import java.util.List;
 import java.util.Objects;
 
+import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
 public class Ray {
+    private static final double DELTA = 0.1;  //constant to move rays head towards he normal vector
+
     final public Point p0;
     final public Vector dir;
 
@@ -21,6 +24,27 @@ public class Ray {
     public Ray(Point p0, Vector dir) {
         this.p0 = p0;
         this.dir = dir.normalize();
+    }
+
+    /**
+     * ray constructor
+     *
+     * @Point the point from where the ray start
+     * @Vector the direction of the ray
+     */
+    public Ray(Point p0, Vector dir, Vector n) {
+        this.dir = dir.normalize();
+
+        double vn = alignZero(dir.dotProduct(n));
+
+        Vector delta;
+        if (vn < 0) {
+            delta = n.scale(-DELTA);
+        } else {
+            delta = n.scale(DELTA);
+        }
+
+        this.p0 = p0.add(delta);
     }
 
     /**
@@ -50,24 +74,32 @@ public class Ray {
      * @return p0 + the parameter t
      */
     public Point getPoint(double t) {
-        if (isZero(t)) {
-            return p0;
+        Point result = p0;
+        Vector target;
+
+        if (!isZero(t)) {
+             try {
+                target = dir.scale(t);
+                result = result.add(target);
+             } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        return p0.add(dir.scale(t));
+
+        return result;
     }
 
-    /**
-     * override function for equal
-     *
-     * @param o value for another object
-     * @return if the object is equal to this object or not
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Ray)) return false;
         Ray ray = (Ray) o;
-        return Objects.equals(p0, ray.p0) && Objects.equals(dir, ray.dir);
+        return getP0().equals(ray.getP0()) && getDir().equals(ray.getDir());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getP0(), getDir());
     }
 
     /**
@@ -89,14 +121,14 @@ public class Ray {
      * @param pointList list of geoPoint
      * @return the closest point
      */
-    public GeoPoint findClosestPoint(List<Intersectable.GeoPoint> pointList) {
+    public GeoPoint findClosestPoint(List<GeoPoint> pointList) {
         GeoPoint result = null;
 
         double minDistance = Double.MAX_VALUE;
         double ptDistance;
 
         //check that pointList isn't null
-        if(pointList!=null) {
+        if (pointList != null) {
             //for each item in the list
             for (GeoPoint geoPoint : pointList) {
                 ptDistance = geoPoint.point.distanceSquared(p0);
