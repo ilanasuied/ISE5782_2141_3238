@@ -4,19 +4,22 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import java.util.List;
+
 import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
 
-public class Cylinder  extends Tube{
+public class Cylinder extends Tube {
 
     final double height;
 
     /**
      * cylinder constructor
-     * @param  axisRay value for the Ray
-     * @param radius value for the radius of the cylinder
-     * @param height value for the cylinder's height
+     *
+     * @param axisRay value for the Ray
+     * @param radius  value for the radius of the cylinder
+     * @param height  value for the cylinder's height
      */
     public Cylinder(Ray axisRay, double radius, double height) {
         super(axisRay, radius);
@@ -25,6 +28,7 @@ public class Cylinder  extends Tube{
 
     /**
      * get cylinder's height
+     *
      * @return height of the cylinder
      */
     public double getHeight() {
@@ -33,6 +37,7 @@ public class Cylinder  extends Tube{
 
     /**
      * override the function toString for cylinder
+     *
      * @return string
      */
     @Override
@@ -46,6 +51,7 @@ public class Cylinder  extends Tube{
 
     /**
      * override the getNormal function for cylinder
+     *
      * @param point point
      * @return the normal of the cylinder
      */
@@ -70,4 +76,5 @@ public class Cylinder  extends Tube{
         return o.subtract(point).normalize();
 
     }
+
 }
