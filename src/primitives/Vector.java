@@ -118,4 +118,13 @@ public class Vector extends Point
         double len = length();
         return this.scale (1d/len);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vector vector = (Vector) o;
+        return _xyz.equals(vector._xyz);
+    }
+
 }

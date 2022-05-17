@@ -10,19 +10,19 @@ class VectorTest {
     Vector v2 = new Vector(-2, -4, -6);
     Vector v3 = new Vector(0, 3, -2);
 
-    @Test
-    /**
-     * testing the {@link Vector#ConstructorNotZero}
-     * throws an exception if the vector is zero
-     */
-    void testConstructorZero()
-    {
-        assertThrows(
-                IllegalArgumentException.class,
-                ()->{new Vector(0,0,0);},
-                "ERROR: zero vector does not throw an exception");
-
-    }
+//    @Test
+//    /**
+//     * testing the {@link Vector#ConstructorNotZero}
+//     * throws an exception if the vector is zero
+//     */
+//    void testConstructorZero()
+//    {
+//        assertThrows(
+//                IllegalArgumentException.class,
+//                ()->{new Vector(0,0,0);},
+//                "ERROR: zero vector does not throw an exception");
+//
+//    }
 
 
     @Test
@@ -101,5 +101,24 @@ class VectorTest {
         assertThrows(IllegalArgumentException.class,
                 () -> v.crossProduct(u),
                 "normalized vector is not in the same direction");
-        assertEquals(new Vector(0.0, 0.6, 0.8),u, "wrong normalized vector");    }
+        assertEquals(new Vector(0.0, 0.6, 0.8),u, "wrong normalized vector");
+    }
+
+    @Test
+    void addtoZeroVector() {
+        Vector v1 = new Vector(1.0, 1.0, 1.0);
+        Vector v2 = new Vector(-1.0, -1.0, -1.0);
+
+        try {
+            v1 = v1.add(v2);
+        }
+        catch (IllegalArgumentException ex)
+        {
+            System.out.println(ex.getMessage());
+            assertTrue(true);
+            return;
+        }
+        assertFalse(true);
+    }
 }
+
