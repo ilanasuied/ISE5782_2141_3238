@@ -72,7 +72,6 @@ public class RayTracerBasic extends RayTracer {
             if (nl * nv > 0) { // sign(nl) == sign(nv)
                 Double3 ktr = transparency(lightSource, l, n, gp);
                 if (!ktr.product(k).lowerThan(MIN_CALC_COLOR_K)) {
-//                if (unshaded(gp, lightSource, l, n,nv)) {
                     Color iL = lightSource.getIntensity(point).scale(ktr);
                     color = color.add(
                             calcDiffusive(material.getKd(), nl,iL),
@@ -106,7 +105,7 @@ public class RayTracerBasic extends RayTracer {
         Ray lightRay = new Ray(point, n, lightDirection);
 
         double maxDistance = lightSource.getDistance(point);
-        List<GeoPoint> intersections = scene.getGeometries().findGeoIntersections(lightRay, maxDistance);
+        List<GeoPoint> intersections = scene.getGeometries().findGeoIntersections(lightRay);
 
         if (intersections == null)
             return Double3.ONE;
