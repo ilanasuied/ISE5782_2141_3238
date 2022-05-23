@@ -12,6 +12,7 @@ import static primitives.Util.isZero;
 
 public class RayTracerBasic extends RayTracer {
 
+    //those two methods will help us for the stop conditions in the recursion
     private static final double EPS = 0.1;
     private static final double MIN_CALC_COLOR_K = 0.001;
     private static final int MAX_CALC_COLOR_LEVEL = 10;
@@ -104,8 +105,8 @@ public class RayTracerBasic extends RayTracer {
         Point point = gp.point;
         Ray lightRay = new Ray(point, n, lightDirection);
 
-        double maxdistance = lightSource.getDistance(point);
-        List<GeoPoint> intersections = scene.getGeometries().findGeoIntersections(lightRay, maxdistance);
+        double maxDistance = lightSource.getDistance(point);
+        List<GeoPoint> intersections = scene.getGeometries().findGeoIntersections(lightRay, maxDistance);
 
         if (intersections == null)
             return Double3.ONE;
@@ -155,7 +156,7 @@ public class RayTracerBasic extends RayTracer {
             return null;
         }
 
-        Vector r = v.subtract(n.scale(2 * vn));
+        Vector r = n.scale(2 * vn).subtract(v);
         return new Ray(pointGeo, n, r);
     }
 
@@ -169,8 +170,8 @@ public class RayTracerBasic extends RayTracer {
         Point pointRay = gp.point.add(delta);
         Ray lightRay = new Ray(pointRay, lightDirection);
 
-        double maxdistance = lightSource.getDistance(gp.point);
-        List<GeoPoint> intersections = scene.getGeometries().findGeoIntersections(lightRay, maxdistance);
+        double maxDistance = lightSource.getDistance(gp.point);
+        List<GeoPoint> intersections = scene.getGeometries().findGeoIntersections(lightRay, maxDistance);
 
         return intersections == null;
     }

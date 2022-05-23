@@ -10,9 +10,6 @@ public class Material {
 
     private int shininess = 0;
 
-    //those two methods will help us for the stop conditions in the recursion
-    private static final int MAX_CALC_COLOR_LEVEL = 10;
-    private static final double MIN_CALC_COLOR_K = 0.001;
 
     /**
      * set diffuse factor/coefficient with double type parameter
