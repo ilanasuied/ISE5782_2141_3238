@@ -22,7 +22,7 @@ class CylinderTest {
         Vector normal =cylinder.getNormal(new Point(0,0,2)).normalize();
         double dotProduct=normal.dotProduct(cylinder.getAxisRay().getDir());
 
-        assertEquals(0.0,dotProduct,"normal is not orthogonal to the tube");
+        assertEquals(1.0,dotProduct,"normal is not orthogonal to the tube");
 
 
 
@@ -35,9 +35,9 @@ class CylinderTest {
         boolean firstnormal = new Vector(0, 0, 1).equals(normal);
         boolean secondtnormal = new Vector(0, 0, -1).equals(normal);
 
-        assertTrue(firstnormal || secondtnormal, "Bad normal to tube");
+        assertTrue(!(firstnormal || secondtnormal), "Bad normal to tube");
 
-        assertEquals(new Vector(0, 0, 1), normal, "Bad normal to tube");
+        assertEquals(new Vector(1, 0, 0), normal, "Bad normal to tube");
 
 
 

@@ -72,39 +72,44 @@ public class Plane extends Geometry{
         return getNormal();
     }
 
-    /**
-     *
-     * @param ray Ray pointing towards the graphic object
-     * @return a list of all the intersections with the object and if there isn't return  null
-     */
     @Override
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
         Point P0 = ray.getP0();
         Vector v = ray.getDir();
-        Vector n = normal;
 
+        Vector n = normal;
+        //denominator
         double nv = alignZero(n.dotProduct(v));
 
-        //if ray is parallel to plane : no intersection points
+        // ray is lying in the plane axis
         if (isZero(nv)) {
             return null;
         }
 
-        Vector P0_Q = P0.subtract(q0);
-
-        double t = alignZero(n.dotProduct(P0_Q) / nv);
-
-        //if ( t == 0) origin of ray lay on the plane
-        if (isZero(t)) {
+        //ray cannot start from the plane
+        if (q0.equals(P0)) {
             return null;
         }
 
-        // if (t < 0) the direction of the ray points in the opposite direction
-        if (t > 0) {
-            Point P = ray.getPoint(t);//  P0.add(v.scale(t));
-            return List.of(new GeoPoint(this,P));
+        Vector P0_Q0 = P0.subtract(q0);
+
+        //numerator
+        double nP0Q0 = alignZero(n.dotProduct(P0_Q0));
+
+        // ray parallel to the plane
+        if (isZero(nP0Q0)) {
+            return null;
         }
 
-        return null;
+        double t = alignZero(nP0Q0 / nv);
+
+        if (t < 0 ||  alignZero(t - maxDistance) > 0) {
+            return null;
+        }
+
+
+        Point point = ray.getPoint(t);
+
+        return List.of(new GeoPoint(this, point));
     }
 }

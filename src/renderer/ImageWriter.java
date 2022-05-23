@@ -2,6 +2,7 @@ package renderer;
 
 import primitives.Color;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -30,10 +31,8 @@ public class ImageWriter {
     private Logger logger = Logger.getLogger("ImageWriter");
 
     // ***************** Constructors ********************** //
-
     /**
      * Image Writer constructor accepting image name and View Plane parameters,
-     *
      * @param imageName the name of jpeg file
      * @param nX        amount of pixels by Width
      * @param nY        amount of pixels by height
@@ -47,7 +46,6 @@ public class ImageWriter {
     }
 
     // ***************** Getters/Setters ********************** //
-
     /**
      * View Plane Y axis resolution
      *
@@ -85,6 +83,7 @@ public class ImageWriter {
     /**
      * The function writePixel writes a color of a specific pixel into pixel color
      * matrix
+     *
      * @param xIndex X axis index of the pixel
      * @param yIndex Y axis index of the pixel
      * @param color  final color of the pixel
@@ -93,13 +92,26 @@ public class ImageWriter {
         image.setRGB(xIndex, yIndex, color.getColor().getRGB());
     }
 
+    /**
+     * Create a grid [over the picture] in the pixel color map. given the grid's
+     * step and color.
+     *
+     * @param interval  grid's step
+     * @param color grid's color
+     */
     public void printGrid(int interval, Color color) {
-        for (int i = 0; i < nX; i++) {
-            for (int j = 0; j < nY; j++) {
+        for (int i = 0; i < nY; i++) {
+            for (int j = 0; j < nX; j++) {
                 if (i % interval == 0 || j % interval == 0) {
-                    writePixel(i, j, color);
+                    writePixel(j, i, color);
                 }
             }
         }
+    }
+
+    public void fillBackground(Color bacckgroundColor) {
+        Graphics2D g2d = image.createGraphics();
+        g2d.setColor(bacckgroundColor.getColor());
+        g2d.fillRect(0, 0, nX, nY);
     }
 }

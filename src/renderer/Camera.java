@@ -5,6 +5,8 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import java.util.MissingResourceException;
+
 import static primitives.Util.isZero;
 
 public class Camera {
@@ -128,9 +130,7 @@ public class Camera {
 
     }
 
-    public void writeToImage() {
-        imageWriter.writeToImage();
-    }
+
 
     public void printGrid(int interval, Color color) {
         if (imageWriter != null) {
@@ -138,19 +138,41 @@ public class Camera {
         }
     }
 
-    public void renderImage() {
-        int nx = imageWriter.getNx();
-        ;
-        int ny = imageWriter.getNy();
-        ;
-
-        for (int i = 0; i < nx; i++) {
-            for (int j = 0; j < ny; j++) {
-                castRay(nx, ny, i, j);
+    public Camera renderImage() {
+        try {
+            if (imageWriter == null) {
+                throw new MissingResourceException("missing resource", ImageWriter.class.getName(), "");
             }
-        }
+            if (rayTracer == null) {
+                throw new MissingResourceException("missing resource", RayTracer.class.getName(), "");
+            }
 
+            //rendering the image
+            int nX = imageWriter.getNx();
+            int nY = imageWriter.getNy();
+            for (int i = 0; i < nY; i++) {
+                for (int j = 0; j < nX; j++) {
+                    castRay(nX, nY, i, j);
+                }
+            }
+        } catch (MissingResourceException e) {
+            throw new UnsupportedOperationException("Not implemented yet" + e.getClassName());
+        }
+        return this;
     }
+//    public void renderImage() {
+//        int nx = imageWriter.getNx();
+//        ;
+//        int ny = imageWriter.getNy();
+//        ;
+//
+//        for (int i = 0; i < nx; i++) {
+//            for (int j = 0; j < ny; j++) {
+//                castRay(nx, ny, i, j);
+//            }
+//        }
+//
+//    }
 
     private void castRay(int nx, int ny, int i, int j) {
         Ray ray = constructRay(nx, ny, i, j);
@@ -171,6 +193,10 @@ public class Camera {
         return this;
     }
 
+    public Camera writeToImage() {
+        imageWriter.writeToImage();
+        return this;
+    }
 
     // ================================= Builder Class for Camera ===============================
 

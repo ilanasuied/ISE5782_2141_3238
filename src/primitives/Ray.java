@@ -9,11 +9,17 @@ import java.util.Objects;
 import static primitives.Util.isZero;
 
 public class Ray {
+
     final public Point p0;
     final public Vector dir;
 
     /**
+     * DELTA value to move the point away from original point
+     */
+    private static final double DELTA = 0.1;
+    /**
      * ray constructor
+     *
      * @Point the point from where the ray start
      * @Vector the direction of the ray
      */
@@ -23,7 +29,24 @@ public class Ray {
     }
 
     /**
+     * Constructor for ray deflected by DELTA
+     *
+     * @param p origin
+     * @param n   normal vector
+     * @param dir direction
+     */
+    public Ray(Point p, Vector n, Vector dir) {
+        this.dir = dir.normalize();
+        double nv = n.dotProduct(this.dir);
+        Vector delta  =n.scale(DELTA);
+        if (nv < 0)
+            delta = delta.scale(-1);
+        this.p0 = p.add(delta);
+    }
+
+    /**
      * getter for point p0
+     *
      * @return the point where the ray start
      */
     public Point getP0() {
@@ -56,6 +79,7 @@ public class Ray {
 
     /**
      * override function for equal
+     *
      * @param o value for another object
      * @return if the object is equal to this object or not
      */
@@ -69,6 +93,7 @@ public class Ray {
 
     /**
      * override function for toString
+     *
      * @return toString for Ray
      */
     @Override
@@ -79,25 +104,27 @@ public class Ray {
                 '}';
     }
 
-    /**
-     * function to find the closest point
-     * @param pointList list of geoPoint
-     * @return the closest point
-     */
-   public GeoPoint findClosestPoint(List<Intersectable.GeoPoint> pointList){
-        GeoPoint result = null;
-
+    public GeoPoint findClosestGeoPoint(List<GeoPoint> intersections) {
+        GeoPoint closestpoint = null;
         double minDistance = Double.MAX_VALUE;
         double ptDistance;
 
-        for (GeoPoint geoPoint : pointList ) {
+        for (GeoPoint geoPoint : intersections) {
             ptDistance = geoPoint.point.distanceSquared(p0);
-            if( ptDistance < minDistance){
+            if (ptDistance < minDistance) {
                 minDistance = ptDistance;
-                result =geoPoint;
+                closestpoint = geoPoint;
             }
         }
+        return closestpoint;
+    }
 
-        return result;
+    public Point findClosestPoint(List<Point> intersections) {
+        return intersections == null || intersections.isEmpty()
+                ? null
+                : findClosestGeoPoint(intersections.stream()
+                .map(p -> new GeoPoint(null, p))
+                .toList()
+        ).point;
     }
 }

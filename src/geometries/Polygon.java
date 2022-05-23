@@ -96,10 +96,10 @@ public class Polygon extends Geometry {
 	}
 
 	@Override
-	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
-		List<GeoPoint> result = plane.findGeoIntersections(ray);
+	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
+		List<GeoPoint> planeIntersections = plane.findGeoIntersections(ray);
 
-		if (result == null) {
+		if (planeIntersections == null) {
 			return null;
 		}
 
@@ -109,8 +109,8 @@ public class Polygon extends Geometry {
 		Point P1 = vertices.get(1);
 		Point P2 = vertices.get(0);
 
-		Vector v1 = P1.subtract(P0);
-		Vector v2 = P2.subtract(P0);
+		Vector v1 = P0.subtract(P1);
+		Vector v2 = P0.subtract(P2);
 
 		double sign = alignZero(v.dotProduct(v1.crossProduct(v2)));
 
@@ -134,7 +134,8 @@ public class Polygon extends Geometry {
 				return null;
 			}
 		}
+		Point point = planeIntersections.get(0).point;
 
-		return List.of(new GeoPoint(this,result.get(0).point));
+		return List.of(new GeoPoint(this,point));
 	}
 }

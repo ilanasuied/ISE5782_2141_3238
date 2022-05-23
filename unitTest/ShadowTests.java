@@ -2,8 +2,9 @@ import org.junit.jupiter.api.Test;
 
 import static java.awt.Color.*;
 
+import primitives.lighting.AmbientLight;
+import primitives.lighting.SpotLight;
 import renderer.ImageWriter;
-import lighting.*;
 import geometries.*;
 import primitives.*;
 import renderer.*;
@@ -37,8 +38,7 @@ public class ShadowTests {
 				new SpotLight(new Color(400, 240, 0), spotLocation, new Vector(1, 1, -3)) //
 						.setKl(1E-5).setKq(1.5E-7));
 		camera.setImageWriter(new ImageWriter(pictName, 400, 400)) //
-				.renderImage();
-				camera.writeToImage();
+				.renderImage().writeToImage();
 	}
 
 	/**
@@ -113,8 +113,7 @@ public class ShadowTests {
 						.setKl(4E-4).setKq(2E-5));
 
 		camera.setImageWriter(new ImageWriter("shadowTrianglesSphere", 600, 600)) //
-				.renderImage();//
-				camera.writeToImage();
+				.renderImage().writeToImage();
 	}
 
 }

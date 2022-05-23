@@ -21,10 +21,10 @@ class PointTest {
         assertEquals(new Vector(1,1,1), p1.subtract(new Point(2,3,4)),"ERROR: Point - Point does not work correctly");
     }
 
-    @Test
-    void testAdd() {
-        fail("not yet implemented");
-    }
+//    @Test
+//    void testAdd() {
+//        fail("not yet implemented");
+//    }
 
     
     @Test

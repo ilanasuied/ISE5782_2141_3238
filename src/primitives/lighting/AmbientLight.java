@@ -1,4 +1,4 @@
-package lighting;
+package primitives.lighting;
 
 import primitives.Color;
 import primitives.Double3;
@@ -14,9 +14,10 @@ public class AmbientLight extends Light {
      * @param Ia basic illumination
      * @param Ka attenuation factor
      */
-    public AmbientLight(Color Ia , Double3 Ka){
-        super(Ia.scale(Ka));
+    public AmbientLight(Color Ia, Double3 Ka) {
+        super( Ia.scale(Ka));
     }
+
 
     /**
      * default constructor setting ambientLight to Black

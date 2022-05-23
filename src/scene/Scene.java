@@ -1,8 +1,8 @@
 package scene;
 
 import geometries.Geometries;
-import lighting.AmbientLight;
-import lighting.LightSource;
+import primitives.lighting.AmbientLight;
+import primitives.lighting.LightSource;
 import primitives.Color;
 
 import java.util.LinkedList;
@@ -17,7 +17,7 @@ public class Scene {
     private final String name;
     private final Color background;
     private AmbientLight ambientLight;
-    private final Geometries geometries;
+    public final Geometries geometries;
     public List<LightSource> lights;
 
 
@@ -64,7 +64,9 @@ public class Scene {
     public AmbientLight getAmbientLight() {
         return ambientLight;
     }
-
+    public List<LightSource> getLights() {
+        return lights;
+    }
     public Geometries getGeometries() {
         return geometries;
     }
