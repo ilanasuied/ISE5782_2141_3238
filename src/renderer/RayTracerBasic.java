@@ -124,6 +124,17 @@ public class RayTracerBasic extends RayTracer {
         return ktr;
     }
 
+    /**
+     *
+     * @param gp value for geoPoint
+     * @param material value for material
+     * @param n value of the normal
+     * @param v value of the directional vector
+     * @param nv the dotProduct between the normal and the directional vector
+     * @param level the value for the stop condition on the loop
+     * @param k initial k -> 1.0
+     * @return the correct global effect
+     */
     private Color calcGlobalEffects(GeoPoint gp,Material material, Vector n, Vector v, double nv, int level, Double3 k) {
         Color color = Color.BLACK;
         Double3 kkr = material.getKr().product(k);
@@ -137,6 +148,14 @@ public class RayTracerBasic extends RayTracer {
     }
 
 
+    /**
+     *
+     * @param ray value for ray
+     * @param level the value for stopped the loop
+     * @param kx value for kx
+     * @param kkx value for kkx
+     * @return if there isn't intersection's point return the color of the background, else go to calculate the right color
+     */
     private Color calcGlobalEffect(Ray ray, int level, Double3 kx, Double3 kkx) {
         GeoPoint gp = findClosestIntersection(ray);
         return (gp == null ? scene.getBackground() : calcColor(gp, ray, level - 1, kkx)).scale(kx);
