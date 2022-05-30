@@ -96,7 +96,7 @@ public class Material {
      * @return transparency factor
      */
     public Double3 getKt() {
-        return kD;
+        return kT;
     }
 
     /**
@@ -120,7 +120,7 @@ public class Material {
      * @return coefficient of reflection
      */
     public Double3 getKr() {
-        return kD;
+        return kR;
     }
     /**
      * setter for shininess value
