@@ -119,12 +119,4 @@ public class Ray {
         return closestpoint;
     }
 
-    public Point findClosestPoint(List<Point> intersections) {
-        return intersections == null || intersections.isEmpty()
-                ? null
-                : findClosestGeoPoint(intersections.stream()
-                .map(p -> new GeoPoint(null, p))
-                .toList()
-        ).point;
-    }
 }
