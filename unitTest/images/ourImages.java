@@ -146,26 +146,35 @@ public class ourImages {
 //                new Cylinder(new Ray(new Point(0, -90, -17), new Vector(1, -1, -0.3)), 5d, 1)
 //                        .setEmission(new Color(black))
 //                        .setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(30).setKr(1)),
-                //Sa tete
-                new Sphere(new Point(-5, 0, -70), 25d).setEmission(new Color(150, 75, 0)),
+                //head
+                new Sphere(new Point(-5, -16, -70), 25d).setEmission(new Color(150, 75, 0)),
 
-                //ses oreilles
-                new Sphere(new Point(15, 22, -70), 12.5).setEmission(new Color(150, 75, 0)),
-                new Sphere(new Point(-25, 22, -70), 12.5).setEmission(new Color(150, 75, 0)),
+                //ears
+                new Sphere(new Point(15, 8, -70), 12.5).setEmission(new Color(150, 75, 0)),
+                new Sphere(new Point(-25, 8, -70), 12.5).setEmission(new Color(150, 75, 0)),
 
-                //son ventre
-                new Sphere(new Point(-5, -54, -70), 30).setEmission(new Color(150, 75, 0)),
+                //belly
+                new Sphere(new Point(-5, -70, -70), 30).setEmission(new Color(150, 75, 0)),
 
-                //ses yeux
-                new Sphere(new Point(-10, 0, -15d), 3.5).setEmission(new Color(0, 0, 255)),
-                new Sphere(new Point(1, 0, -15d), 3.5).setEmission(new Color(0, 0, 255)),
+                //eyes
+                new Sphere(new Point(-10, -16, -40d), 3.5).setEmission(new Color(0, 0, 255)),
+                new Sphere(new Point(5, -16, -40d), 3.5).setEmission(new Color(0, 0, 255)),
 
-                //son nez
+                //nose
                 new Triangle(
-                        new Point(-8, -5, -15),
-                        new Point(-2, -5, -15),
-                        new Point(-5, -8, -15)).
+                        new Point(-5, -22, -20),
+                        new Point(1, -22, -20),
+                        new Point(-2, -26, -20)).
                         setEmission(new Color(250, 75, 0)),
+
+                new Polygon(
+                        new Point(90,-50,-70),
+                        new Point(95,-50,-65),
+                        new Point(95,-80,-65),
+                        new Point(90,-80,-70)).setEmission(new Color(pink)),
+
+
+
 
 
 
