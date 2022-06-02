@@ -147,18 +147,24 @@ public class ourImages {
 //                        .setEmission(new Color(black))
 //                        .setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(30).setKr(1)),
                 //head
-                new Sphere(new Point(-5, -16, -70), 25d).setEmission(new Color(150, 75, 0)),
+                new Sphere(new Point(-5, -16, -70), 25d).setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
 
                 //ears
-                new Sphere(new Point(15, 8, -70), 12.5).setEmission(new Color(150, 75, 0)),
-                new Sphere(new Point(-25, 8, -70), 12.5).setEmission(new Color(150, 75, 0)),
+                new Sphere(new Point(15, 8, -70), 12.5).setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
+                new Sphere(new Point(-25, 8, -70), 12.5).setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
 
                 //belly
-                new Sphere(new Point(-5, -70, -70), 30).setEmission(new Color(150, 75, 0)),
+                new Sphere(new Point(-5, -70, -70), 30).setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
 
                 //eyes
-                new Sphere(new Point(-10, -16, -40d), 3.5).setEmission(new Color(0, 0, 255)),
-                new Sphere(new Point(5, -16, -40d), 3.5).setEmission(new Color(0, 0, 255)),
+                new Sphere(new Point(-10, -16, -40d), 3.5).setEmission(new Color(0, 0, 255))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
+                new Sphere(new Point(5, -16, -40d), 3.5).setEmission(new Color(0, 0, 255))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
 
                 //nose
                 new Triangle(
@@ -167,15 +173,13 @@ public class ourImages {
                         new Point(-2, -26, -20)).
                         setEmission(new Color(250, 75, 0)),
 
+
+                //shelf -etagere ???
                 new Polygon(
-                        new Point(90,-50,-70),
-                        new Point(95,-50,-65),
-                        new Point(95,-80,-65),
-                        new Point(90,-80,-70)).setEmission(new Color(pink)),
-
-
-
-
+                        new Point(-50, 30, -30),
+                        new Point(-40, 30, -40),
+                        new Point(-40, 28, -40),
+                        new Point(-50, 28, -30)).setEmission(new Color(yellow)),
 
 
 //        //les sphere dans la boite
@@ -225,7 +229,7 @@ public class ourImages {
                         new Point(370, -900, -100),
                         new Point(400, -900, -100),
                         new Point(400, 900, -100),
-                        new Point(370,900,-100))
+                        new Point(370, 900, -100))
                         .setEmission(new Color(gray))
 
 //                //left side
