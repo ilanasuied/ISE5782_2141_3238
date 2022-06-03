@@ -242,6 +242,30 @@ public class ourImages {
                 new Sphere(new Point(-5, -70, -70), 30).setEmission(new Color(150, 75, 0))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
 
+                //hands + fingers
+                //right hand
+                new Sphere(new Point(28, -50, -70), 10).setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
+                //left hand
+                new Sphere(new Point(-38, -50, -65), 10).setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
+                //right fingers
+                new Sphere(new Point(39, -49, -70), 2).setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
+                new Sphere(new Point(38, -45, -70), 2).setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
+                new Sphere(new Point(38, -53, -72), 2).setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
+                //left fingers
+                new Sphere(new Point(-48, -49, -60), 2).setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
+                new Sphere(new Point(-48, -45, -60), 2).setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
+                new Sphere(new Point(-48, -53, -60), 2).setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
+
+
+
                 //eyes
                 new Sphere(new Point(-10, -16, -40d), 3.5).setEmission(new Color(0, 0, 255))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
