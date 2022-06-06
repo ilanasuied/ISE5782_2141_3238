@@ -26,29 +26,65 @@ public class ourImages {
                 .build();
 
         scene.getGeometries().add(
-                //Sa tete
-                new Sphere(new Point(0, 0, -100), 50d).setEmission(new Color(150, 75, 0)),
-
-                //ses oreilles
-                new Sphere(new Point(40, 60, -100), 25d).setEmission(new Color(150, 75, 0)),
-                new Sphere(new Point(-40, 60, -100), 25d).setEmission(new Color(150, 75, 0)),
-
-                //son ventre
-                new Sphere(new Point(0, -110, -100), 60d).setEmission(new Color(150, 75, 0)),
-
-                //ses yeux
-                new Sphere(new Point(-5, 0, -19), 5d).setEmission(new Color(150, 75, 0)),
-                new Sphere(new Point(5, 0, -19), 5d).setEmission(new Color(150, 75, 0)),
-
-                //son nez
+                //le fond
                 new Triangle(
-                        new Point(-3, -3, -19d),
-                        new Point(3, -3, -19d),
-                        new Point(0, -6, -19d)).
-                        setEmission(new Color(250, 75, 0)),
-                new Sphere(new Point(-4, 0, -15d), 2d).setEmission(new Color(0, 0, 255)),
-                new Sphere(new Point(4, 0, -15d), 2d).setEmission(new Color(0, 0, 255)));
+                        new Point(-90, -90, -150),
+                        new Point(90, -90, -150),
+                        new Point(90, 90, -150)
+                ),
+                new Triangle(
+                        new Point(-90, -90, -150),
+                        new Point(-90, 90, -150),
+                        new Point(90, 90, -150)
+                ),
 
+                //the side- right
+                new Triangle(
+                        new Point(90, -90, -150),
+                        new Point(90, 90, -150),
+                        new Point(100, 110, -120)
+                ),
+                new Triangle(
+                        new Point(100, 110, -120),
+                        new Point(100, -120, -120),
+                        new Point(90, -90, -150)
+                ),
+                //the side- left
+                new Triangle(
+                        new Point(-90, -90, -150),
+                        new Point(-90, 90, -150),
+                        new Point(-100, 110, -120)
+                ),
+                new Triangle(
+                        new Point(-100, 110, -120),
+                        new Point(-100, -120, -120),
+                        new Point(-90, -90, -150))
+
+
+        );
+//                //Sa tete
+//                new Sphere(new Point(0, 0, -100), 50d).setEmission(new Color(150, 75, 0)),
+//
+//                //ses oreilles
+//                new Sphere(new Point(40, 60, -100), 25d).setEmission(new Color(150, 75, 0)),
+//                new Sphere(new Point(-40, 60, -100), 25d).setEmission(new Color(150, 75, 0)),
+//
+//                //son ventre
+//                new Sphere(new Point(0, -110, -100), 60d).setEmission(new Color(150, 75, 0)),
+//
+//                //ses yeux
+//                new Sphere(new Point(-5, 0, -19), 5d).setEmission(new Color(150, 75, 0)),
+//                new Sphere(new Point(5, 0, -19), 5d).setEmission(new Color(150, 75, 0)),
+//
+//                //son nez
+//                new Triangle(
+//                        new Point(-3, -3, -19d),
+//                        new Point(3, -3, -19d),
+//                        new Point(0, -6, -19d)).
+//                        setEmission(new Color(250, 75, 0)),
+//                new Sphere(new Point(-4, 0, -15d), 2d).setEmission(new Color(0, 0, 255)),
+//                new Sphere(new Point(4, 0, -15d), 2d).setEmission(new Color(0, 0, 255)));
+//
 
         Camera camera = new Camera.BuilderCamera(Point.ZERO, new Vector(0, 0, -1), new Vector(0, 1, 0)) //
                 .setVPDistance(100) //
@@ -122,22 +158,73 @@ public class ourImages {
                 .setVPSize(200, 200).setVPDistance(1000) //
                 .setRayTracer(new RayTracerBasic(scene)).build();
         scene.getGeometries().add( //
+//                //le fond
+//                new Polygon(
+//                        new Point(50, -90, -110),
+//                        new Point(90, -90, -130),
+//                        new Point(90, 90, -130),
+//                        new Point(50, 90, -110))
+//                        .setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80)),
+//
+//
+//                //side
+//                new Polygon(
+//                        new Point(50, -90, -110),
+//                        new Point(-150, -60, -140),
+//                        new Point(-150, 120, -140),
+//                        new Point(50, 90, -110))
+//                        .setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(60)),
+//
+
                 //le fond
-                new Polygon(
-                        new Point(50, -90, -110),
-                        new Point(90, -90, -130),
-                        new Point(90, 90, -130),
-                        new Point(50, 90, -110))
-                        .setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80)),
+                new Triangle(
+                        new Point(-90, -90, -150),
+                        new Point(90, -90, -150),
+                        new Point(90, 90, -150)
+                ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80)),
+                new Triangle(
+                        new Point(-90, -90, -150),
+                        new Point(-90, 90, -150),
+                        new Point(90, 90, -150)
+                ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80)),
 
+                // side- right
+                new Triangle(
+                        new Point(90, -90, -150),
+                        new Point(90, 90, -150),
+                        new Point(120, 110, -120)
+                ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80)),
+                new Triangle(
+                        new Point(120, 110, -120),
+                        new Point(120, -120, -120),
+                        new Point(90, -90, -150)
+                ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80)),
 
-                //side
-                new Polygon(
-                        new Point(50, -90, -110),
-                        new Point(-150, -60, -140),
-                        new Point(-150, 120, -140),
-                        new Point(50, 90, -110))
-                        .setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(60)),
+                // side- left
+                new Triangle(
+                        new Point(-90, -90, -150),
+                        new Point(-90, 90, -150),
+                        new Point(-120, 110, -120)
+                ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80)),
+                new Triangle(
+                        new Point(-120, 110, -120),
+                        new Point(-120, -120, -120),
+                        new Point(-90, -90, -150)
+                ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80)),
+
+                // the floor
+                new Triangle(
+                        new Point(90, -90, -150),
+                        new Point(120, -120, -120),
+                        new Point(-120, -120, -120)
+                ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
+                        .setEmission(new Color(gray)),
+                new Triangle(
+                        new Point(-120, -120, -120),
+                        new Point(-90, -90, -150),
+                        new Point(90, -90, -150)
+                ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
+                        .setEmission(new Color(gray)),
 
 
                 //books on the shelf
@@ -263,7 +350,6 @@ public class ourImages {
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
                 new Sphere(new Point(-48, -53, -60), 2).setEmission(new Color(150, 75, 0))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.1)),
-
 
 
                 //eyes
