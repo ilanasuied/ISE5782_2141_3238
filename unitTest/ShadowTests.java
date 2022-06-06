@@ -2,8 +2,8 @@ import org.junit.jupiter.api.Test;
 
 import static java.awt.Color.*;
 
-import primitives.lighting.AmbientLight;
-import primitives.lighting.SpotLight;
+import lighting.AmbientLight;
+import lighting.SpotLight;
 import renderer.ImageWriter;
 import geometries.*;
 import primitives.*;

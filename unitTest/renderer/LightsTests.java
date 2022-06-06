@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import geometries.*;
 import primitives.*;
-import primitives.lighting.AmbientLight;
-import primitives.lighting.DirectionalLight;
-import primitives.lighting.PointLight;
-import primitives.lighting.SpotLight;
+import lighting.AmbientLight;
+import lighting.DirectionalLight;
+import lighting.PointLight;
+import lighting.SpotLight;
 import scene.Scene;
 import static java.awt.Color.*;
 

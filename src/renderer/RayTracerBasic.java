@@ -1,9 +1,8 @@
 package renderer;
 
-import geometries.Geometry;
 import geometries.Intersectable.*;
 import primitives.*;
-import primitives.lighting.LightSource;
+import lighting.LightSource;
 import scene.Scene;
 
 import java.util.List;

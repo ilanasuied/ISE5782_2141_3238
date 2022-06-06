@@ -1,8 +1,8 @@
 package scene;
 
 import geometries.Geometries;
-import primitives.lighting.AmbientLight;
-import primitives.lighting.LightSource;
+import lighting.AmbientLight;
+import lighting.LightSource;
 import primitives.Color;
 
 import java.util.LinkedList;
