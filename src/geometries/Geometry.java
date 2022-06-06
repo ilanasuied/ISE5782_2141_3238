@@ -6,7 +6,9 @@ import primitives.Point;
 import primitives.Vector;
 
 /**
- * TODO  explain everything
+ * abstract class wuth get Normal method
+ * all the geometries use get normal method, to simplify and improve the design, we make an interface
+ * that every geometry will extend.
  */
 public abstract class Geometry extends Intersectable {
 

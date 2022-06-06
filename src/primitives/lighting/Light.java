@@ -13,6 +13,7 @@ abstract class Light {
         this.intensity = intensity;
     }
 
+
     /**
      * getter for intensity
      * @return the intensity value

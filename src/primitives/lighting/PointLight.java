@@ -13,7 +13,6 @@ public class PointLight extends Light implements LightSource {
 
     /**
      * PointLight's constructor
-     *
      * @param intensity value for the intensity color
      * @param position  value for the point
      */

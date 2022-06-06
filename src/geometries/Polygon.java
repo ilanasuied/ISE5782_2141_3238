@@ -95,6 +95,13 @@ public class Polygon extends Geometry {
 		return plane.getNormal();
 	}
 
+
+	/**
+	 * function that helps to find geo intersections
+	 * @param ray ray intersecting the geometry
+	 * @param maxDistance maxximum distance to loook for intersections geometries
+	 * @return a list of points
+	 */
 	@Override
 	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
 		List<GeoPoint> planeIntersections = plane.findGeoIntersections(ray);

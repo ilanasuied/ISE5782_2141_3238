@@ -79,7 +79,6 @@ class PlaneTest {
     void testFindIntersections() {
         Plane pl = new Plane(new Point(0, 0, 1), new Vector(1, 1, 1));
         // ================================================= Equivalence Partitions Tests ===================================================
-        /////
 
         // TC01: Ray into plane
         assertEquals(List.of(new Point(1, 0, 0)),

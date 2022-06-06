@@ -227,6 +227,22 @@ public class ourImages {
                         .setEmission(new Color(gray)),
 
 
+
+                // plafond
+                new Triangle(
+                        new Point(-90, 90, -150),
+                        new Point(90, 90, -150),
+                        new Point(120, 110, -120)
+                ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
+                        .setEmission(new Color(gray)),
+                new Triangle(
+                        new Point(-90, 90, -150),
+                        new Point(120, 110, -120),
+                        new Point(-120, 110, -120)
+                ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
+                        .setEmission(new Color(gray)),
+
+
                 //books on the shelf
                 new Triangle(
                         new Point(-90, 60, 0),
@@ -366,16 +382,16 @@ public class ourImages {
                         setEmission(new Color(250, 75, 0)),
 
 
-                //shelf -etagere ???
+                //shelf -etagere
                 new Polygon(
                         new Point(-50, 30, -30),
                         new Point(-40, 30, -40),
                         new Point(-40, 28, -40),
                         new Point(-50, 28, -30)).setEmission(new Color(yellow)),
                 new Triangle(
-                        new Point(-90, 30, -50),
+                        new Point(-70, 30, -55),
                         new Point(-60, 30, -50),
-                        new Point(-70, 50, -50)).setEmission(new Color(yellow)),
+                        new Point(-70, 50, -55)).setEmission(new Color(yellow)),
 
                 //balls
                 new Sphere(new Point(-60, -80, 17), 17d) //

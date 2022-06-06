@@ -54,6 +54,7 @@ public class Material {
         return this;
     }
 
+
     /**
      * set diffuse factor/coefficient with Double3 type parameter
      *
@@ -81,6 +82,7 @@ public class Material {
         return this;
     }
 
+
     /**
      * setter for the transparency factor
      * @param kt value of the transparency factor
@@ -91,6 +93,7 @@ public class Material {
         return this;
     }
 
+
     /**
      * getter for the transparency factor
      * @return transparency factor
@@ -98,6 +101,7 @@ public class Material {
     public Double3 getKt() {
         return kT;
     }
+
 
     /**
      * setter for the coefficient of reflection
@@ -110,10 +114,16 @@ public class Material {
     }
 
 
+    /**
+     * setter for the coefficient of reflection with double parameter
+     * @param kr value of coefficient of reflection
+     * @return this object with correct values
+     */
     public Material setKr(double kr) {
         this.kR = new Double3(kr);
         return this;
     }
+
 
     /**
      * getter for coefficient of reflection
@@ -122,9 +132,11 @@ public class Material {
     public Double3 getKr() {
         return kR;
     }
+
+
+
     /**
      * setter for shininess value
-     *
      * @param shininess value for the level of shininess
      * @return material shininess
      */
@@ -133,9 +145,9 @@ public class Material {
         return this;
     }
 
+
     /**
      * getter for shininess value
-     *
      * @return shininess coefficient
      */
     public int getShininess() {

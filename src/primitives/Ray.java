@@ -17,6 +17,7 @@ public class Ray {
      * DELTA value to move the point away from original point
      */
     private static final double DELTA = 0.1;
+
     /**
      * ray constructor
      *

@@ -8,7 +8,6 @@ public class DirectionalLight extends Light implements LightSource {
 
     /**
      * primary constructor for directional light
-     *
      * @param _intensity value for the intensity of the light
      * @param _direction value for the diection of the light
      */
@@ -16,6 +15,7 @@ public class DirectionalLight extends Light implements LightSource {
         super(_intensity);
         this.direction = _direction.normalize();
     }
+
 
     @Override
     /**
@@ -25,6 +25,7 @@ public class DirectionalLight extends Light implements LightSource {
         return super.getIntensity();
         //new Color(getIntensity);
     }
+
 
     @Override
     /**
@@ -37,7 +38,6 @@ public class DirectionalLight extends Light implements LightSource {
 
     /**
      * this method return the positive infinity as distance
-     *
      * @param point value for point
      * @return the positive infinity
      */

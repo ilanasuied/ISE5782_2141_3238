@@ -13,7 +13,6 @@ public class Sphere extends Geometry {
 
     /**
      * constructor that receive a point and a radius
-     *
      * @param center value for the point that represent the center
      * @param radius value for the radius
      */
@@ -25,16 +24,15 @@ public class Sphere extends Geometry {
 
     /**
      * getter for center
-     *
      * @return center's point
      */
     public Point getCenter() {
         return center;
     }
 
+
     /**
      * getter for radius
-     *
      * @return radius
      */
     public double getRadius() {
@@ -44,7 +42,6 @@ public class Sphere extends Geometry {
 
     /**
      * function that returns a string for the sphere
-     *
      * @return string
      */
     @Override
@@ -55,9 +52,9 @@ public class Sphere extends Geometry {
                 '}';
     }
 
+
     /**
      * function to get the normal of the sphere
-     *
      * @param point value for point
      * @return the normal of the sphere
      */
@@ -69,10 +66,10 @@ public class Sphere extends Geometry {
 
     /**
      * find all the intersections between the ray with the objects and saves them in a list
-     *
      * @param ray Ray pointing towards the graphic object
      * @return the list of the intersections
      */
+
 
     @Override
     public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {

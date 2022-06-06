@@ -81,7 +81,7 @@ public class Plane extends Geometry{
         //denominator
         double nv = alignZero(n.dotProduct(v));
 
-        // ray is lying in the plane axis
+        // ray is laying in the plane axis
         if (isZero(nv)) {
             return null;
         }
