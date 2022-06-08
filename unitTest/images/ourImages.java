@@ -248,50 +248,85 @@ public class ourImages {
 
                 //books on the shelf
                 new Triangle(
-                        new Point(-112, 60, 0),
-                        new Point(-112, 26, 0),
-                        new Point(-106, 28, 0)
+                        new Point(-112, 44, 0),
+                        new Point(-112, 17, 0),
+                        new Point(-107, 17, 0)
                 ).setEmission(new Color(red)),
                 new Triangle(
-                        new Point(-106, 28, 0),
-                        new Point(-112, 60, 0),
-                        new Point(-106, 62, 0)
+                        new Point(-107, 44, 0),
+                        new Point(-112, 44, 0),
+                        new Point(-107, 17, 0)
                 ).setEmission(new Color(red)),
                 new Triangle(
-                        new Point(-112, 60, 0),
-                        new Point(-112, 26, 0),
-                        new Point(-122, 30, 0)
+                        new Point(-112, 44, 0),
+                        new Point(-112, 17, 0),
+                        new Point(-122, 24, 0)
                 ).setEmission(new Color(255, 0, 50)),
                 new Triangle(
-                        new Point(-122, 30, 0),
-                        new Point(-112, 60, 0),
-                        new Point(-122, 62, 0)
+                        new Point(-122, 24, 0),
+                        new Point(-112, 44, 0),
+                        new Point(-122, 48, 0)
                 ).setEmission(new Color(222, 0, 50)),
-//                new Triangle(
-//                        new Point(-105, 55, 0),
-//                        new Point(-105, 30.5, 0),
-//                        new Point(-110, 30.5, 0)
-//                ).setEmission(new Color(blue)),
-//                new Triangle(
-//                        new Point(-105, 55, 0),
-//                        new Point(-110, 55, 0),
-//                        new Point(-110, 30.5, 0)
-//                ).setEmission(new Color(blue)),
-//                new Triangle(
-//                        new Point(-105, 49, 0),
-//                        new Point(-100, 30.5, 0),
-//                        new Point(-100, 50, 0)
-//                ).setEmission(new Color(green)),
-//                new Triangle(
-//                        new Point(-100, 50, 0),
-//                        new Point(-95, 30.5, 0),
-//                        new Point(-100, 30.5, 0)
-//                ).setEmission(new Color(green)),
-//                new Triangle(
-//                        new Point(-100, 50, 0),
-//                        new Point(-95, 30.5, 0),
-//                        new Point(-100, 30.5, 0)
-//                ).setEmission(new Color(green)),
+                new Triangle(
+                        new Point(-107, 44, 0),
+                        new Point(-112, 44, 0),
+                        new Point(-122, 48, 0)
+                ).setEmission(new Color(white)),
+                new Triangle(
+                        new Point(-107, 44, 0),
+                        new Point(-122, 48, 0),
+                        new Point(-118, 48, 0)
+                ).setEmission(new Color(white)),
+                new Triangle(
+                        new Point(-107, 17, 0),
+                        new Point(-102, 17, 0),
+                        new Point(-102, 44, 0)
+                ).setEmission(new Color(blue)),
+                new Triangle(
+                        new Point(-107, 17, 0),
+                        new Point(-107, 44, 0),
+                        new Point(-102, 44, 0)
+                ).setEmission(new Color(blue)),
+                new Triangle(
+                        new Point(-107, 44, 0),
+                        new Point(-102, 44, 0),
+                        new Point(-118, 48, 0)
+                ).setEmission(new Color(white)),
+                new Triangle(
+                        new Point(-102, 44, 0),
+                        new Point(-118, 48, 0),
+                        new Point(-112, 48, 0)
+                ).setEmission(new Color(white)),
+                new Triangle(
+                        new Point(-107, 44, 10),
+                        new Point(-108, 44, 10),
+                        new Point(-118, 48, 10)
+                ).setEmission(new Color(222, 0, 50)),
+                new Triangle(
+                        new Point(-107, 44, 10),
+                        new Point(-117, 48, 10),
+                        new Point(-118, 48, 10)
+                ).setEmission(new Color(222, 0, 50)),
+                new Triangle(
+                        new Point(-97, 17, 10),
+                        new Point(-94, 20, 10),
+                        new Point(-98, 40, 10)
+                ).setEmission(new Color(0,255,50)),
+                new Triangle(
+                        new Point(-97, 17, 10),
+                        new Point(-101, 38, 10),
+                        new Point(-98, 40, 10)
+                ).setEmission(new Color(0,255,50)),
+                new Triangle(
+                        new Point(-101, 40, 10),
+                        new Point(-101, 19, 10),
+                        new Point(-97, 17, 10)
+                ).setEmission(new Color(0,150,50)),
+                new Triangle(
+                        new Point(-101, 38, 10),
+                        new Point(-101, 40, 10),
+                        new Point(-98, 40, 10)
+                ).setEmission(new Color(white)),
 
 
                 //box on the floor
@@ -315,6 +350,7 @@ public class ourImages {
                         new Point(40, -60, 10)
                 ).setEmission(new Color(green))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
+
 
                 new Triangle(
                         new Point(45, -90, 10),
@@ -340,139 +376,159 @@ public class ourImages {
 
 
                 // head
-                new Sphere(new Point(-5, -16, -70), 25d).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(-5, -20, -70), 25d).setEmission(new Color(150, 75, 0))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
 
                 //ears
-                new Sphere(new Point(15, 8, -70), 12.5).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(15, 4, -70), 12.5).setEmission(new Color(150, 75, 0))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
-                new Sphere(new Point(-25, 8, -70), 12.5).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(-25, 4, -70), 12.5).setEmission(new Color(150, 75, 0))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
 
                 //belly
-                new Sphere(new Point(-5, -70, -70), 30).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(-5, -74, -70), 30).setEmission(new Color(150, 75, 0))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
 
                 //hands + fingers
                 //right hand
-                new Sphere(new Point(28, -50, -70), 10).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(28, -54, -70), 10).setEmission(new Color(150, 75, 0))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
                 //left hand
-                new Sphere(new Point(-38, -50, -65), 10).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(-38, -54, -65), 10).setEmission(new Color(150, 75, 0))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
                 //right fingers
-                new Sphere(new Point(39, -49, -70), 2).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(39, -53, -70), 2).setEmission(new Color(150, 75, 0))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
-                new Sphere(new Point(38, -45, -70), 2).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(38, -49, -70), 2).setEmission(new Color(150, 75, 0))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
-                new Sphere(new Point(38, -53, -72), 2).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(38, -57, -72), 2).setEmission(new Color(150, 75, 0))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
                 //left fingers
+                new Sphere(new Point(-48, -53, -60), 2).setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
                 new Sphere(new Point(-48, -49, -60), 2).setEmission(new Color(150, 75, 0))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
-                new Sphere(new Point(-48, -45, -60), 2).setEmission(new Color(150, 75, 0))
-                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
-                new Sphere(new Point(-48, -53, -60), 2).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(-48, -57, -60), 2).setEmission(new Color(150, 75, 0))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
 
 
                 //eyes
-                new Sphere(new Point(-10, -16, -40d), 3.5).setEmission(new Color(0, 0, 255))
+                new Sphere(new Point(-10, -20, -40d), 3.5).setEmission(new Color(0, 0, 255))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
-                new Sphere(new Point(5, -16, -40d), 3.5).setEmission(new Color(0, 0, 255))
+                new Sphere(new Point(5, -20, -40d), 3.5).setEmission(new Color(0, 0, 255))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
 
                 //nose
                 new Triangle(
-                        new Point(-5, -22, -20),
-                        new Point(1, -22, -20),
-                        new Point(-2, -26, -20)).
+                        new Point(-5, -26, -20),
+                        new Point(1, -26, -20),
+                        new Point(-2, -30, -20)).
                         setEmission(new Color(250, 75, 0)),
 
 
                 //shelf -etagere ???
                 new Triangle(
-                        new Point(-100, 35, -50),
-                        new Point(-100, 33, -50),
-                        new Point(-135, 30, -50)).setEmission(new Color(yellow)),
+                        new Point(-95, 25, -50),
+                        new Point(-85, 17, -45),
+                        new Point(-135, 22, -50)).setEmission(tableColor)
+                        ,
                 new Triangle(
-                        new Point(-135, 30, -50),
-                        new Point(-100, 35, -50),
-                        new Point(-135, 32, -50)).setEmission(new Color(yellow)),
-                new Triangle(
-                        new Point(-100, 35, -50),
-                        new Point(-90, 30, -45),
-                        new Point(-135, 32, -50)).setEmission(new Color(yellow)),
-                new Triangle(
-                        new Point(-90, 30, -45),
-                        new Point(-125, 25, -45),
-                        new Point(-135, 32, -50)).setEmission(new Color(yellow)),
+                        new Point(-85, 18, -45),
+                        new Point(-123, 15, -45),
+                        new Point(-134, 22, -50)).setEmission(tableColor),
 
                 new Triangle(
-                        new Point(-100, 30, -45),
-                        new Point(-100, 55, -45),
-                        new Point(-92, 30, -50)).setEmission(new Color(yellow)),
+                        new Point(-100, 24, -40),
+                        new Point(-100, 45, -40),
+                        new Point(-92, 22, -40)).setEmission(tableColor),
+
+                new Triangle(
+                        new Point(-85, 18, -45),
+                        new Point(-124, 15, -45),
+                        new Point(-124, 12, -50))
+                        .setEmission(new Color(150, 75, 0))
+                          .setMaterial(new Material().setKd(0.1).setKs(0.1).setShininess(10)),
+
+                new Triangle(
+                        new Point(-85, 18, -45),
+                        new Point(-85, 16, -45),
+                        new Point(-124, 12, -50))
+                        .setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.1).setShininess(10)),
+
+                new Triangle(
+                        new Point(-134, 23, -50),
+                        new Point(-124, 16, -45),
+                        new Point(-124, 12, -50))
+                        .setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.1).setShininess(10)),
+
+                new Triangle(
+                        new Point(-134, 23, -50),
+                        new Point(-134, 20, -50),
+                        new Point(-124, 12, -50))
+                        .setEmission(new Color(150, 75, 0))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.1).setShininess(10)),
 
 
                 //the table
                 //right foot front
                 new Triangle(
-                        new Point(60, -120, 20),
-                        new Point(64, -120, 20),
-                        new Point(64, -100, 20)
+                        new Point(65, -118, 20),
+                        new Point(69, -118, 20),
+                        new Point(69, -105, 20)
                 ).setEmission(tableColor),
                 new Triangle(
-                        new Point(60, -120, 20),
-                        new Point(60, -100, 20),
-                        new Point(64, -100, 20)
+                        new Point(65, -118, 20),
+                        new Point(65, -105, 20),
+                        new Point(69, -105, 20)
                 ).setEmission(tableColor),
                 //left foot front
                 new Triangle(
-                        new Point(10, -120, 20),
-                        new Point(14, -120, 20),
-                        new Point(14, -100, 20)
+                        new Point(15, -118, 20),
+                        new Point(19, -118, 20),
+                        new Point(19, -105, 20)
                 ).setEmission(tableColor),
                 new Triangle(
-                        new Point(10, -120, 20),
-                        new Point(10, -100, 20),
-                        new Point(14, -100, 20)
+                        new Point(15, -118, 20),
+                        new Point(15, -105, 20),
+                        new Point(19, -105, 20)
                 ).setEmission(tableColor),
                 //right foot in the back
                 new Triangle(
-                        new Point(65, -110, 20),
-                        new Point(69, -110, 20),
-                        new Point(69, -98, 20)
+                        new Point(60, -107, 20),
+                        new Point(64, -107, 20),
+                        new Point(64, -95, 20)
                 ).setEmission(tableColor),
                 new Triangle(
-                        new Point(65, -110, 20),
-                        new Point(65, -98, 20),
-                        new Point(69, -98, 20)
+                        new Point(60, -107, 20),
+                        new Point(60, -95, 20),
+                        new Point(64, -95, 20)
                 ).setEmission(tableColor),
                 //left foot in the back
                 new Triangle(
-                        new Point(15, -110, 20),
-                        new Point(19, -110, 20),
-                        new Point(19, -98, 20)
+                        new Point(10, -107, 20),
+                        new Point(14, -107, 20),
+                        new Point(14, -95, 20)
                 ).setEmission(tableColor),
                 new Triangle(
-                        new Point(15, -110, 20),
-                        new Point(15, -98, 20),
-                        new Point(19, -98, 20)
+                        new Point(10, -107, 20),
+                        new Point(10, -95, 20),
+                        new Point(14, -95, 20)
                 ).setEmission(tableColor),
                 //the plate
                 new Triangle(
-                        new Point(-10, -108, 20),
-                        new Point(75, -85, 20),
-                        new Point(0, -85, 20)
-                ).setEmission(tableColor)
-                        .setMaterial(new Material().setKd(0.01).setKs(0.5).setKr(1).setShininess(30)),
+                        new Point(0, -112, 30),
+                        new Point(75, -89, 30),
+                        new Point(-10, -89, 30)
+                ).setEmission(new Color(black))
+                        .setMaterial(new Material().setkT(0.7).setKr(0.8).setKr(0.2).setKd(0.3).setShininess(30)),
                 new Triangle(
-                        new Point(-10, -108, 20),
-                        new Point(75, -85, 20),
-                        new Point(85, -108, 20)
-                ).setEmission(tableColor)
-                        .setMaterial(new Material().setKd(0.01).setKs(0.5).setKr(1).setShininess(30)),
-
+                        new Point(0, -112, 30),
+                        new Point(75, -89, 30),
+                        new Point(95, -112, 30)
+                ).setEmission(new Color(black))
+                        .setMaterial(new Material().setkT(0.7).setKr(0.8).setKr(0.2).setKd(0.3).setShininess(30)),
                 //balls
                 new Sphere(new Point(-60, -90, 17), 17d) //
                         .setEmission(new Color(red)) //
