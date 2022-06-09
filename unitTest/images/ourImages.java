@@ -1,6 +1,7 @@
 package images;
 
 import geometries.*;
+import lighting.PointLight;
 import org.junit.jupiter.api.Test;
 import primitives.*;
 import lighting.AmbientLight;
@@ -154,6 +155,7 @@ public class ourImages {
     @Test
     public void project1() {
 
+        Color sideColor=new Color(0, 220, 160);
         scene.setAmbientLight(new AmbientLight(new Color(java.awt.Color.WHITE), new Double3(.15)));
         Camera camera = new Camera.BuilderCamera(new Point(0, 0, 1000), new Vector(0, 0, -1), new Vector(0, 1, 0)) //
                 .setVPSize(300, 300).setVPDistance(1000) //
@@ -167,13 +169,13 @@ public class ourImages {
                         new Point(90, -90, -150),
                         new Point(90, 90, -150)
                 ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
-                        .setEmission(new Color(0, 204, 150)),
+                        .setEmission(new Color(169, 169, 169)),
                 new Triangle(
                         new Point(-90, -90, -150),
                         new Point(-90, 90, -150),
                         new Point(90, 90, -150)
                 ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
-                        .setEmission(new Color(0, 204, 150)),
+                        .setEmission(new Color(169, 169, 169)),
 
                 // side- right
                 new Triangle(
@@ -181,13 +183,13 @@ public class ourImages {
                         new Point(90, 90, -150),
                         new Point(150, 130, -140)
                 ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
-                        .setEmission(new Color(0, 220, 160)),
+                        .setEmission(new Color(178,178,178)),
                 new Triangle(
                         new Point(150, 130, -140),
                         new Point(150, -150, -140),
                         new Point(90, -90, -150)
                 ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
-                        .setEmission(new Color(0, 220, 160)),
+                        .setEmission(new Color(178, 178, 178)),
 
                 // side- left
                 new Triangle(
@@ -195,13 +197,13 @@ public class ourImages {
                         new Point(-90, 90, -150),
                         new Point(-150, 130, -140)
                 ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
-                        .setEmission(new Color(0, 220, 160)),
+                        .setEmission(new Color(178,178,178)),
                 new Triangle(
                         new Point(-150, 130, -140),
                         new Point(-150, -150, -140),
                         new Point(-90, -90, -150)
                 ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
-                        .setEmission(new Color(0, 220, 160)),
+                        .setEmission(new Color(178,178,178)),
 
                 // the floor
                 new Triangle(
@@ -233,6 +235,7 @@ public class ourImages {
                         .setEmission(new Color(gray)),
 
 
+                //light
                 new Triangle(
                         new Point(-25, 120, -130),
                         new Point(25, 120, -130),
@@ -484,59 +487,62 @@ public class ourImages {
                 new Triangle(
                         new Point(65, -118, 20),
                         new Point(69, -118, 20),
-                        new Point(69, -105, 20)
-                ).setEmission(tableColor),
+                        new Point(69, -80, 20)
+                ).setEmission(new Color(black)),
                 new Triangle(
                         new Point(65, -118, 20),
-                        new Point(65, -105, 20),
-                        new Point(69, -105, 20)
-                ).setEmission(tableColor),
+                        new Point(65, -80, 20),
+                        new Point(69, -80, 20)
+                ).setEmission(new Color(black)),
                 //left foot front
                 new Triangle(
                         new Point(15, -118, 20),
                         new Point(19, -118, 20),
-                        new Point(19, -105, 20)
-                ).setEmission(tableColor),
+                        new Point(19, -80, 20)
+                ).setEmission(new Color(black)),
                 new Triangle(
                         new Point(15, -118, 20),
-                        new Point(15, -105, 20),
-                        new Point(19, -105, 20)
-                ).setEmission(tableColor),
+                        new Point(15, -80, 20),
+                        new Point(19, -80, 20)
+                ).setEmission(new Color(black)),
                 //right foot in the back
                 new Triangle(
                         new Point(60, -107, 20),
                         new Point(64, -107, 20),
-                        new Point(64, -95, 20)
-                ).setEmission(tableColor),
+                        new Point(64, -80, 20)
+                ).setEmission(new Color(black)),
                 new Triangle(
                         new Point(60, -107, 20),
-                        new Point(60, -95, 20),
-                        new Point(64, -95, 20)
-                ).setEmission(tableColor),
+                        new Point(60, -80, 20),
+                        new Point(64, -80, 20)
+                ).setEmission(new Color(black)),
+
                 //left foot in the back
                 new Triangle(
                         new Point(10, -107, 20),
                         new Point(14, -107, 20),
-                        new Point(14, -95, 20)
-                ).setEmission(tableColor),
+                        new Point(14, -80, 20)
+                ).setEmission(new Color(black)),
                 new Triangle(
                         new Point(10, -107, 20),
-                        new Point(10, -95, 20),
-                        new Point(14, -95, 20)
-                ).setEmission(tableColor),
+                        new Point(10, -80, 20),
+                        new Point(14, -80, 20)
+                ).setEmission(new Color(black)),
+
                 //the plate
                 new Triangle(
-                        new Point(0, -112, 30),
-                        new Point(75, -89, 30),
-                        new Point(-10, -89, 30)
+                        new Point(0, -90, 30),
+                        new Point(75, -77, 30),
+                        new Point(-7, -77, 30)
                 ).setEmission(new Color(black))
-                        .setMaterial(new Material().setkT(0.7).setKr(0.8).setKr(0.2).setKd(0.3).setShininess(30)),
+                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
                 new Triangle(
-                        new Point(0, -112, 30),
-                        new Point(75, -89, 30),
-                        new Point(95, -112, 30)
+                        new Point(0, -90, 30),
+                        new Point(75, -77, 30),
+                        new Point(85, -90, 30)
                 ).setEmission(new Color(black))
-                        .setMaterial(new Material().setkT(0.7).setKr(0.8).setKr(0.2).setKd(0.3).setShininess(30)),
+                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+
                 //balls
                 new Sphere(new Point(-60, -90, 17), 17d) //
                         .setEmission(new Color(red)) //
@@ -548,10 +554,10 @@ public class ourImages {
 
         );
         scene.lights.add( //
-                new SpotLight(new Color(white), new Point(40, 40, 115), new Vector(-1, -1, -4)) //
+                new SpotLight(new Color(white), new Point(50, -100, 115), new Vector(-1, -1, -4)) //
                         .setKl(4E-4).setKq(2E-5));
 
-        scene.lights.add(new DirectionalLight(new Color(CYAN), new Vector(-0.0003, -1.0003, 0)));
+        scene.lights.add(new PointLight(new Color(yellow),new Point(0,110,-130)));
 
         camera.setImageWriter(new ImageWriter("project1", 600, 600)) //
                 .renderImage().writeToImage();
