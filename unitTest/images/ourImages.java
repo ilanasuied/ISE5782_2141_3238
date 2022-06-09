@@ -413,9 +413,17 @@ public class ourImages {
 
 
                 //eyes
-                new Sphere(new Point(-10, -20, -40d), 3.5).setEmission(new Color(0, 0, 255))
+                new Sphere(new Point(-10, -20, -40d), 4).setEmission(new Color(0, 0, 255))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
-                new Sphere(new Point(5, -20, -40d), 3.5).setEmission(new Color(0, 0, 255))
+                new Sphere(new Point(5, -20, -40d), 4).setEmission(new Color(0, 0, 255))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
+                new Sphere(new Point(5.5, -20, -20d), 2).setEmission(new Color(black))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
+                new Sphere(new Point(-9.5, -20, -20d), 2).setEmission(new Color(black))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
+                new Sphere(new Point(5.5, -20, -15d), 0.5).setEmission(new Color(white))
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
+                new Sphere(new Point(-9.5, -20, -15d), 0.5).setEmission(new Color(white))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
 
                 //nose
