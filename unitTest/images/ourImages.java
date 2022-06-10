@@ -441,43 +441,43 @@ public class ourImages {
                 new Triangle(
                         new Point(-95, 25, -50),
                         new Point(-85, 17, -45),
-                        new Point(-135, 22, -50)).setEmission(tableColor),
+                        new Point(-135, 22, -50)).setEmission(new Color(black)),
                 new Triangle(
                         new Point(-85, 18, -45),
                         new Point(-123, 15, -45),
-                        new Point(-134, 22, -50)).setEmission(tableColor),
+                        new Point(-134, 22, -50)).setEmission(new Color(black)),
 
                 new Triangle(
                         new Point(-100, 24, -40),
                         new Point(-100, 45, -40),
-                        new Point(-92, 22, -40)).setEmission(tableColor),
+                        new Point(-92, 22, -40)).setEmission(new Color(black)),
 
                 new Triangle(
                         new Point(-85, 18, -45),
                         new Point(-124, 15, -45),
                         new Point(-124, 12, -50))
-                        .setEmission(new Color(150, 75, 0))
+                        .setEmission(new Color(40, 40, 40))
                         .setMaterial(new Material().setKd(0.1).setKs(0.1).setShininess(10)),
 
                 new Triangle(
                         new Point(-85, 18, -45),
                         new Point(-85, 16, -45),
                         new Point(-124, 12, -50))
-                        .setEmission(new Color(150, 75, 0))
+                        .setEmission(new Color(40, 40, 40))
                         .setMaterial(new Material().setKd(0.1).setKs(0.1).setShininess(10)),
 
                 new Triangle(
                         new Point(-134, 23, -50),
                         new Point(-124, 16, -45),
                         new Point(-124, 12, -50))
-                        .setEmission(new Color(150, 75, 0))
+                        .setEmission(new Color(40, 40, 40))
                         .setMaterial(new Material().setKd(0.1).setKs(0.1).setShininess(10)),
 
                 new Triangle(
                         new Point(-134, 23, -50),
                         new Point(-134, 20, -50),
                         new Point(-124, 12, -50))
-                        .setEmission(new Color(150, 75, 0))
+                        .setEmission(new Color(40, 40, 40))
                         .setMaterial(new Material().setKd(0.1).setKs(0.1).setShininess(10)),
 
                 //the mirror
@@ -554,6 +554,32 @@ public class ourImages {
                         new Point(85, -90, 30)
                 ).setEmission(new Color(black))
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+                new Triangle(
+                        new Point(0, -90, 30),
+                        new Point(-7, -77, 30),
+                        new Point(-7, -81, 30)
+                ).setEmission(new Color(40,40,40))
+                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+                new Triangle(
+                        new Point(0, -90, 30),
+                        new Point(0, -94, 30),
+                        new Point(-7, -81, 30)
+                ).setEmission(new Color(40,40,40))
+                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+                new Triangle(
+                        new Point(0, -90, 30),
+                        new Point(0, -93, 30),
+                        new Point(85, -93, 30)
+                ).setEmission(new Color(40,40,40))
+                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+                new Triangle(
+                        new Point(85, -93, 30),
+                        new Point(85, -90, 30),
+                        new Point(0, -90, 30)
+                ).setEmission(new Color(40,40,40))
+                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+
+
 
                 //balls
                 new Sphere(new Point(-60, -90, 17), 17d) //
