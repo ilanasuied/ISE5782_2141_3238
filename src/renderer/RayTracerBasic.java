@@ -22,13 +22,18 @@ public class RayTracerBasic extends RayTracer {
     }
 
     @Override
-    public Color traceRay(Ray ray) {
-        GeoPoint closestPoint = findClosestIntersection(ray);
-        if (closestPoint == null) {
-            return scene.getBackground();
+    public Color traceRays(List<Ray>rays){
+        Color sumColor=Color.BLACK;
+        for(Ray ray:rays){
+            GeoPoint closestPoint=findClosestIntersection(ray);
+            if(closestPoint!=null){
+                sumColor=sumColor.add(calcColor(closestPoint,ray));
+            }else{
+                sumColor=sumColor.add(scene.getBackground(
+                ));
+            }
         }
-        return calcColor(closestPoint, ray);
-
+        return sumColor.reduce(rays.size());
     }
 
     private Color calcColor(GeoPoint geopoint, Ray ray) {
@@ -252,6 +257,7 @@ public class RayTracerBasic extends RayTracer {
         }
         return ray.findClosestGeoPoint(intersections);
     }
+
 
 }
 
