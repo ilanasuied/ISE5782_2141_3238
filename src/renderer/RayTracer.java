@@ -11,9 +11,14 @@ public abstract class RayTracer {
 
     protected final Scene scene;
 
-    //scene's constructor
-    public RayTracer(Scene scene){
+    /**
+     * scene constructor
+     *
+     * @param scene tue correct value for this scene
+     */
+    public RayTracer(Scene scene) {
         this.scene = scene;
     }
+
     public abstract Color traceRays(List<Ray> rays);
 }

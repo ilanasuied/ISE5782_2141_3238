@@ -135,12 +135,23 @@ public class Camera {
     }
 
 
+    /**
+     * insert value in imageWriter
+     *
+     * @param interval value for interval of print grid
+     * @param color    the color for print grid
+     */
     public void printGrid(int interval, Color color) {
         if (imageWriter != null) {
             imageWriter.printGrid(interval, color);
         }
     }
 
+    /**
+     * renderImage function
+     *
+     * @return this object with the correct values
+     */
     public Camera renderImage() {
         try {
             if (imageWriter == null) {
@@ -166,44 +177,76 @@ public class Camera {
         return this;
     }
 
-
+    /**
+     * this function juste insert in imageWriter the correct value
+     *
+     * @param imageWriter the value of the image writer
+     * @return this object with the correct values
+     */
     public Camera setImageWriter(ImageWriter imageWriter) {
         this.imageWriter = imageWriter;
         return this;
     }
 
+    /**
+     * setter for RayTracer
+     *
+     * @param rayTracer the correct value for the param RayTracer of this object
+     * @return this object with the correct values
+     */
     public Camera setRayTracer(RayTracer rayTracer) {
         this.rayTracer = rayTracer;
         return this;
     }
 
+    /**
+     * insert in imageWriter the correct value
+     *
+     * @return this object with the correct values
+     */
     public Camera writeToImage() {
         imageWriter.writeToImage();
         return this;
     }
 
+    /**
+     * @param amountRowPixels    the count of the pixel's row
+     * @param amountColumnPixels the count of the pixel's columns
+     * @return this object with the correct values
+     */
     public Camera setPixels(int amountRowPixels, int amountColumnPixels) {
         this.amountRowPixels = amountRowPixels;
         this.amountColumnPixels = amountColumnPixels;
         return this;
     }
 
+    /**
+     * this function construct the rays
+     *
+     * @param nX x access
+     * @param nY y access
+     * @param j  to move up and down
+     * @param i  to move right and left
+     * @return the correct ray
+     */
     public List<Ray> constructRays(int nX, int nY, int j, int i) {
         if (amountColumnPixels <= 0 || amountRowPixels <= 0) {
             return List.of(constructRay(nX, nY, j, i));
         }
         Point Pc = p0.add(Vto.scale(_distance));
         List<Ray> rays = new LinkedList<>();
-//ratio
+        //ratio
         double Ry = _height / nY;
         double Rx = _width / nX;
         double Yi = -(i - (nY - 1) / 2d) * Ry;
         double Xj = (j - (nX - 1) / 2d) * Rx;
-//Pixel[i,j]center:
+        //Pixel[i,j]center:
         Point Pij = Pc;
+        //check that Yi isn't 0
         if (!isZero(Yi)) {
             Pij = Pij.add(Vup.scale(Yi));
         }
+        //check if Xj isn't equal to 0
         if (!isZero(Xj)) {
             Pij = Pij.add(Vright.scale(Xj));
         }
@@ -232,11 +275,20 @@ public class Camera {
         return rays;
     }
 
+    /**
+     * this function construct the rays
+     *
+     * @param nX x access
+     * @param nY y access
+     * @param i  to move right and left
+     * @param j  to move up and down
+     */
     private void castRay(int nX, int nY, int i, int j) {
         List<Ray> rays = constructRays(nX, nY, i, j);
         Color pixelColor = rayTracer.traceRays(rays);
         imageWriter.writePixel(i, j, pixelColor);
     }
+
 
     // ================================= Builder Class for Camera ===============================
 
@@ -262,26 +314,44 @@ public class Camera {
         private ImageWriter imageWriter = null;
         private RayTracer rayTracer = null;
 
-        //setter distance
+        /**
+         * setter for distance
+         *
+         * @param distance value for the distance of this object
+         * @return this object with the correct value for his distance param
+         */
         public BuilderCamera setVPDistance(double distance) {
             _distance = distance;
             return this;
         }
 
-
-        //setter view plane's width
+        /**
+         * setter for viewPlanWidth
+         *
+         * @param width the correct value for the width
+         * @return this object with the correct value for his width param
+         */
         public BuilderCamera setViewPlaneWidth(double width) {
             _width = width;
             return this;
         }
 
-        //setter view plane's height
+        /**
+         * setter for VP height
+         *
+         * @param height the correct value for the height
+         * @return this object with the correct value for his height param
+         */
         public BuilderCamera setViewPlaneHeight(double height) {
             _height = height;
             return this;
         }
 
-        //camera build default constructor
+        /**
+         * constructor/ builder of this object
+         *
+         * @return the new object
+         */
         public Camera build() {
             Camera camera = new Camera(this);
             return camera;

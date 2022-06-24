@@ -4,7 +4,7 @@ import renderer.Camera;
 
 public class Point {
 
-    public static final Point ZERO = new Point(0d,0d,0d);       // origin of axis
+    public static final Point ZERO = new Point(0d, 0d, 0d);       // origin of axis
     Double3 _xyz;
 
     /**
@@ -21,6 +21,7 @@ public class Point {
 
     /**
      * point constructor
+     *
      * @Double3 insert value for xyz
      */
     public Point(Double3 xyz) {
@@ -54,6 +55,7 @@ public class Point {
 
     /**
      * override function for equals, compares two object's values
+     *
      * @param o another object, compare if this object is equal to o
      * @return boolean response if they are equal or not
      */
@@ -70,24 +72,28 @@ public class Point {
 
     /**
      * function that calculate distance squared between two points
+     *
      * @param point calculate the distance between this object and 'point'
      * @return double, the distance between those 2 points
      */
     public double distanceSquared(Point point) {
-        Double3 tmp=_xyz.subtract(point._xyz);
-        double xx=tmp.d1 * tmp.d1;
-        double yy=tmp.d2 * tmp.d2;
-        double zz=tmp.d3 * tmp.d3;
-      return (xx+yy+zz);
+        Double3 tmp = _xyz.subtract(point._xyz);
+        double xx = tmp.d1 * tmp.d1;
+        double yy = tmp.d2 * tmp.d2;
+        double zz = tmp.d3 * tmp.d3;
+        double result = (xx + yy + zz);
+        return result;
     }
 
     /**
      * function that calculate distance between two points
+     *
      * @param point value of a point
      * @return double, the distance between those 2 points
      */
     public double distance(Point point) {
-        return Math.sqrt(distanceSquared(point));
+        double result = Math.sqrt(distanceSquared(point));
+        return result;
     }
 
 
@@ -100,20 +106,26 @@ public class Point {
     }
 
     /**
-     *get the value of x
+     * get the value of x
+     *
      * @return the value of the coordinate x
      */
     public double getX() {
         return _xyz.d1;
     }
+
     /**
-     *get the value of y
+     * get the value of y
+     *
      * @return the value of the coordinate y
      */
     public double getY() {
         return _xyz.d2;
-    } /**
-     *get the value of z
+    }
+
+    /**
+     * get the value of z
+     *
      * @return the value of the coordinate z
      */
     public double getZ() {

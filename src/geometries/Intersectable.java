@@ -11,11 +11,17 @@ import java.util.List;
  */
 public abstract class Intersectable {
 
+
     public  static class  GeoPoint{
 
         public final Geometry geometry;
         public final Point point;
 
+        /**
+         *
+         * @param geometry value of Geometry
+         * @param point value of Point
+         */
         public GeoPoint(Geometry geometry, Point point){
             this.geometry = geometry;
             this.point = point;

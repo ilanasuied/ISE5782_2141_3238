@@ -4,6 +4,8 @@ import primitives.*;
 
 
 public class SpotLight extends PointLight{
+
+    //the vector direction
     private Vector direction;
 
     /**
@@ -25,7 +27,8 @@ public class SpotLight extends PointLight{
         Color pointIntensity = super.getIntensity(p);
         Vector l = getL(p);
         double factor = Math.max(0,direction.dotProduct(l));
-        return  pointIntensity.scale(factor);
+        Color result= pointIntensity.scale(factor);
+        return result;
     }
 
 

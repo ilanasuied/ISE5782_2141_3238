@@ -8,21 +8,21 @@ import java.util.List;
 
 import static primitives.Util.isZero;
 
-public class Triangle extends Polygon
-{
+public class Triangle extends Polygon {
     final Point p0;
     final Point p1;
     final Point p2;
+
     /**
      * constructor with 3 points for triangle
+     *
      * @param p1 value for first point
      * @param p2 value for second point
      * @param p3 value for third point
      */
-
     public Triangle(Point p1, Point p2, Point p3) {
 
-        super(p1,p2,p3);
+        super(p1, p2, p3);
         this.p0 = p1;
         this.p1 = p2;
         this.p2 = p3;
@@ -31,6 +31,7 @@ public class Triangle extends Polygon
 
     /**
      * function that returns a string for triangle
+     *
      * @return string
      */
     @Override
@@ -41,6 +42,12 @@ public class Triangle extends Polygon
                 '}';
     }
 
+    /**
+     *
+     * @param ray ray intersecting the geometry
+     * @param maxDistance maximum distance to look for intersections geometries
+     * @return list of the geometries that comes in intersection, if there isn't, return null
+     */
     @Override
     public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
         List<GeoPoint> planeIntersections = plane.findGeoIntersections(ray, maxDistance);

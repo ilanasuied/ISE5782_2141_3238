@@ -105,6 +105,12 @@ public class Ray {
                 '}';
     }
 
+    /**
+     * this function find the closest point in intersection
+     *
+     * @param intersections list of goePoint
+     * @return the closest point that is in intersection
+     */
     public GeoPoint findClosestGeoPoint(List<GeoPoint> intersections) {
         GeoPoint closestpoint = null;
         double minDistance = Double.MAX_VALUE;

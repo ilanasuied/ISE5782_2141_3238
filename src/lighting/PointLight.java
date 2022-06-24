@@ -4,6 +4,7 @@ import primitives.*;
 
 public class PointLight extends Light implements LightSource {
 
+    //the position
     private Point position;
 
     //attenuation's factors

@@ -12,15 +12,16 @@ import static primitives.Util.isZero;
 /**
  * class for a 3D plane
  */
-public class Plane extends Geometry{
-   final  Vector normal;
-   final  Point q0 ;
+public class Plane extends Geometry {
+    final Vector normal;
+    final Point q0;
 
 
     /**
      * Constructor of Plane from 3 points on its surface
      * the points are ordered from right to left
      * forming an arc in right direction
+     *
      * @param p1 first point to construct a plane
      * @param p2 second point to construct a plane
      * @param p3 third point to construct a plane
@@ -28,33 +29,34 @@ public class Plane extends Geometry{
     public Plane(Point p1, Point p2, Point p3) {
         q0 = p1;
 
-        Vector U=p2.subtract(p1);
-        Vector V=p3.subtract(p1);
+        Vector U = p2.subtract(p1);
+        Vector V = p3.subtract(p1);
 
-        Vector N=U.crossProduct(V);
-        normal=N.normalize();
+        Vector N = U.crossProduct(V);
+        normal = N.normalize();
     }
 
     /**
-     *
-     * @param p value for the point on the plane
+     * @param p      value for the point on the plane
      * @param normal of the plane
      */
-    public Plane(Point p,Vector normal) {
+    public Plane(Point p, Vector normal) {
         this.normal = normal.normalize();
         q0 = p;
     }
 
     /**
      * getter for normal vector
+     *
      * @return normal
      */
-    public Vector getNormal(){
+    public Vector getNormal() {
         return normal;
     }
 
     /**
      * getter for q0 referenced point
+     *
      * @return the referenced point of the plane
      */
     public Point getQ0() {
@@ -63,15 +65,20 @@ public class Plane extends Geometry{
 
     /**
      * implementing {@link Geometry#getNormal(Point)}
+     *
      * @param point reference point
      * @return normal vector to the plane
      */
     @Override
-    public Vector getNormal(Point point)
-    {
+    public Vector getNormal(Point point) {
         return getNormal();
     }
 
+    /**
+     * @param ray         ray intersecting the geometry
+     * @param maxDistance maximum distance to look for intersections geometries
+     * @return list of the geometries that comes in intersection
+     */
     @Override
     public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
         Point P0 = ray.getP0();
@@ -103,13 +110,14 @@ public class Plane extends Geometry{
 
         double t = alignZero(nP0Q0 / nv);
 
-        if (t < 0 ||  alignZero(t - maxDistance) > 0) {
+        if (t < 0 || alignZero(t - maxDistance) > 0) {
             return null;
         }
 
 
         Point point = ray.getPoint(t);
 
-        return List.of(new GeoPoint(this, point));
+        List<GeoPoint> result = List.of(new GeoPoint(this, point));
+        return result;
     }
 }
