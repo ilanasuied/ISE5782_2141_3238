@@ -8,15 +8,16 @@ import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
 
-public class Cylinder  extends Tube{
+public class Cylinder extends Tube {
 
     final double height;
 
     /**
      * cylinder constructor
-     * @param  axisRay value for the Ray
-     * @param radius value for the radius of the cylinder
-     * @param height value for the cylinder's height
+     *
+     * @param axisRay value for the Ray
+     * @param radius  value for the radius of the cylinder
+     * @param height  value for the cylinder's height
      */
     public Cylinder(Ray axisRay, double radius, double height) {
         super(axisRay, radius);
@@ -25,6 +26,7 @@ public class Cylinder  extends Tube{
 
     /**
      * get cylinder's height
+     *
      * @return height of the cylinder
      */
     public double getHeight() {
@@ -33,6 +35,7 @@ public class Cylinder  extends Tube{
 
     /**
      * override the function toString for cylinder
+     *
      * @return string
      */
     @Override
@@ -46,7 +49,8 @@ public class Cylinder  extends Tube{
 
     /**
      * override the getNormal function for cylinder
-     * @param point point
+     *
+     * @param point the value of point
      * @return the normal of the cylinder
      */
     @Override
@@ -66,8 +70,11 @@ public class Cylinder  extends Tube{
         if (t == 0 || isZero(height - t)) // if it's close to 0, we'll get ZERO vector exception
             return v;
 
+        //do a scale between them
         o = o.add(v.scale(t));
-        return o.subtract(point).normalize();
+        //kipp the result and return it
+        Vector result = o.subtract(point).normalize();
+        return result;
 
     }
 }

@@ -152,6 +152,9 @@ public class ourImages {
                 .renderImage().writeToImage();
     }
 
+    /**
+     * this is our final project
+     */
     @Test
     public void project1() {
 
@@ -641,10 +644,10 @@ public class ourImages {
 
 
                 //balls
-                new Sphere(new Point(-76, -90, 30), 14) //
+                new Sphere(new Point(-76, -100, 30), 14) //
                         .setEmission(new Color(red)) //
                         .setMaterial(new Material().setKd(0.5).setKs(0.5).setKr(0.5).setShininess(30)),
-                new Sphere(new Point(-70, -100, 60), 10d) //
+                new Sphere(new Point(-70, -110, 60), 10d) //
                         .setEmission(new Color(blue)) //
                         .setMaterial(new Material().setKd(0.5).setKs(0.5).setKr(0.5).setShininess(30))
 
