@@ -18,6 +18,9 @@ public class ourImages {
     static final Point ZERO_POINT = new Point(0, 0, 0);
     private Scene scene = new Scene.SceneBuilder("Test scene").build();
 
+    /**
+     * exercise 7
+     */
     @Test
     public void circle() {
         Scene scene = new Scene.SceneBuilder("Test scene")//
@@ -103,6 +106,9 @@ public class ourImages {
 
     }
 
+    /**
+     * exercise 8
+     */
     @Test
     public void images() {
 
@@ -672,7 +678,9 @@ public class ourImages {
                 .setPixels(5, 5).renderImage().writeToImage();
     }
 
-
+    /**
+     * another text
+     */
     @Test
     public void targil8() {
 
