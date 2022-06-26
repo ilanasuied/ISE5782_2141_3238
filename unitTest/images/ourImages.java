@@ -5,7 +5,6 @@ import lighting.PointLight;
 import org.junit.jupiter.api.Test;
 import primitives.*;
 import lighting.AmbientLight;
-import lighting.DirectionalLight;
 import lighting.SpotLight;
 import renderer.Camera;
 import renderer.ImageWriter;
@@ -158,12 +157,21 @@ public class ourImages {
     @Test
     public void project1() {
 
-        Color sideColor = new Color(0, 220, 160);
+        Color blackColor=new Color(black);
+        Color pinkColor=new Color(pink);
+        Color whiteColor=new Color(white);
+        Color blueColor=new Color(blue);
+        Color redColor=new Color(red);
+        Color grayColor=new Color(gray);
+        Color sideColor = new Color(178, 178, 178);
+        Color poohColor=new Color(150, 75, 0);
+        Color reliefsColor = new Color(40, 40, 40);
+
+
         scene.setAmbientLight(new AmbientLight(new Color(java.awt.Color.WHITE), new Double3(.15)));
         Camera camera = new Camera.BuilderCamera(new Point(0, 0, 1000), new Vector(0, 0, -1), new Vector(0, 1, 0)) //
                 .setVPSize(300, 300).setVPDistance(1000) //
                 .setRayTracer(new RayTracerBasic(scene)).build();
-        Color tableColor = new Color(140, 60, 0);
         scene.getGeometries().add( //
 
                 //le fond
@@ -186,13 +194,13 @@ public class ourImages {
                         new Point(90, 90, -150),
                         new Point(150, 130, -140)
                 ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
-                        .setEmission(new Color(178, 178, 178)),
+                        .setEmission(sideColor),
                 new Triangle(
                         new Point(150, 130, -140),
                         new Point(150, -150, -140),
                         new Point(90, -90, -150)
                 ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
-                        .setEmission(new Color(178, 178, 178)),
+                        .setEmission(sideColor),
 
                 // side- left
                 new Triangle(
@@ -200,13 +208,13 @@ public class ourImages {
                         new Point(-90, 90, -150),
                         new Point(-150, 130, -140)
                 ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
-                        .setEmission(new Color(178, 178, 178)),
+                        .setEmission(sideColor),
                 new Triangle(
                         new Point(-150, 130, -140),
                         new Point(-150, -150, -140),
                         new Point(-90, -90, -150)
                 ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
-                        .setEmission(new Color(178, 178, 178)),
+                        .setEmission(sideColor),
 
                 // the floor
                 new Triangle(
@@ -214,13 +222,13 @@ public class ourImages {
                         new Point(150, -150, -140),
                         new Point(-90, -90, -150)
                 ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
-                        .setEmission(new Color(gray)),
+                        .setEmission(grayColor),
                 new Triangle(
                         new Point(-150, -150, -140),
                         new Point(-90, -90, -150),
                         new Point(150, -150, -140)
                 ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80))
-                        .setEmission(new Color(gray)),
+                        .setEmission(grayColor),
 
 
                 // plafond
@@ -229,13 +237,13 @@ public class ourImages {
                         new Point(90, 90, -150),
                         new Point(150, 130, -140)
                 ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80).setkT(0.8))
-                        .setEmission(new Color(gray)),
+                        .setEmission(grayColor),
                 new Triangle(
                         new Point(-90, 90, -150),
                         new Point(150, 130, -140),
                         new Point(-150, 130, -140)
                 ).setMaterial(new Material().setKd(0.5).setKs(0.8).setShininess(80).setkT(0.8))
-                        .setEmission(new Color(gray)),
+                        .setEmission(grayColor),
 
 
                 //light
@@ -244,25 +252,25 @@ public class ourImages {
                         new Point(25, 120, -130),
                         new Point(20, 100, -130)
 
-                ).setEmission(new Color(white)),
+                ).setEmission(whiteColor),
                 new Triangle(
                         new Point(-25, 120, -130),
                         new Point(-20, 100, -130),
                         new Point(20, 100, -130)
 
-                ).setEmission(new Color(white)),
+                ).setEmission(whiteColor),
 
                 //books on the shelf
                 new Triangle(
                         new Point(-112, 44, 0),
                         new Point(-112, 17, 0),
                         new Point(-107, 17, 0)
-                ).setEmission(new Color(red)),
+                ).setEmission(redColor),
                 new Triangle(
                         new Point(-107, 44, 0),
                         new Point(-112, 44, 0),
                         new Point(-107, 17, 0)
-                ).setEmission(new Color(red)),
+                ).setEmission(redColor),
                 new Triangle(
                         new Point(-112, 44, 0),
                         new Point(-112, 17, 0),
@@ -277,32 +285,32 @@ public class ourImages {
                         new Point(-107, 44, 0),
                         new Point(-112, 44, 0),
                         new Point(-122, 48, 0)
-                ).setEmission(new Color(white)),
+                ).setEmission(whiteColor),
                 new Triangle(
                         new Point(-107, 44, 0),
                         new Point(-122, 48, 0),
                         new Point(-118, 48, 0)
-                ).setEmission(new Color(white)),
+                ).setEmission(whiteColor),
                 new Triangle(
                         new Point(-107, 17, 0),
                         new Point(-102, 17, 0),
                         new Point(-102, 44, 0)
-                ).setEmission(new Color(blue)),
+                ).setEmission(blueColor),
                 new Triangle(
                         new Point(-107, 17, 0),
                         new Point(-107, 44, 0),
                         new Point(-102, 44, 0)
-                ).setEmission(new Color(blue)),
+                ).setEmission(blueColor),
                 new Triangle(
                         new Point(-107, 44, 0),
                         new Point(-102, 44, 0),
                         new Point(-118, 48, 0)
-                ).setEmission(new Color(white)),
+                ).setEmission(whiteColor),
                 new Triangle(
                         new Point(-102, 44, 0),
                         new Point(-118, 48, 0),
                         new Point(-112, 48, 0)
-                ).setEmission(new Color(white)),
+                ).setEmission(whiteColor),
                 new Triangle(
                         new Point(-107, 44, 10),
                         new Point(-108, 44, 10),
@@ -332,7 +340,7 @@ public class ourImages {
                         new Point(-101, 38, 10),
                         new Point(-101, 40, 10),
                         new Point(-98, 40, 10)
-                ).setEmission(new Color(white)),
+                ).setEmission(whiteColor),
 
 
                 //box on the floor
@@ -340,14 +348,14 @@ public class ourImages {
                         new Point(-45, -90, 10),
                         new Point(-70, -90, 10),
                         new Point(-70, -65, 10)
-                ).setEmission(new Color(pink))
+                ).setEmission(pinkColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
 
                 new Triangle(
                         new Point(-45, -90, 10),
                         new Point(-45, -65, 10),
                         new Point(-70, -65, 10)
-                ).setEmission(new Color(pink))
+                ).setEmission(pinkColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
 
                 new Triangle(
@@ -382,39 +390,39 @@ public class ourImages {
 
 
                 // head
-                new Sphere(new Point(-5, -20, -70), 25d).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(-5, -20, -70), 25d).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
 
                 //ears
-                new Sphere(new Point(15, 4, -70), 12.5).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(15, 4, -70), 12.5).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
-                new Sphere(new Point(-25, 4, -70), 12.5).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(-25, 4, -70), 12.5).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
 
                 //belly
-                new Sphere(new Point(-5, -74, -70), 30).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(-5, -74, -70), 30).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
 
                 //hands + fingers
                 //right hand
-                new Sphere(new Point(28, -54, -70), 10).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(28, -54, -70), 10).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
                 //left hand
-                new Sphere(new Point(-38, -54, -65), 10).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(-38, -54, -65), 10).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
                 //right fingers
-                new Sphere(new Point(39, -53, -70), 2).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(39, -53, -70), 2).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
-                new Sphere(new Point(38, -49, -70), 2).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(38, -49, -70), 2).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
-                new Sphere(new Point(38, -57, -72), 2).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(38, -57, -72), 2).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
                 //left fingers
-                new Sphere(new Point(-48, -53, -60), 2).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(-48, -53, -60), 2).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
-                new Sphere(new Point(-48, -49, -60), 2).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(-48, -49, -60), 2).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
-                new Sphere(new Point(-48, -57, -60), 2).setEmission(new Color(150, 75, 0))
+                new Sphere(new Point(-48, -57, -60), 2).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
 
 
@@ -423,37 +431,37 @@ public class ourImages {
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
                 new Sphere(new Point(5, -20, -40d), 4).setEmission(new Color(0, 0, 255))
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
-                new Sphere(new Point(5.5, -20, -38), 2.3).setEmission(new Color(black))
+                new Sphere(new Point(5.5, -20, -38), 2.3).setEmission(blackColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
-                new Sphere(new Point(-9.5, -20, -38), 2.3).setEmission(new Color(black))
+                new Sphere(new Point(-9.5, -20, -38), 2.3).setEmission(blackColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
-                new Sphere(new Point(5.5, -20, -35), 0.5).setEmission(new Color(white))
+                new Sphere(new Point(5.5, -20, -35), 0.5).setEmission(whiteColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
-                new Sphere(new Point(-9.5, -20, -35), 0.5).setEmission(new Color(white))
+                new Sphere(new Point(-9.5, -20, -35), 0.5).setEmission(whiteColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
 
-                //nose
-                new Triangle(
-                        new Point(-5, -26, -20),
-                        new Point(1, -26, -20),
-                        new Point(-2, -30, -20)).
-                        setEmission(new Color(250, 75, 0)),
+        //nose
+        new Triangle(
+                new Point(-5, -26, -20),
+                new Point(1, -26, -20),
+                new Point(-2, -30, -20)).
+                setEmission(new Color(250, 75, 0)),
 
 
                 //shelf -etagere ???
                 new Triangle(
                         new Point(-95, 25, -50),
                         new Point(-85, 17, -45),
-                        new Point(-135, 22, -50)).setEmission(new Color(black)),
+                        new Point(-135, 22, -50)).setEmission(blackColor),
                 new Triangle(
                         new Point(-85, 18, -45),
                         new Point(-123, 15, -45),
-                        new Point(-134, 22, -50)).setEmission(new Color(black)),
+                        new Point(-134, 22, -50)).setEmission(blackColor),
 
                 new Triangle(
                         new Point(-100, 24, -40),
                         new Point(-100, 45, -40),
-                        new Point(-92, 22, -40)).setEmission(new Color(black)),
+                        new Point(-92, 22, -40)).setEmission(blackColor),
 
                 new Triangle(
                         new Point(-85, 18, -45),
@@ -490,84 +498,85 @@ public class ourImages {
                         new Point(65, -118, 20),
                         new Point(69, -118, 20),
                         new Point(69, -80, 20)
-                ).setEmission(new Color(black)),
+                ).setEmission(blackColor),
                 new Triangle(
                         new Point(65, -118, 20),
                         new Point(65, -80, 20),
                         new Point(69, -80, 20)
-                ).setEmission(new Color(black)),
+                ).setEmission(blackColor),
                 //left foot front
                 new Triangle(
                         new Point(15, -118, 20),
                         new Point(19, -118, 20),
                         new Point(19, -80, 20)
-                ).setEmission(new Color(black)),
+                ).setEmission(blackColor),
                 new Triangle(
                         new Point(15, -118, 20),
                         new Point(15, -80, 20),
                         new Point(19, -80, 20)
-                ).setEmission(new Color(black)),
+                ).setEmission(blackColor),
+
                 //right foot in the back
                 new Triangle(
                         new Point(60, -107, 20),
                         new Point(64, -107, 20),
                         new Point(64, -80, 20)
-                ).setEmission(new Color(black)),
+                ).setEmission(blackColor),
                 new Triangle(
                         new Point(60, -107, 20),
                         new Point(60, -80, 20),
                         new Point(64, -80, 20)
-                ).setEmission(new Color(black)),
+                ).setEmission(blackColor),
 
                 //left foot in the back
                 new Triangle(
                         new Point(10, -107, 20),
                         new Point(14, -107, 20),
                         new Point(14, -80, 20)
-                ).setEmission(new Color(black)),
+                ).setEmission(blackColor),
                 new Triangle(
                         new Point(10, -107, 20),
                         new Point(10, -80, 20),
                         new Point(14, -80, 20)
-                ).setEmission(new Color(black)),
+                ).setEmission(blackColor),
 
                 //the plate
                 new Triangle(
                         new Point(0, -90, 30),
                         new Point(75, -77, 30),
                         new Point(-7, -77, 30)
-                ).setEmission(new Color(black))
+                ).setEmission(blackColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
                 new Triangle(
                         new Point(0, -90, 30),
                         new Point(75, -77, 30),
                         new Point(85, -90, 30)
-                ).setEmission(new Color(black))
+                ).setEmission(blackColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
                 //reliefs
                 new Triangle(
                         new Point(0, -90, 30),
                         new Point(-7, -77, 30),
                         new Point(-7, -81, 30)
-                ).setEmission(new Color(40, 40, 40))
+                ).setEmission(reliefsColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
                 new Triangle(
                         new Point(0, -90, 30),
                         new Point(0, -94, 30),
                         new Point(-7, -81, 30)
-                ).setEmission(new Color(40, 40, 40))
+                ).setEmission(reliefsColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
                 new Triangle(
                         new Point(0, -90, 30),
                         new Point(0, -93, 30),
                         new Point(85, -93, 30)
-                ).setEmission(new Color(40, 40, 40))
+                ).setEmission(reliefsColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
                 new Triangle(
                         new Point(85, -93, 30),
                         new Point(85, -90, 30),
                         new Point(0, -90, 30)
-                ).setEmission(new Color(40, 40, 40))
+                ).setEmission(reliefsColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
 
 
@@ -577,26 +586,26 @@ public class ourImages {
                         new Point(95, -65, 30),
                         new Point(91, -65, 30),
                         new Point(91, -118, 30)
-                ).setEmission(new Color(40, 40, 40))
+                ).setEmission(reliefsColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
                 new Triangle(
                         new Point(91, -118, 30),
                         new Point(95, -118, 30),
                         new Point(95, -65, 30)
-                ).setEmission(new Color(40, 40, 40))
+                ).setEmission(reliefsColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
                 //back foot left
                 new Triangle(
                         new Point(82, -63, 40),
                         new Point(86, -63, 40),
                         new Point(86, -116, 40)
-                ).setEmission(new Color(40, 40, 40))
+                ).setEmission(reliefsColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
                 new Triangle(
                         new Point(86, -116, 40),
                         new Point(82, -116, 40),
                         new Point(82, -63, 40)
-                ).setEmission(new Color(40, 40, 40))
+                ).setEmission(reliefsColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
 
                 //dossier
@@ -604,13 +613,13 @@ public class ourImages {
                         new Point(86, -72, 40),
                         new Point(86, -76, 40),
                         new Point(91, -78, 40)
-                ).setEmission(new Color(40, 40, 40))
+                ).setEmission(reliefsColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
                 new Triangle(
                         new Point(91, -78, 40),
                         new Point(91, -74, 40),
                         new Point(86, -72, 40)
-                ).setEmission(new Color(40, 40, 40))
+                ).setEmission(reliefsColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
 
                 //sit
@@ -618,13 +627,13 @@ public class ourImages {
                         new Point(82, -92, 40),
                         new Point(67, -92, 60),
                         new Point(95, -96, 40)
-                ).setEmission(new Color(black))
+                ).setEmission(blackColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
                 new Triangle(
                         new Point(95, -96, 40),
                         new Point(80, -97, 60),
                         new Point(67, -92, 60)
-                ).setEmission(new Color(black))
+                ).setEmission(blackColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
 
 
@@ -633,28 +642,28 @@ public class ourImages {
                         new Point(71, -94, 40),
                         new Point(75, -95, 40),
                         new Point(75, -115, 40)
-                ).setEmission(new Color(40, 40, 40))
+                ).setEmission(reliefsColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
                 new Triangle(
                         new Point(75, -115, 40),
                         new Point(71, -115, 40),
                         new Point(71, -94, 40)
-                ).setEmission(new Color(40, 40, 40))
+                ).setEmission(reliefsColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
 
 
                 //balls
                 new Sphere(new Point(-76, -100, 30), 14) //
-                        .setEmission(new Color(red)) //
+                        .setEmission(redColor) //
                         .setMaterial(new Material().setKd(0.5).setKs(0.5).setKr(0.5).setShininess(30)),
                 new Sphere(new Point(-70, -110, 60), 10d) //
-                        .setEmission(new Color(blue)) //
+                        .setEmission(blueColor) //
                         .setMaterial(new Material().setKd(0.5).setKs(0.5).setKr(0.5).setShininess(30))
 
 
         );
         scene.lights.add( //
-                new SpotLight(new Color(pink), new Point(50, -100, 115), new Vector(-1, -1, -4)) //
+                new SpotLight(pinkColor, new Point(50, -100, 115), new Vector(-1, -1, -4)) //
                         .setKl(4E-4).setKq(2E-5));
 
         scene.lights.add(new PointLight(new Color(yellow), new Point(0, 110, -130)));
