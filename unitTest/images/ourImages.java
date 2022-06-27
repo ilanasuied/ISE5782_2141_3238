@@ -82,30 +82,6 @@ public class ourImages {
 
 
         );
-//                //Sa tete
-//                new Sphere(new Point(0, 0, -100), 50d).setEmission(new Color(150, 75, 0)),
-//
-//                //ses oreilles
-//                new Sphere(new Point(40, 60, -100), 25d).setEmission(new Color(150, 75, 0)),
-//                new Sphere(new Point(-40, 60, -100), 25d).setEmission(new Color(150, 75, 0)),
-//
-//                //son ventre
-//                new Sphere(new Point(0, -110, -100), 60d).setEmission(new Color(150, 75, 0)),
-//
-//                //ses yeux
-//                new Sphere(new Point(-5, 0, -19), 5d).setEmission(new Color(150, 75, 0)),
-//                new Sphere(new Point(5, 0, -19), 5d).setEmission(new Color(150, 75, 0)),
-//
-//                //son nez
-//                new Triangle(
-//                        new Point(-3, -3, -19d),
-//                        new Point(3, -3, -19d),
-//                        new Point(0, -6, -19d)).
-//                        setEmission(new Color(250, 75, 0)),
-//                new Sphere(new Point(-4, 0, -15d), 2d).setEmission(new Color(0, 0, 255)),
-//                new Sphere(new Point(4, 0, -15d), 2d).setEmission(new Color(0, 0, 255)));
-//
-
         Camera camera = new Camera.BuilderCamera(Point.ZERO, new Vector(0, 0, -1), new Vector(0, 1, 0)) //
                 .setVPDistance(100) //
                 .setViewPlaneWidth(500)
