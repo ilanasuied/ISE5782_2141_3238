@@ -15,7 +15,6 @@ import static java.awt.Color.*;
 
 public class ourImages {
 
-    static final Point ZERO_POINT = new Point(0, 0, 0);
     private Scene scene = new Scene.SceneBuilder("Test scene").build().setAmbientLight(new AmbientLight(new Color(java.awt.Color.WHITE), new Double3(.15)));
     Camera camera = new Camera.BuilderCamera(new Point(0, 0, 1000), new Vector(0, 0, -1), new Vector(0, 1, 0)) //
             .setVPSize(300, 300).setVPDistance(1000) //
@@ -112,7 +111,7 @@ public class ourImages {
         Pooh();
         Shelf();
         Table();
-        Chair();
+       // Chair();
         scene.lights.add( //
                 new SpotLight(pinkColor, new Point(50, -100, 115), new Vector(-1, -1, -4)) //
                         .setKl(4E-4).setKq(2E-5));
@@ -575,84 +574,84 @@ public class ourImages {
 
     }
 
-    @Test
-    /**
-     * build chair
-     */
-    public void Chair(){
-        scene.getGeometries().add(
-                //chair
-                //back foot right
-                new Triangle(
-                        new Point(95, -65, 30),
-                        new Point(91, -65, 30),
-                        new Point(91, -118, 30)
-                ).setEmission(reliefsColor)
-                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
-                new Triangle(
-                        new Point(91, -118, 30),
-                        new Point(95, -118, 30),
-                        new Point(95, -65, 30)
-                ).setEmission(reliefsColor)
-                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
-                //back foot left
-                new Triangle(
-                        new Point(82, -63, 40),
-                        new Point(86, -63, 40),
-                        new Point(86, -116, 40)
-                ).setEmission(reliefsColor)
-                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
-                new Triangle(
-                        new Point(86, -116, 40),
-                        new Point(82, -116, 40),
-                        new Point(82, -63, 40)
-                ).setEmission(reliefsColor)
-                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
-
-                //chairback
-                new Triangle(
-                        new Point(86, -72, 40),
-                        new Point(86, -76, 40),
-                        new Point(91, -78, 40)
-                ).setEmission(reliefsColor)
-                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
-                new Triangle(
-                        new Point(91, -78, 40),
-                        new Point(91, -74, 40),
-                        new Point(86, -72, 40)
-                ).setEmission(reliefsColor)
-                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
-
-                //sit
-                new Triangle(
-                        new Point(82, -92, 40),
-                        new Point(67, -92, 60),
-                        new Point(95, -96, 40)
-                ).setEmission(blackColor)
-                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
-                new Triangle(
-                        new Point(95, -96, 40),
-                        new Point(80, -97, 60),
-                        new Point(67, -92, 60)
-                ).setEmission(blackColor)
-                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
-
-
-                //left foot front
-                new Triangle(
-                        new Point(71, -94, 40),
-                        new Point(75, -95, 40),
-                        new Point(75, -115, 40)
-                ).setEmission(reliefsColor)
-                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
-                new Triangle(
-                        new Point(75, -115, 40),
-                        new Point(71, -115, 40),
-                        new Point(71, -94, 40)
-                ).setEmission(reliefsColor)
-                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)));
-
-    }
+//    @Test
+//    /**
+//     * build chair
+//     */
+//    public void Chair(){
+//        scene.getGeometries().add(
+//                //chair
+//                //back foot right
+//                new Triangle(
+//                        new Point(95, -65, 30),
+//                        new Point(91, -65, 30),
+//                        new Point(91, -118, 30)
+//                ).setEmission(reliefsColor)
+//                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+//                new Triangle(
+//                        new Point(91, -118, 30),
+//                        new Point(95, -118, 30),
+//                        new Point(95, -65, 30)
+//                ).setEmission(reliefsColor)
+//                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+//                //back foot left
+//                new Triangle(
+//                        new Point(82, -63, 40),
+//                        new Point(86, -63, 40),
+//                        new Point(86, -116, 40)
+//                ).setEmission(reliefsColor)
+//                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+//                new Triangle(
+//                        new Point(86, -116, 40),
+//                        new Point(82, -116, 40),
+//                        new Point(82, -63, 40)
+//                ).setEmission(reliefsColor)
+//                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+//
+//                //chairback
+//                new Triangle(
+//                        new Point(86, -72, 40),
+//                        new Point(86, -76, 40),
+//                        new Point(91, -78, 40)
+//                ).setEmission(reliefsColor)
+//                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+//                new Triangle(
+//                        new Point(91, -78, 40),
+//                        new Point(91, -74, 40),
+//                        new Point(86, -72, 40)
+//                ).setEmission(reliefsColor)
+//                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+//
+//                //sit
+//                new Triangle(
+//                        new Point(82, -92, 40),
+//                        new Point(67, -92, 60),
+//                        new Point(95, -96, 40)
+//                ).setEmission(blackColor)
+//                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+//                new Triangle(
+//                        new Point(95, -96, 40),
+//                        new Point(80, -97, 60),
+//                        new Point(67, -92, 60)
+//                ).setEmission(blackColor)
+//                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+//
+//
+//                //left foot front
+//                new Triangle(
+//                        new Point(71, -94, 40),
+//                        new Point(75, -95, 40),
+//                        new Point(75, -115, 40)
+//                ).setEmission(reliefsColor)
+//                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+//                new Triangle(
+//                        new Point(75, -115, 40),
+//                        new Point(71, -115, 40),
+//                        new Point(71, -94, 40)
+//                ).setEmission(reliefsColor)
+//                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)));
+//
+//    }
 
     @Test
     /**

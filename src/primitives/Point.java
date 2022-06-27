@@ -10,9 +10,9 @@ public class Point {
     /**
      * primary point's constructor
      *
-     * @double x value for X axis
-     * @double y value for Y axis
-     * @double z value for Z axis
+     * @param x value for X axis
+     * @param y value for Y axis
+     * @param z value for Z axis
      */
     public Point(double x, double y, double z) {
         _xyz = new Double3(x, y, z);
@@ -22,7 +22,7 @@ public class Point {
     /**
      * point constructor
      *
-     * @Double3 insert value for xyz
+     * @param xyz value for coordinates
      */
     public Point(Double3 xyz) {
         this._xyz = xyz;
@@ -32,7 +32,7 @@ public class Point {
      * function for subtraction
      *
      * @return new vector that represent the subtraction of two points
-     * @Point other
+     * @param other value for the second Point
      */
     public Vector subtract(Point other) {
         Double3 coordinates = other._xyz.subtract(_xyz);

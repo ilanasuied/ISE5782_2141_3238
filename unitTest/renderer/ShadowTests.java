@@ -1,3 +1,5 @@
+package renderer;
+
 import org.junit.jupiter.api.Test;
 
 import static java.awt.Color.*;

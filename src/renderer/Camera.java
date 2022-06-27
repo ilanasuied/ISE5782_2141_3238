@@ -16,6 +16,7 @@ import java.util.stream.*;
 public class Camera {
 
 
+    private static boolean SUPERSAMPLING = true;
     //point's location of the VP
     final private Point p0;
 
@@ -52,6 +53,14 @@ public class Camera {
         _distance = builder._distance;
         imageWriter = builder.imageWriter;
         rayTracer = builder.rayTracer;
+    }
+
+    /**
+     * blabla
+     * @param SUPERSAMPLING
+     */
+    public static void setSUPERSAMPLING(boolean SUPERSAMPLING) {
+        Camera.SUPERSAMPLING = SUPERSAMPLING;
     }
 
     /**
@@ -166,7 +175,10 @@ public class Camera {
             int nY = imageWriter.getNy();
             IntStream.range(0, nY).parallel().forEach(i -> {
                 IntStream.range(0, nY).parallel().forEach(j -> {
-                    castRay(nX, nY, j, i);
+                    if (SUPERSAMPLING == true)
+                        castRayMultiple(nX, nY, j, i);
+                    else
+                        castRay(nX,nY,j,i);
                     Pixel.pixelDone();
                     Pixel.printPixel();
                 });
@@ -283,9 +295,23 @@ public class Camera {
      * @param i  to move right and left
      * @param j  to move up and down
      */
-    private void castRay(int nX, int nY, int i, int j) {
+    private void castRayMultiple(int nX, int nY, int i, int j) {
         List<Ray> rays = constructRays(nX, nY, i, j);
         Color pixelColor = rayTracer.traceRays(rays);
+        imageWriter.writePixel(i, j, pixelColor);
+    }
+
+    /**
+     * this function construct the rays
+     *
+     * @param nX x access
+     * @param nY y access
+     * @param i  to move right and left
+     * @param j  to move up and down
+     */
+    private void castRay(int nX, int nY, int i, int j) {
+        Ray ray = constructRay(nX, nY, i, j);
+        Color pixelColor = rayTracer.traceRay(ray);
         imageWriter.writePixel(i, j, pixelColor);
     }
 

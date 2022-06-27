@@ -19,10 +19,10 @@ public class Ray {
     private static final double DELTA = 0.1;
 
     /**
-     * ray constructor
+     * constructor for ray
      *
-     * @Point the point from where the ray start
-     * @Vector the direction of the ray
+     * @param p0 value for the starting Point
+     * @param dir value for the direction
      */
     public Ray(Point p0, Vector dir) {
         this.p0 = p0;

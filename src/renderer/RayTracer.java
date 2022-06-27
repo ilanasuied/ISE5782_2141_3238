@@ -21,4 +21,6 @@ public abstract class RayTracer {
     }
 
     public abstract Color traceRays(List<Ray> rays);
+
+    public abstract Color traceRay(Ray ray);
 }

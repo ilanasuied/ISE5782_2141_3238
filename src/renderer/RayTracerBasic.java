@@ -23,6 +23,7 @@ public class RayTracerBasic extends RayTracer {
 
     /**
      * method to trace a ray
+     *
      * @param rays a list of ray
      * @return the correct color
      */
@@ -43,6 +44,25 @@ public class RayTracerBasic extends RayTracer {
     }
 
     /**
+     * method to trace a ray
+     *
+     * @param ray a list of ray
+     * @return the correct color
+     */
+    @Override
+    public Color traceRay(Ray ray) {
+        Color result;
+        GeoPoint closestPoint = findClosestIntersection(ray);
+        if (closestPoint != null) {
+            result = calcColor(closestPoint, ray);
+        } else {
+            result = scene.getBackground();
+        }
+
+        return result;
+    }
+
+    /**
      * this function calculate the correct color
      *
      * @param geopoint value for GeoPoint
@@ -57,6 +77,7 @@ public class RayTracerBasic extends RayTracer {
 
     /**
      * method to calculate color with more parameters
+     *
      * @param geoPoint value for GeoPoint
      * @param ray      value for the ray
      * @param level    the max level time to do the recursion
@@ -173,6 +194,7 @@ public class RayTracerBasic extends RayTracer {
 
     /**
      * method taht calculate global effect
+     *
      * @param ray   value for Ray
      * @param level helper counter
      * @param kx    helper counter
@@ -247,36 +269,6 @@ public class RayTracerBasic extends RayTracer {
             if (item.geometry.getMaterial().getKt().lowerThan(MIN_CALC_COLOR_K)) {
                 return false;
             }
-        }
-
-        return true;
-    }
-
-    /**
-     * The method checks whether there is any object shading the light source from a
-     * point
-     *
-     * @param gp the point with its geometry
-     * @param ls light source
-     * @param l  direction from light to the point
-     * @return accumulated transparency attenuation factor
-     */
-    private boolean unshaded(GeoPoint gp, LightSource ls, Vector l) {
-        Vector n = gp.geometry.getNormal(gp.point);
-
-        Vector lightDirection = l.scale(-1); // from point to light source
-        Ray lightRay = new Ray(gp.point, lightDirection, n);
-
-        double lightDistance = ls.getDistance(gp.point);
-        var intersections = scene.getGeometries().findGeoIntersections(lightRay, lightDistance);
-        if (intersections == null)
-            return true;
-
-        Double3 tr = Double3.ONE;
-        for (var geo : intersections) {
-            tr = tr.product(geo.geometry.getMaterial().getKt());
-            if (tr.lowerThan(MIN_CALC_COLOR_K))
-                return false;
         }
 
         return true;
