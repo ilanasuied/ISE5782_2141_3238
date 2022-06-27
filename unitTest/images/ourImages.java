@@ -16,7 +16,23 @@ import static java.awt.Color.*;
 public class ourImages {
 
     static final Point ZERO_POINT = new Point(0, 0, 0);
-    private Scene scene = new Scene.SceneBuilder("Test scene").build();
+    private Scene scene = new Scene.SceneBuilder("Test scene").build().setAmbientLight(new AmbientLight(new Color(java.awt.Color.WHITE), new Double3(.15)));
+    Camera camera = new Camera.BuilderCamera(new Point(0, 0, 1000), new Vector(0, 0, -1), new Vector(0, 1, 0)) //
+            .setVPSize(300, 300).setVPDistance(1000) //
+            .setRayTracer(new RayTracerBasic(scene)).build();;
+
+    public Color blackColor = new Color(black);
+    public Color pinkColor = new Color(pink);
+    public Color whiteColor = new Color(white);
+    public  Color blueColor = new Color(blue);
+    public Color redColor = new Color(red);
+    public Color grayColor = new Color(gray);
+    public Color sideColor = new Color(178, 178, 178);
+    public Color poohColor = new Color(150, 75, 0);
+    public Color reliefsColor = new Color(40, 40, 40);
+
+
+
 
     /**
      * exercise 7
@@ -106,78 +122,37 @@ public class ourImages {
 
     }
 
-    /**
-     * exercise 8
-     */
+
+
     @Test
-    public void images() {
-
-        Scene scene = new Scene.SceneBuilder("Test scene")
-                .setAmbientLight(new AmbientLight(new Color(java.awt.Color.WHITE), new Double3(.15)))
-                .build();
-        Camera camera = new Camera.BuilderCamera(new Point(20, -10, 1000), new Vector(0, 0, -1), new Vector(0, 1, 0)) //
-                .setVPSize(200, 200).setVPDistance(1000) //
-                .setRayTracer(new RayTracerBasic(scene)).build();
-
-        scene.setAmbientLight(new AmbientLight(new Color(java.awt.Color.WHITE), new Double3(.15)));
-
-        scene.getGeometries().add( //
-                new Plane(new Point(-150, -150, -150), new Point(150, -150, -135), new Point(75, 75, -150)) //
-                        .setMaterial(new Material().setKs(0.9).setShininess(60)).setEmission(new Color(blue)), //
-                new Sphere(new Point(-50, 80, 160), 25d) //
-                        .setEmission(new Color(yellow))//
-                        .setMaterial(new Material().setKd(0.5).setKs(0.5).setShininess(30)),
-
-                //first
-                new Triangle(new Point(50, 50, 100), new Point(60, 48, 80), new Point(50, 45, 100))
-                        .setEmission(new Color(black)),
-                new Triangle(new Point(70, 50, 100), new Point(60, 48, 80), new Point(70, 45, 100))
-                        .setEmission(new Color(black)),
-
-                //second
-                new Triangle(new Point(40, 40, 100), new Point(50, 38, 80), new Point(40, 35, 100))
-                        .setEmission(new Color(black)),
-                new Triangle(new Point(60, 40, 100), new Point(50, 38, 80), new Point(60, 35, 100))
-                        .setEmission(new Color(black)),
-
-
-                //third
-                new Triangle(new Point(25, 52, 100), new Point(35, 50, 80), new Point(25, 47, 100))
-                        .setEmission(new Color(black)),
-                new Triangle(new Point(45, 52, 100), new Point(35, 50, 80), new Point(45, 47, 100))
-                        .setEmission(new Color(black))
-
-
-        );
-        scene.lights.add( //
-                new SpotLight(new Color(200, 700, 400), new Point(-50, 80, 115), new Vector(-1, -1, -4)) //
-                        .setKl(4E-4).setKq(2E-5));
-
-        camera.setImageWriter(new ImageWriter("ILANA", 600, 600)) //
-                .renderImage().writeToImage();
-    }
-
     /**
      * this is our final project
      */
+    public void AllTheImage(){
+        RoomWalls();
+        Books();
+        BoxOnTheFloor();
+        Balls();
+        Pooh();
+        Shelf();
+        Table();
+        Chair();
+        scene.lights.add( //
+                new SpotLight(pinkColor, new Point(50, -100, 115), new Vector(-1, -1, -4)) //
+                        .setKl(4E-4).setKq(2E-5));
+
+        scene.lights.add(new PointLight(new Color(yellow), new Point(0, 110, -130)));
+
+        camera.setImageWriter(new ImageWriter("project1", 600, 600)) //
+                .setPixels(5, 5).renderImage().writeToImage();
+    }
+
+
     @Test
-    public void project1() {
-
-        Color blackColor = new Color(black);
-        Color pinkColor = new Color(pink);
-        Color whiteColor = new Color(white);
-        Color blueColor = new Color(blue);
-        Color redColor = new Color(red);
-        Color grayColor = new Color(gray);
-        Color sideColor = new Color(178, 178, 178);
-        Color poohColor = new Color(150, 75, 0);
-        Color reliefsColor = new Color(40, 40, 40);
-
-
-        scene.setAmbientLight(new AmbientLight(new Color(java.awt.Color.WHITE), new Double3(.15)));
-        Camera camera = new Camera.BuilderCamera(new Point(0, 0, 1000), new Vector(0, 0, -1), new Vector(0, 1, 0)) //
-                .setVPSize(300, 300).setVPDistance(1000) //
-                .setRayTracer(new RayTracerBasic(scene)).build();
+    /**
+     * build walls
+     */
+    public void RoomWalls() {
         scene.getGeometries().add( //
 
                 //le fond - the background
@@ -264,14 +239,21 @@ public class ourImages {
                         new Point(-20, 100, -130),
                         new Point(20, 100, -130)
 
-                ).setEmission(whiteColor),
+                ).setEmission(whiteColor));
+    }
 
-                //books on the shelf
-                new Triangle(
-                        new Point(-112, 44, 0),
-                        new Point(-112, 17, 0),
-                        new Point(-107, 17, 0)
-                ).setEmission(redColor),
+    @Test
+    /**
+     * build books
+     */
+    public void Books(){
+        //books on the shelf
+        scene.getGeometries().add(
+        new Triangle(
+                new Point(-112, 44, 0),
+                new Point(-112, 17, 0),
+                new Point(-107, 17, 0)
+        ).setEmission(redColor),
                 new Triangle(
                         new Point(-107, 44, 0),
                         new Point(-112, 44, 0),
@@ -346,16 +328,23 @@ public class ourImages {
                         new Point(-101, 38, 10),
                         new Point(-101, 40, 10),
                         new Point(-98, 40, 10)
-                ).setEmission(whiteColor),
+                ).setEmission(whiteColor));
 
+    }
 
-                //box on the floor
-                new Triangle(
-                        new Point(-45, -90, 10),
-                        new Point(-70, -90, 10),
-                        new Point(-70, -65, 10)
-                ).setEmission(pinkColor)
-                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
+    @Test
+    /**
+     * build box on the floor
+     */
+    public void BoxOnTheFloor(){
+        //box on the floor
+        scene.getGeometries().add(
+        new Triangle(
+                new Point(-45, -90, 10),
+                new Point(-70, -90, 10),
+                new Point(-70, -65, 10)
+        ).setEmission(pinkColor)
+                .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
 
                 new Triangle(
                         new Point(-45, -90, 10),
@@ -391,10 +380,15 @@ public class ourImages {
                         new Point(-65, -60, 10),
                         new Point(-40, -60, 10)
                 ).setEmission(new Color(magenta))
-                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3))
-                ,
+                        .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)));
+    }
 
-
+    @Test
+    /**
+     * build pooh
+     */
+    public void Pooh(){
+        scene.getGeometries().add(
                 // head
                 new Sphere(new Point(-5, -20, -70), 25d).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
@@ -453,9 +447,16 @@ public class ourImages {
                         new Point(-5, -26, -20),
                         new Point(1, -26, -20),
                         new Point(-2, -30, -20)).
-                        setEmission(new Color(250, 75, 0)),
+                        setEmission(new Color(250, 75, 0)));
 
+    }
 
+    @Test
+    /**
+     * build shelf
+     */
+    public void Shelf(){
+        scene.getGeometries().add(
                 //shelf -etagere
                 new Triangle(
                         new Point(-95, 25, -50),
@@ -497,16 +498,24 @@ public class ourImages {
                         new Point(-134, 20, -50),
                         new Point(-124, 12, -50))
                         .setEmission(new Color(40, 40, 40))
-                        .setMaterial(new Material().setKd(0.1).setKs(0.1).setShininess(10)),
+                        .setMaterial(new Material().setKd(0.1).setKs(0.1).setShininess(10)));
 
+    }
 
-                //the table
+    @Test
+    /**
+     * build table
+     */
+    public void Table(){
+
+        //the table
+        scene.getGeometries().add(
                 //right foot front
                 new Triangle(
-                        new Point(65, -118, 20),
-                        new Point(69, -118, 20),
-                        new Point(69, -80, 20)
-                ).setEmission(blackColor),
+                new Point(65, -118, 20),
+                new Point(69, -118, 20),
+                new Point(69, -80, 20)
+        ).setEmission(blackColor),
                 new Triangle(
                         new Point(65, -118, 20),
                         new Point(65, -80, 20),
@@ -586,9 +595,16 @@ public class ourImages {
                         new Point(85, -90, 30),
                         new Point(0, -90, 30)
                 ).setEmission(reliefsColor)
-                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)));
 
+    }
 
+    @Test
+    /**
+     * build chair
+     */
+    public void Chair(){
+        scene.getGeometries().add(
                 //chair
                 //back foot right
                 new Triangle(
@@ -658,28 +674,28 @@ public class ourImages {
                         new Point(71, -115, 40),
                         new Point(71, -94, 40)
                 ).setEmission(reliefsColor)
-                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+                        .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)));
 
+    }
 
-                //balls
+    @Test
+    /**
+     * build balls
+     */
+    public void Balls(){
+        //balls
+        scene.getGeometries().add(
                 new Sphere(new Point(-76, -100, 30), 14) //
-                        .setEmission(redColor) //
-                        .setMaterial(new Material().setKd(0.5).setKs(0.5).setKr(0.5).setShininess(30)),
+                .setEmission(redColor) //
+                .setMaterial(new Material().setKd(0.5).setKs(0.5).setKr(0.5).setShininess(30)),
                 new Sphere(new Point(-70, -110, 60), 10d) //
                         .setEmission(blueColor) //
-                        .setMaterial(new Material().setKd(0.5).setKs(0.5).setKr(0.5).setShininess(30))
-
-
-        );
-        scene.lights.add( //
-                new SpotLight(pinkColor, new Point(50, -100, 115), new Vector(-1, -1, -4)) //
-                        .setKl(4E-4).setKq(2E-5));
-
-        scene.lights.add(new PointLight(new Color(yellow), new Point(0, 110, -130)));
-
-        camera.setImageWriter(new ImageWriter("project1", 600, 600)) //
-                .setPixels(5, 5).renderImage().writeToImage();
+                        .setMaterial(new Material().setKd(0.5).setKs(0.5).setKr(0.5).setShininess(30)));
     }
+
+
+
+
 
     /**
      * another text
