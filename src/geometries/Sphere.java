@@ -64,6 +64,7 @@ public class Sphere extends Geometry {
         return ((center.subtract(point)).normalize());
     }
 
+
     /**
      * find all the intersections between the ray with the objects and saves them in a list
      * @param ray Ray pointing towards the graphic object

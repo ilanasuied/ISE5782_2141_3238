@@ -22,6 +22,7 @@ public class RayTracerBasic extends RayTracer {
     }
 
     /**
+     * method to trace a ray
      * @param rays a list of ray
      * @return the correct color
      */
@@ -55,6 +56,7 @@ public class RayTracerBasic extends RayTracer {
     }
 
     /**
+     * method to calculate color with more parameters
      * @param geoPoint value for GeoPoint
      * @param ray      value for the ray
      * @param level    the max level time to do the recursion
@@ -80,7 +82,7 @@ public class RayTracerBasic extends RayTracer {
     }
 
     /**
-     * //add here the lights effects
+     * add here the lights effects
      *
      * @param gp geopoint of the intersection
      * @param v  ray direction
@@ -170,6 +172,7 @@ public class RayTracerBasic extends RayTracer {
     }
 
     /**
+     * method taht calculate global effect
      * @param ray   value for Ray
      * @param level helper counter
      * @param kx    helper counter

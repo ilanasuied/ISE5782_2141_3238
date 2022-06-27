@@ -99,7 +99,7 @@ public class Tube extends Geometry
 
 
     /**
-     *
+     * function that helps finding geopoint intersections for tube
      * @param ray ray intersecting the geometry
      * @param maxDistance maximum distance to look for intersections geometries
      * @return list of the geometries that comes in intersection, if there isn't, return null

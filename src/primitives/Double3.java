@@ -50,7 +50,7 @@ public class Double3 {
     }
 
     /**
-     *
+     * override equals method
      * @param obj value of another object
      * @return true if those 2 objects are equal or false if it isn't
      */

@@ -91,7 +91,7 @@ public class Scene {
     }
 
     /**
-     * stter for light
+     * setter for light
      *
      * @param lights value for Light
      * @return this object with the correct value in his Light param
@@ -125,7 +125,6 @@ public class Scene {
 
         /**
          * steer for background
-         *
          * @param background color for the background
          * @return this object with the correct values
          */

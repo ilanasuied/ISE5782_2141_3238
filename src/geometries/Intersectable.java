@@ -18,7 +18,7 @@ public abstract class Intersectable {
         public final Point point;
 
         /**
-         *
+         * constructor for Geopoint
          * @param geometry value of Geometry
          * @param point value of Point
          */
@@ -28,6 +28,9 @@ public abstract class Intersectable {
         }
 
         @Override
+        /**
+         * overrided toString function for geo point
+         */
         public String toString() {
             return "GeoPoint{" +
                     "geometry=" + geometry +
@@ -58,7 +61,7 @@ public abstract class Intersectable {
     }
 
     /**
-     *
+     * abstract function that helps to calculate geopint intersections
      * @param ray ray intersecting the geometry
      * @param maxDistance maxximum distance to loook for intersections geometries
      * @return list of intersection points

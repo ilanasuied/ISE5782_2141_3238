@@ -65,6 +65,7 @@ public class CameraRayIntersectionsIntegrationTests {
 
     @Test
     /**
+     * method for ray sphere integration
      * testing for {@link CameraRayIntersectionsIntegrationTests#cameraRaySphereIntegration()}
      * test all the case of possible intersections of ray camera with sphere
      */
@@ -93,6 +94,7 @@ public class CameraRayIntersectionsIntegrationTests {
 
     @Test
     /**
+     * method for triangle's ray integration
      * testing for {@link CameraRayIntersectionsIntegrationTests#cameraRayTriangleIntegration()}
      * test all the case of small and medium triangle's intersections with camera ray (the case of big triangle is the same of the case with the plane,so DRY...)
      */
@@ -111,6 +113,7 @@ public class CameraRayIntersectionsIntegrationTests {
 
 
     /**
+     * method for plane's ray integration
      *testing for {@link CameraRayIntersectionsIntegrationTests#cameraRayPlaneIntegration()}
      * Integration tests of Camera Ray construction with Ray-Plane intersections
      */

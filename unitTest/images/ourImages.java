@@ -163,14 +163,14 @@ public class ourImages {
     @Test
     public void project1() {
 
-        Color blackColor=new Color(black);
-        Color pinkColor=new Color(pink);
-        Color whiteColor=new Color(white);
-        Color blueColor=new Color(blue);
-        Color redColor=new Color(red);
-        Color grayColor=new Color(gray);
+        Color blackColor = new Color(black);
+        Color pinkColor = new Color(pink);
+        Color whiteColor = new Color(white);
+        Color blueColor = new Color(blue);
+        Color redColor = new Color(red);
+        Color grayColor = new Color(gray);
         Color sideColor = new Color(178, 178, 178);
-        Color poohColor=new Color(150, 75, 0);
+        Color poohColor = new Color(150, 75, 0);
         Color reliefsColor = new Color(40, 40, 40);
 
 
@@ -180,7 +180,7 @@ public class ourImages {
                 .setRayTracer(new RayTracerBasic(scene)).build();
         scene.getGeometries().add( //
 
-                //le fond
+                //le fond - the background
                 new Triangle(
                         new Point(-90, -90, -150),
                         new Point(90, -90, -150),
@@ -237,7 +237,7 @@ public class ourImages {
                         .setEmission(grayColor),
 
 
-                // plafond
+                // plafond - ceiling
                 new Triangle(
                         new Point(-90, 90, -150),
                         new Point(90, 90, -150),
@@ -416,6 +416,7 @@ public class ourImages {
                 //left hand
                 new Sphere(new Point(-38, -54, -65), 10).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
+
                 //right fingers
                 new Sphere(new Point(39, -53, -70), 2).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
@@ -423,6 +424,7 @@ public class ourImages {
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
                 new Sphere(new Point(38, -57, -72), 2).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
+
                 //left fingers
                 new Sphere(new Point(-48, -53, -60), 2).setEmission(poohColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30)),
@@ -446,15 +448,15 @@ public class ourImages {
                 new Sphere(new Point(-9.5, -20, -35), 0.5).setEmission(whiteColor)
                         .setMaterial(new Material().setKd(0.1).setKs(0.2).setShininess(30).setKr(0.3)),
 
-        //nose
-        new Triangle(
-                new Point(-5, -26, -20),
-                new Point(1, -26, -20),
-                new Point(-2, -30, -20)).
-                setEmission(new Color(250, 75, 0)),
+                //nose
+                new Triangle(
+                        new Point(-5, -26, -20),
+                        new Point(1, -26, -20),
+                        new Point(-2, -30, -20)).
+                        setEmission(new Color(250, 75, 0)),
 
 
-                //shelf -etagere ???
+                //shelf -etagere
                 new Triangle(
                         new Point(-95, 25, -50),
                         new Point(-85, 17, -45),
@@ -559,6 +561,7 @@ public class ourImages {
                         new Point(85, -90, 30)
                 ).setEmission(blackColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
+
                 //reliefs
                 new Triangle(
                         new Point(0, -90, 30),
@@ -614,7 +617,7 @@ public class ourImages {
                 ).setEmission(reliefsColor)
                         .setMaterial(new Material().setKd(0.001).setKs(0.4).setShininess(50)),
 
-                //dossier
+                //chairback
                 new Triangle(
                         new Point(86, -72, 40),
                         new Point(86, -76, 40),

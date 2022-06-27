@@ -92,7 +92,6 @@ public class PointLight extends Light implements LightSource {
     /**
      * getter for the intensity
      * this override function calls his super
-     *
      * @param p value for the point
      * @return what returned from his super
      */
@@ -118,7 +117,6 @@ public class PointLight extends Light implements LightSource {
 
     /**
      * override function for getDistance
-     *
      * @param point value for point
      * @return the distance
      */

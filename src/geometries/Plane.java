@@ -26,6 +26,8 @@ public class Plane extends Geometry {
      * @param p2 second point to construct a plane
      * @param p3 third point to construct a plane
      */
+
+
     public Plane(Point p1, Point p2, Point p3) {
         q0 = p1;
 
@@ -36,6 +38,7 @@ public class Plane extends Geometry {
         normal = N.normalize();
     }
 
+
     /**
      * @param p      value for the point on the plane
      * @param normal of the plane
@@ -45,6 +48,7 @@ public class Plane extends Geometry {
         q0 = p;
     }
 
+
     /**
      * getter for normal vector
      *
@@ -53,6 +57,7 @@ public class Plane extends Geometry {
     public Vector getNormal() {
         return normal;
     }
+
 
     /**
      * getter for q0 referenced point
@@ -74,8 +79,10 @@ public class Plane extends Geometry {
         return getNormal();
     }
 
+
     /**
-     * @param ray         ray intersecting the geometry
+     * function that helps to find goepoint intersections
+     * @param ray  ray intersecting the geometry
      * @param maxDistance maximum distance to look for intersections geometries
      * @return list of the geometries that comes in intersection
      */

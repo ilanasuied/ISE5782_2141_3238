@@ -16,7 +16,7 @@ class CameraTest {
     static final Point ZERO_POINT = new Point(0, 0, 0);
 
     /**
-     * Test method for
+     * Test method for constructing ray
      * {@link renderer.Camera#constructRay(int, int, int, int)}.
      */
     @Test

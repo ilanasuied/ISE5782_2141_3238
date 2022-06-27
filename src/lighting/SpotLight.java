@@ -35,7 +35,6 @@ public class SpotLight extends PointLight{
 
     /**
      * override function for getDistance,this function use his super's function
-     *
      * @param point value for point
      * @return the distance
      */
