@@ -3,10 +3,18 @@ package primitives;
 public class Material {
 
     //attenuation's factors
+
+    /*Kd is the objects diffuse coefficient*/
     private Double3 kD = Double3.ZERO;
+
+    /* Ks is the objects specular coefficient*/
     private Double3 kS = Double3.ZERO;
-    public Double3 kT = Double3.ZERO; //transparency factor
-    public Double3 kR = Double3.ZERO; //coefficient of reflection
+
+    /*transparency factor*/
+    public Double3 kT = Double3.ZERO;
+
+    /*Kr represents the object's reflectivity coefficient*/
+    public Double3 kR = Double3.ZERO;
 
     private int shininess = 0;
 
@@ -14,7 +22,7 @@ public class Material {
     /**
      * set diffuse factor/coefficient with double type parameter
      *
-     * @param kd
+     * @param kd value of the objects diffuse
      * @return material kd
      */
     public Material setKd(double kd) {
@@ -25,7 +33,7 @@ public class Material {
     /**
      * set diffuse factor/coefficient with double type parameter
      *
-     * @param kd
+     * @param kd value of objects diffuse
      * @return material kd
      */
     public Material setKd(Double3 kd) {
@@ -46,7 +54,7 @@ public class Material {
     /**
      * set specular factor/coefficient with double type parameter
      *
-     * @param ks
+     * @param ks level of the specular coefficient
      * @return material ks
      */
     public Material setKs(double ks) {
