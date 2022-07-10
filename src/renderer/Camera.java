@@ -56,8 +56,8 @@ public class Camera {
     }
 
     /**
-     * blabla
-     * @param SUPERSAMPLING
+     * a boolean param helper
+     * @param SUPERSAMPLING a boolean param that choosing if we will apply the SUPER-SAMPLING or not
      */
     public static void setSUPERSAMPLING(boolean SUPERSAMPLING) {
         Camera.SUPERSAMPLING = SUPERSAMPLING;
